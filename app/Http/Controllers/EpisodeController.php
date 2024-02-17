@@ -34,4 +34,9 @@ class EpisodeController extends Controller
         $request->session()->flash('message', 'お疲れ様でした！エピソードを保存しました！');
         return back();
     }
+
+    public function index() {
+        $episodes=Episode::all();
+        return view('episode.index', compact('episodes'));
+    }
 }
