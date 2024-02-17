@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\EpisodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/test', [TestController::class, 'test'])
 ->name('test');
+
+Route::get('episode/create', [EpisodeController::class, 'create']);
 
 require __DIR__.'/auth.php';
