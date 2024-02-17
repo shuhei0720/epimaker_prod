@@ -5,7 +5,8 @@
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto px-6">
-        <form>
+        <form method="post" action="{{ route('episode.store') }}">
+            @csrf
             <div class="w-full flex flex-col">
                 <label for="title" class="font-semibold mt-4">■最近会った出来事を思い返してタイトルを考えてみよう！■<br><br>(遊び、ニュース、季節、友達、旅、健康、仕事、学校、家族、恋人、住居、食事、etc...)</label>
                 <input type="text" name="title" class="w-auto py-2 border border-gray-300 rounded-md" id="title">
