@@ -29,6 +29,7 @@ class EpisodeController extends Controller
             'episode' => $request->episode
         ]);
 
+        $request->session()->flash('message', 'お疲れ様でした！エピソードを保存しました！');
         return back();
     }
 }
