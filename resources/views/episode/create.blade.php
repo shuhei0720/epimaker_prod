@@ -81,7 +81,9 @@
 
             <div class="w-full flex flex-col">
                 <label for="episode" class="font-semibold mt-4">■足りない分を補足し、より面白くなるよう脚色したら完成！(比喩や擬態法も入れてみよう)■</label>
+                <x-input-error :messages="$errors->get('episode')" class="mt-2" />
                 <textarea name="episode" class="w-auto py-2 border border-gray-300 rounded-md" id="episode" cols="30" rows="10"></textarea>
+                <value="{{old('episode')}}">
             </div>
 
             <x-primary-button class="mt-4">
