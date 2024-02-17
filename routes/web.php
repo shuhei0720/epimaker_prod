@@ -35,4 +35,7 @@ Route::get('/test', [TestController::class, 'test'])
 
 Route::get('episode/create', [EpisodeController::class, 'create']);
 
+Route::post('episode', [EpisodeController::class, 'store'])
+->name('episode.store');
+
 require __DIR__.'/auth.php';
