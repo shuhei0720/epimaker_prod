@@ -18,6 +18,11 @@
             </div>
 
             <div class="w-full flex flex-col">
+                <label for="where" class="font-semibold mt-4">どこで？</label>
+                <input type="text" name="where" class="w-auto py-2 border border-gray-300 rounded-md" id="where">
+            </div>
+
+            <div class="w-full flex flex-col">
                 <label for="who" class="font-semibold mt-4">だれが？</label>
                 <input type="text" name="who" class="w-auto py-2 border border-gray-300 rounded-md" id="who">
             </div>
