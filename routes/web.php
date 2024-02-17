@@ -38,4 +38,6 @@ Route::get('episode/create', [EpisodeController::class, 'create']);
 Route::post('episode', [EpisodeController::class, 'store'])
 ->name('episode.store');
 
+Route::get('episode', [EpisodeController::class, 'index']);
+
 require __DIR__.'/auth.php';
