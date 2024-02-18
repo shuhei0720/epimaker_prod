@@ -7,9 +7,16 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="bg-yellow-100 w-full rounded-2xl">
             <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
+                <h1 class="text-xl text-red-700 font-semibold">
                     {{$episode->title}}
                 </h1>
+                <div class="text-right">
+                    <a href="{{route('episode.edit', $episode)}}">
+                        <x-primary-button>
+                            編集
+                        </x-primary-button>
+                    </a>
+                </div>
                 <hr class="w-full">
                 <p class="mt-4 whitespace-pre-line">
                     {{$episode->episode}}

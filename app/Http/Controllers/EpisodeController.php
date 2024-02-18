@@ -70,7 +70,7 @@ class EpisodeController extends Controller
 
         $validated['user_id'] = auth()->id();
 
-        $post->update($validated);
+        $episode->update($validated);
 
         $request->session()->flash('message', 'エピソードを更新しました！');
         return back();
