@@ -14,7 +14,7 @@
                 {{$episode->episode}}
             </p>
             <div class="text-sm font-semibold flex flex-row-reverse">
-                <p> {{$post->created_at}}</p>
+                <p> {{$episode->created_at}}</p>
             </div>
         </div>
     </div>
