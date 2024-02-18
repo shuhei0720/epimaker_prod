@@ -42,4 +42,7 @@ Route::post('episode', [EpisodeController::class, 'store'])
 Route::get('episode', [EpisodeController::class, 'index'])
 ->middleware(['auth']);
 
+Route::get('episode/show/{episode}', [EpisodeController::class, 'show'])
+->middleware(['auth'])->name('episode.show');
+
 require __DIR__.'/auth.php';
