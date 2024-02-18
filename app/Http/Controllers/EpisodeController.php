@@ -45,4 +45,8 @@ class EpisodeController extends Controller
     public function show(Episode $episode) {
         return view('episode.show', compact('episode'));
     }
+
+    public function edit(Episode $episode) {
+        return view('episode.edit', compact('episode'));
+    }
 }
