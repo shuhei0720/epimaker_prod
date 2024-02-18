@@ -29,6 +29,8 @@ class EpisodeController extends Controller
             'episode' => 'required|max:1000',
         ]);
 
+        $validated['user_id'] = auth()->id();
+
         $post = Episode::create($validated);
 
         $request->session()->flash('message', 'お疲れ様でした！エピソードを保存しました！');
