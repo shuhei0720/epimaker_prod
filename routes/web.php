@@ -51,4 +51,7 @@ Route::get('episode/{episode}/edit', [EpisodeController::class, 'edit'])
 Route::patch('episode/{episode}', [EpisodeController::class, 'update'])
 ->name('episode.update');
 
+Route::delete('episode/{episode}', [EpisodeController::class, 'destroy'])
+->name('episode.destroy');
+
 require __DIR__.'/auth.php';
