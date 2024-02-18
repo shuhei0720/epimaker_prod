@@ -5,6 +5,11 @@
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto px-6">
+        @if(session('message'))
+        <div class="text-red-600 font-bold">
+            {{session('message')}}
+        </div>
+        @endif
         @foreach($episodes as $episode)
         <div class="mt-4 p-8 bg-yellow-200 w-full rounded-2xl">
             <h1 class="p-4 text-lg font-semibold bg-white border border-gray-400">

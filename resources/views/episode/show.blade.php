@@ -10,12 +10,20 @@
                 <h1 class="text-xl text-red-700 font-semibold">
                     {{$episode->title}}
                 </h1>
-                <div class="text-right">
-                    <a href="{{route('episode.edit', $episode)}}">
+                <div class="text-right flex">
+                    <a href="{{route('episode.edit', $episode)}}" class="flex-1">
                         <x-primary-button>
                             編集
                         </x-primary-button>
                     </a>
+
+                    <form method="post" action="{{route('episode.destroy', $episode)}}" class="flex-2">
+                        @csrf
+                        @method('delete')
+                        <x-primary-button class="bg-red-700 ml-2">
+                            削除
+                        </x-primary-button>
+                    </form>
                 </div>
                 <hr class="w-full">
                 <p class="mt-4 whitespace-pre-line">
