@@ -49,4 +49,30 @@ class EpisodeController extends Controller
     public function edit(Episode $episode) {
         return view('episode.edit', compact('episode'));
     }
+
+    public function update(Request $request, Episode $episode) {
+        $validated = $request->validate([
+            'title' => 'required|max:200',
+            'when' => 'max:200',
+            'where' => 'max:200',
+            'who' => 'max:200',
+            'what' => 'max:200',
+            'do' => 'max:200',
+            'why' => 'max:200',
+            'how' => 'max:200',
+            'point' => 'max:200',
+            'beginning' => 'max:400',
+            'development' => 'max:400',
+            'turnand' => 'max:400',
+            'conclusion' => 'max:400',
+            'episode' => 'required|max:1000',
+        ]);
+
+        $validated['user_id'] = auth()->id();
+
+        $post->update($validated);
+
+        $request->session()->flash('message', 'エピソードを更新しました！');
+        return back();
+    }
 }
