@@ -16,7 +16,7 @@
             </p>
             <div class="p-4 text-sm font-semibold">
                 <p>
-                    {{$episode->created_at}}
+                    作成者：{{$episode->user->name??'匿名'}} &emsp;  &emsp; 作成日：{{$episode->created_at}}
                 </p>
             </div>
         </div>
