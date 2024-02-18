@@ -45,4 +45,10 @@ Route::get('episode', [EpisodeController::class, 'index'])
 Route::get('episode/show/{episode}', [EpisodeController::class, 'show'])
 ->middleware(['auth'])->name('episode.show');
 
+Route::get('episode/{episode}/edit', [EpisodeController::class, 'edit'])
+->middleware(['auth'])->name('episode.edit');
+
+Route::patch('episode/{episode}', [EpisodeController::class, 'update'])
+->name('episode.update');
+
 require __DIR__.'/auth.php';
