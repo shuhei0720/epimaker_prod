@@ -33,13 +33,13 @@ Route::middleware('auth')->group(function () {
 Route::get('/test', [TestController::class, 'test'])
 ->name('test');
 
-Route::get('episode/create', [EpisodeController::class, 'create']);
+Route::get('episode/create', [EpisodeController::class, 'create'])
 ->middleware(['auth']);
 
 Route::post('episode', [EpisodeController::class, 'store'])
 ->name('episode.store');
 
-Route::get('episode', [EpisodeController::class, 'index']);
+Route::get('episode', [EpisodeController::class, 'index'])
 ->middleware(['auth']);
 
 require __DIR__.'/auth.php';
