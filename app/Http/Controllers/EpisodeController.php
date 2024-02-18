@@ -38,7 +38,7 @@ class EpisodeController extends Controller
     }
 
     public function index() {
-        $episodes=Episode::all();
+        $episodes=Episode::where('user_id', auth()->id())->get();
         return view('episode.index', compact('episodes'));
     }
 }
