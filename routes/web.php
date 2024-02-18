@@ -40,7 +40,7 @@ Route::post('episode', [EpisodeController::class, 'store'])
 ->name('episode.store');
 
 Route::get('episode', [EpisodeController::class, 'index'])
-->middleware(['auth']);
+->middleware(['auth'])->name('episode.index');
 
 Route::get('episode/show/{episode}', [EpisodeController::class, 'show'])
 ->middleware(['auth'])->name('episode.show');
