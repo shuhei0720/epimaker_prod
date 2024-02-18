@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            エピソード一覧
+            すべらない話一覧
         </h2>
     </x-slot>
     <div class="mx-auto px-6">
