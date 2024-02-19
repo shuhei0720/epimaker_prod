@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
 Route::get('episode/myepisode', [EpisodeController::class, 'myepisode'])
 ->name('episode.myepisode');
 
+Route::get('episode/mycomment', [EpisodeController::class, 'mycomment'])->name('episode.mycomment');
+
 Route::get('/test', [TestController::class, 'test'])
 ->name('test');
 
