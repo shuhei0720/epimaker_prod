@@ -83,4 +83,10 @@ class EpisodeController extends Controller
         $request->session()->flash('message', 'エピソードを削除しました！');
         return redirect()->route('episode.index');
     }
+
+    public function myepisode() {
+        $user=auth()->user()->id;
+        $episodes=Episode::where('user_id', $user)->get();
+        return view('episode.myepisode', compact('episode'));
+    }
 }
