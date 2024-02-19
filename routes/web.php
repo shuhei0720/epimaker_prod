@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('episode/myepisode', [EpisodeController::class, 'myepisode'])->name('episode.myepisode');
+
 Route::get('/test', [TestController::class, 'test'])
 ->name('test');
 
