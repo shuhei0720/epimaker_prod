@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function episodes() {
         return $this->hasMany(Episode::class);
     }
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }
