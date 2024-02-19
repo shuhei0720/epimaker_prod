@@ -93,7 +93,7 @@ class EpisodeController extends Controller
 
     public function mycomment() {
         $user=auth()->user()->id;
-        $comment=Comment::where('user_id', $user)->orderBy('created_at', 'desc')->paginate(10);
+        $comments=Comment::where('user_id', $user)->orderBy('created_at', 'desc')->paginate(10);
         return view('episode.mycomment', compact('comments'));
     }
 }
