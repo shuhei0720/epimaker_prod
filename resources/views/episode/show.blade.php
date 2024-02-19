@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     いつ？
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     どこで？
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     だれが？
@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     なにを？
@@ -83,7 +83,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     どうした？
@@ -95,7 +95,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     なぜ？
@@ -107,7 +107,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     どのように？
@@ -119,7 +119,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     面白ポイント
@@ -131,7 +131,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     起
@@ -143,7 +143,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     承
@@ -155,7 +155,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     転
@@ -167,7 +167,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     結
