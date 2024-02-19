@@ -29,5 +29,8 @@
             </div>
         </div>
         @endforeach
+        <div class="mb-4">
+            {{ $episodes->links() }}
+        </div>
     </div>
 </x-app-layout>

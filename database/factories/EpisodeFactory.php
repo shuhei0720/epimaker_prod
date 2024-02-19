@@ -31,7 +31,7 @@ class EpisodeFactory extends Factory
             'turnand'=>fake()->realText(100),
             'conclusion'=>fake()->realText(100),
             'episode'=>fake()->realText(500),
-            'user_id'=>1,
+            'user_id'=>\App\Models\User::factory(),
         ];
     }
 }
