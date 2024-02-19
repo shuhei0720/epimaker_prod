@@ -24,7 +24,7 @@
             </p>
             <div class="p-4 text-sm font-semibold  bg-white border border-gray-400">
                 <p>
-                    作成者：{{$episode->user->name??'匿名'}} &emsp;  &emsp; 作成日：{{$episode->created_at}}
+                    作成者：{{$episode->user->name??'匿名'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
                 </p>
             </div>
         </div>
