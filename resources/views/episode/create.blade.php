@@ -83,7 +83,7 @@
             </div>
 
             <x-primary-button class="mt-4">
-                完成！
+                投稿する！
             </x-primary-button>
         </form>
     </div>
