@@ -35,7 +35,7 @@ class CommentController extends Controller
         $comment=Comment::create([
             'body'=>$inputs['body'],
             'user_id'=>auth()->user()->id,
-            'post_id'=>$request->post_id
+            'episode_id'=>$request->episode_id
         ]);
 
         return back();

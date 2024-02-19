@@ -35,6 +35,15 @@
             </div>
         </div>
 
+        @foreach($episode->comments as $comment)
+        <div class="bg-white w-full rounded-2xl px-10 py-2 shadow-lg mt-8 whitespace-pre-line">
+            {{$comment->body}}
+            <div class="text-sm font-semibold flex flex-row-reverse">
+                <p>{{$comment->user->name}}・{{$comment->created_at->diffForHumans()}}</p>
+            </div>
+        </div>
+        @endforeach
+
         <div class="mt-4 mb-12">
             <form method="post" action="{{route('comment.store')}}">
             @csrf
