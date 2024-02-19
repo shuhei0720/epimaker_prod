@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-2 sm:px-2 lg:px-2">
+    <div class="max-w-7xl mx-auto px-1 sm:px-1 lg:px-1">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -11,12 +11,15 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"">
-                    <x-nav-link :href="route('episode.index')" :active="request()->routeIs('episode.create')">
-                        すべらない話一覧
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('episode.index')" :active="request()->routeIs('episode.index')">
+                        一覧画面
                     </x-nav-link>
                     <x-nav-link :href="route('episode.create')" :active="request()->routeIs('episode.create')">
-                        すべらない話新規作成
+                        新規作成
+                    </x-nav-link>
+                    <x-nav-link :href="route('episode.myepisode')" :active="request()->routeIs('episode.myepisode')">
+                        自分の投稿
                     </x-nav-link>
                 </div>
             </div>
@@ -71,10 +74,13 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('episode.index')" :active="request()->routeIs('episode.index')">
-                すべらない話一覧
+                一覧画面
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('episode.create')" :active="request()->routeIs('episode.create')">
-                すべらない話新規作成
+                新規作成
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('episode.myepisode')" :active="request()->routeIs('episode.myepisode')">
+                自分の投稿
             </x-responsive-nav-link>
         </div>
 

@@ -86,7 +86,7 @@ class EpisodeController extends Controller
 
     public function myepisode() {
         $user=auth()->user()->id;
-        $episodes=Episode::where('user_id', $user)->get();
-        return view('episode.myepisode', compact('episode'));
+        $episodes=Episode::where('user_id', $user)->paginate(5);
+        return view('episode.myepisode', compact('episodes'));
     }
 }
