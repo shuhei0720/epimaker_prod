@@ -27,6 +27,17 @@
                     作成者：{{$episode->user->name??'匿名'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
                 </p>
             </div>
+            <hr class="w-full mb-2">
+            @if($episode->comments->count())
+            <span class="badge">
+                返信 {{$episode->comments->count()}}件
+            </span>
+            @else
+            <span>コメントはまだありません。</span>
+            @endif
+            <a href="{{route('episode.show', $episode)}}" style="color.white;">
+                <x-primary-button class="float-right">コメントする</x-primary-button>
+            </a>
         </div>
         @endforeach
         <div class="mb-4">
