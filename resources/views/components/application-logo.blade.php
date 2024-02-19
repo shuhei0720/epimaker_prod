@@ -1,1 +1,3 @@
-<img src="{{asset('img/すべらない話.png')}}" width="20%">
+@props(['width'])
+
+<img {{$attributes->merge(['width' => $width.'%'])}} src="{{asset('img/すべらない話.png')}}">
