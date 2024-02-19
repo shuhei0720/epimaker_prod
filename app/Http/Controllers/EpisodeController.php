@@ -38,7 +38,8 @@ class EpisodeController extends Controller
     }
 
     public function index() {
-        $episodes=Episode::where('user_id', auth()->id())->get();
+        //$episodes=Episode::where('user_id', auth()->id())->get();
+        $episodes=Episode::paginate(10);
         return view('episode.index', compact('episodes'));
     }
 
