@@ -11,7 +11,7 @@
         </div>
         @endif
         @foreach($episodes as $episode)
-        <div class="mt-4 p-8 bg-yellow-200 w-full rounded-2xl">
+        <div class="mt-4 p-8 bg-yellow-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <h1 class="p-4 text-lg font-semibold bg-white border border-gray-400">
                 タイトル：
                 <a href="{{route('episode.show', $episode)}}" class="text-blue-600">

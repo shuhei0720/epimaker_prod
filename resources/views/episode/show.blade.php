@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto px-6">
-        <div class="bg-yellow-100 w-full rounded-2xl">
+        <div class="bg-yellow-100 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-xl text-red-700 font-semibold">
                     {{$episode->title}}
@@ -30,12 +30,21 @@
                     {{$episode->episode}}
                 </p>
                 <div class="text-sm font-semibold flex flex-row-reverse">
-                    <p> {{$episode->created_at}}</p>
+                    <p> {{$episode->user->name}}・{{$episode->created_at->diffForHumans()}}</p>
                 </div>
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="mt-4 mb-12">
+            <form method="post" action="{{route('comment.store')}}">
+            @csrf
+                <input type="hidden" name='episode_id' value="{{$episode->id}}">
+                <textarea name="body" class="bg-white w-full rounded-2xl px-4 mt-4 py-4 shadow-lg hover:shadow-2xl transition duration-500" id="body" cols="30" rows="3" placeholder="コメントを入力してください">{{old('body')}}</textarea>
+                <x-primary-button class="float-right mr-4 mb-12">コメントする</x-primary-button>
+            </form>
+        </div>
+
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     いつ？
@@ -47,7 +56,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     どこで？
@@ -59,7 +68,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     だれが？
@@ -71,7 +80,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     なにを？
@@ -83,7 +92,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     どうした？
@@ -95,7 +104,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     なぜ？
@@ -107,7 +116,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     どのように？
@@ -119,7 +128,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     面白ポイント
@@ -131,7 +140,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     起
@@ -143,7 +152,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     承
@@ -155,7 +164,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     転
@@ -167,7 +176,7 @@
             </div>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl">
+        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
                     結
@@ -178,6 +187,5 @@
                 </p>
             </div>
         </div>
-
     </div>
 </x-app-layout>
