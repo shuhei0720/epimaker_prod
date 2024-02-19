@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Episode;
+use App\Models\Comment;
 
 class EpisodeController extends Controller
 {
@@ -88,5 +89,11 @@ class EpisodeController extends Controller
         $user=auth()->user()->id;
         $episodes=Episode::where('user_id', $user)->orderBy('created_at','desc')->paginate(5);
         return view('episode.myepisode', compact('episodes'));
+    }
+
+    public function mycomment() {
+        $user=auth()->user()->id;
+        $comment=Comment::where('user_id', $user)->orderBy('created_at', 'desc')->paginate(10);
+        return view('episode.mycomment', compact('comments'));
     }
 }
