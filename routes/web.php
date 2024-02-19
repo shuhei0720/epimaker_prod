@@ -34,7 +34,7 @@ Route::get('/test', [TestController::class, 'test'])
 ->name('test');
 
 Route::get('episode/create', [EpisodeController::class, 'create'])
-->middleware(['auth']);
+->middleware(['auth'])->name('episode.create');
 
 Route::post('episode', [EpisodeController::class, 'store'])
 ->name('episode.store');
