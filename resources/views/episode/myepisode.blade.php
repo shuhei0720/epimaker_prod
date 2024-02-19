@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold leading-tight text-2xl leading-tight bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
-            すべらない話一覧
+            自分の投稿一覧
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto px-6">
@@ -10,6 +10,11 @@
             {{session('message')}}
         </div>
         @endif
+        @if(count($episodes)==0)
+        <p class="mt-4">
+            まだ投稿がありません！
+        </p>
+        @else
         @foreach($episodes as $episode)
         <div class="mt-4 p-8 bg-yellow-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <h1 class="p-4 text-lg font-semibold bg-white border border-gray-400">
@@ -43,5 +48,6 @@
         <div class="mb-4">
             {{ $episodes->links() }}
         </div>
+        @endif
     </div>
 </x-app-layout>
