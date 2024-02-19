@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\EpisodeController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,8 @@ Route::patch('episode/{episode}', [EpisodeController::class, 'update'])
 
 Route::delete('episode/{episode}', [EpisodeController::class, 'destroy'])
 ->name('episode.destroy');
+
+Route::post('episode/comment/store', [CommentController::class, 'store'])
+->name('comment.store');
 
 require __DIR__.'/auth.php';
