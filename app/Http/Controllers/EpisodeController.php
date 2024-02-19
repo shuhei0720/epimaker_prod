@@ -78,6 +78,7 @@ class EpisodeController extends Controller
     }
 
     public function destroy(Request $request, Episode $episode) {
+        $episode->comments()->delete();
         $episode->delete();
         $request->session()->flash('message', 'エピソードを削除しました！');
         return redirect()->route('episode.index');
