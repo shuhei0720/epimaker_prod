@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('episode_id');
+            $table->foreignId('user_id');
+            $table->text('body');
             $table->timestamps();
         });
     }
