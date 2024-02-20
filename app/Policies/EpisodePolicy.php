@@ -37,7 +37,7 @@ class EpisodePolicy
      */
     public function update(User $user, Episode $episode): bool
     {
-        //
+        return $user->id=>$episode->user_id;
     }
 
     /**
