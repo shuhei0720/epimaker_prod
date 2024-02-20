@@ -45,7 +45,15 @@ class EpisodePolicy
      */
     public function delete(User $user, Episode $episode): bool
     {
-        //
+        if($user->id==$episode->user_id) {
+            return true;
+        }
+        foreach($user->roles as $role) {
+            if($role->name=='admin') {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
