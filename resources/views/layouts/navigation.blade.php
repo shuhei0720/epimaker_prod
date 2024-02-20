@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('episode.mycomment')" :active="request()->routeIs('episode.mycomment')">
                         コメントした投稿
                     </x-nav-link>
+                    <x-nav-link :href="route('profile.index')" :active="request()->routeIs('profile.index')">
+                        ユーザー一覧
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -87,6 +90,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('episode.mycomment')" :active="request()->routeIs('episode.mycomment')">
                 コメントした投稿
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('profile.index')" :active="request()->routeIs('profile.index')">
+                ユーザー一覧
             </x-responsive-nav-link>
         </div>
 
