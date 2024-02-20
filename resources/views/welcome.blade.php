@@ -42,6 +42,8 @@
                 <h2 class="page-title">日常にすべらない話があふれる</h2>
                 <p>日記感覚ですべらない話を作ってみませんか？すべらない話を作ることで、より面白く豊かな日常になるはずです。</p>
                 <a class="button" href="{{ route('login') }}">登録する</a>
+                <br><br><br>
+                <a class="button" href="{{route('contact.create')}}">お問い合わせ</a>
             </div><!-- /.home-content -->
         </divclass=>
     </body>
