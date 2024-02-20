@@ -11,19 +11,23 @@
                     {{$episode->title}}
                 </h1>
                 <div class="text-right flex">
+                    @can('update', $episode)
                     <a href="{{route('episode.edit', $episode)}}" class="flex-1">
                         <x-primary-button>
                             編集
                         </x-primary-button>
                     </a>
+                    @endcan
 
-                    <form method="post" action="{{route('episode.destroy', $episode)}}" class="flex-2">
+                    @can ('delete', $episode)
+                    <form method="post" action="{{route('episode.destroy', $episode)}}" class="flex-2" style="margin: 0 0 0 auto">
                         @csrf
                         @method('delete')
                         <x-primary-button class="bg-red-700 ml-2">
                             削除
                         </x-primary-button>
                     </form>
+                    @endcan
                 </div>
                 <hr class="w-full">
                 <p class="mt-4 whitespace-pre-line">

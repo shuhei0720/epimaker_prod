@@ -49,10 +49,12 @@ class EpisodeController extends Controller
     }
 
     public function edit(Episode $episode) {
+        $this->authorize('update', $episode);
         return view('episode.edit', compact('episode'));
     }
 
     public function update(Request $request, Episode $episode) {
+        $this->authorize('update', $episode);
         $validated = $request->validate([
             'title' => 'required|max:200',
             'when' => 'max:200',
@@ -79,6 +81,7 @@ class EpisodeController extends Controller
     }
 
     public function destroy(Request $request, Episode $episode) {
+        $this->authorize('delete', $episode);
         $episode->comments()->delete();
         $episode->delete();
         $request->session()->flash('message', 'エピソードを削除しました！');
