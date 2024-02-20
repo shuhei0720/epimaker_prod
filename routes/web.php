@@ -35,37 +35,43 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('episode/myepisode', [EpisodeController::class, 'myepisode'])
-->name('episode.myepisode');
+Route::middleware(['verified'])->group(function() {
+    Route::get('episode/myepisode', [EpisodeController::class, 'myepisode'])
+    ->name('episode.myepisode');
 
-Route::get('episode/mycomment', [EpisodeController::class, 'mycomment'])->name('episode.mycomment');
+    Route::get('episode/mycomment', [EpisodeController::class, 'mycomment'])->name('episode.mycomment');
 
-Route::get('/test', [TestController::class, 'test'])
-->name('test');
+    Route::get('/test', [TestController::class, 'test'])
+    ->name('test');
 
-Route::get('episode/create', [EpisodeController::class, 'create'])
-->middleware(['auth'])->name('episode.create');
+    Route::get('episode/create', [EpisodeController::class, 'create'])
+    ->middleware(['auth'])->name('episode.create');
 
-Route::post('episode', [EpisodeController::class, 'store'])
-->name('episode.store');
+    Route::post('episode', [EpisodeController::class, 'store'])
+    ->name('episode.store');
 
-Route::get('episode', [EpisodeController::class, 'index'])
-->middleware(['auth'])->name('episode.index');
+    Route::get('episode', [EpisodeController::class, 'index'])
+    ->middleware(['auth'])->name('episode.index');
 
-Route::get('episode/show/{episode}', [EpisodeController::class, 'show'])
-->middleware(['auth'])->name('episode.show');
+    Route::get('episode/show/{episode}', [EpisodeController::class, 'show'])
+    ->middleware(['auth'])->name('episode.show');
 
-Route::get('episode/{episode}/edit', [EpisodeController::class, 'edit'])
-->middleware(['auth'])->name('episode.edit');
+    Route::get('episode/{episode}/edit', [EpisodeController::class, 'edit'])
+    ->middleware(['auth'])->name('episode.edit');
 
-Route::patch('episode/{episode}', [EpisodeController::class, 'update'])
-->name('episode.update');
+    Route::patch('episode/{episode}', [EpisodeController::class, 'update'])
+    ->name('episode.update');
 
-Route::delete('episode/{episode}', [EpisodeController::class, 'destroy'])
-->name('episode.destroy');
+    Route::delete('episode/{episode}', [EpisodeController::class, 'destroy'])
+    ->name('episode.destroy');
 
-Route::post('episode/comment/store', [CommentController::class, 'store'])
-->name('comment.store');
+    Route::post('episode/comment/store', [CommentController::class, 'store'])
+    ->name('comment.store');
+
+    Route::middleware(['can:admin'])->group(function() {
+        Route::get('profile/index', [EpisodeController::class, 'index'])->name('profile.index');
+    });
+});
 
 Route::get('contact/create', [ContactController::class, 'create'])
 ->name('contact.create');
