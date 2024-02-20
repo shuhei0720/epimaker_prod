@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware(['auth', 'can:admin'])->group(function() {
         Route::get('profile/index', [ProfileController::class, 'index'])->name('profile.index');
     });
@@ -67,10 +67,6 @@ Route::middleware(['verified'])->group(function() {
 
     Route::post('episode/comment/store', [CommentController::class, 'store'])
     ->name('comment.store');
-
-    Route::middleware(['can:admin'])->group(function() {
-        Route::get('profile/index', [EpisodeController::class, 'index'])->name('profile.index');
-    });
 });
 
 Route::get('contact/create', [ContactController::class, 'create'])
