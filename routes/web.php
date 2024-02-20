@@ -62,10 +62,10 @@ Route::delete('episode/{episode}', [EpisodeController::class, 'destroy'])
 ->name('episode.destroy');
 
 Route::post('episode/comment/store', [CommentController::class, 'store'])
-->name('comment.store')
+->name('comment.store');
 
 Route::get('contact/create', [ContactController::class, 'create'])
-->middleware(['auth'])->name->('contact.create');
+->middleware(['auth'])->name('contact.create');
 
 Route::post('contact/store', [ContactController::class, 'store'])
 ->name('contact.store');
