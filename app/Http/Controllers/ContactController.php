@@ -16,7 +16,7 @@ class ContactController extends Controller
     public function store(Request $request) {
         $inputs=request()->validate([
             'title'=>'required|max:255',
-            'email'=>'required|max:255',
+            'email'=>'required|email|max:255',
             'body'=>'required|max:1000',
         ]);
         Contact::create($inputs);

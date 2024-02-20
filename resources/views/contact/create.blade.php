@@ -23,6 +23,7 @@
                 <div class="md:flex items-center">
                     <div class="w-full flex flex-col">
                         <label for="email" class="font-semibold leading-none mt-4">メールアドレス</label>
+                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         <input type="text" name="email" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="email" value="{{old('email')}}" placeholder="Enter Email">
                     </div>
                 </div>
