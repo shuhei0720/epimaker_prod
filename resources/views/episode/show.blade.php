@@ -7,6 +7,10 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="bg-yellow-100 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
             <div class="mt-4 p-4">
+                <div class="rounded-full w-12 h-12">
+                    {{-- アバター表示 --}}
+                    <img src="{{asset('storage/avatar/'.($episode->user->avatar??'user_default.jpg'))}}">
+                </div>
                 <h1 class="text-xl text-red-700 font-semibold">
                     {{$episode->title}}
                 </h1>
@@ -66,7 +70,10 @@
         <div class="bg-white w-full rounded-2xl px-10 py-2 shadow-lg mt-8 whitespace-pre-line">
             {{$comment->body}}
             <div class="text-sm font-semibold flex flex-row-reverse">
-                <p>{{$comment->user->name}}・{{$comment->created_at->diffForHumans()}}</p>
+                <p class="float-left pt-4">{{$comment->user->name}}・{{$comment->created_at->diffForHumans()}}</p>
+                <span class="rounded-full w-12 h-12">
+                    <img src="{{asset('storage/avatar/'.($comment->user->avatar??'user_default.jpg'))}}">
+                </span>
             </div>
         </div>
         @endforeach
