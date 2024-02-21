@@ -63,6 +63,9 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
+        // 役割付与
+        $user->roles()->attach(2);
+
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
