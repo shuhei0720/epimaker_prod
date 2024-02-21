@@ -95,9 +95,12 @@ class EpisodeController extends Controller
     }
 
     public function myepisode() {
-        $user=auth()->user()->id;
-        $episodes=Episode::where('user_id', $user)->orderBy('created_at','desc')->paginate(5);
-        return view('episode.myepisode', compact('episodes'));
+        $user = auth()->user();
+        $episodes=Episode::where('user_id', $user->id)->orderBy('created_at','desc')->paginate(5);
+        $episodes->load(['nices' => function ($query) use ($user) {
+            $query->where('user_id', $user->id);
+        }]);
+        return view('episode.index', compact('episodes'));
     }
 
     public function mycomment() {
