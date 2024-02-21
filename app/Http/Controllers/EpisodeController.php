@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Episode;
 use App\Models\Comment;
+use App\Models\Nice;
 
 class EpisodeController extends Controller
 {
@@ -38,14 +39,19 @@ class EpisodeController extends Controller
         return back();
     }
 
-    public function index() {
+    public function index(Episode $episode) {
         //$episodes=Episode::where('user_id', auth()->id())->get();
+        $user = auth()->user();
         $episodes=Episode::orderBy('created_at', 'desc')->paginate(5);
+        $episodes->load(['nices' => function ($query) use ($user) {
+            $query->where('user_id', $user->id);
+        }]);
         return view('episode.index', compact('episodes'));
     }
 
     public function show(Episode $episode) {
-        return view('episode.show', compact('episode'));
+        $nice=Nice::where('episode_id', $episode->id)->where('user_id', auth()->user()->id)->first();
+        return view('episode.show', compact('episode', 'nice'));
     }
 
     public function edit(Episode $episode) {
@@ -99,4 +105,5 @@ class EpisodeController extends Controller
         $comments=Comment::where('user_id', $user)->orderBy('created_at', 'desc')->paginate(10);
         return view('episode.mycomment', compact('comments'));
     }
+
 }
