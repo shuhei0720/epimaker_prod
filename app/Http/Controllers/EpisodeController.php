@@ -100,7 +100,7 @@ class EpisodeController extends Controller
         $episodes->load(['nices' => function ($query) use ($user) {
             $query->where('user_id', $user->id);
         }]);
-        return view('episode.index', compact('episodes'));
+        return view('episode.myepisode', compact('episodes'));
     }
 
     public function mycomment() {
