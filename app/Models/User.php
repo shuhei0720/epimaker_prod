@@ -59,4 +59,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendEmailVerificationNotification() {
         $this->notify(new NewVerifyEmail());
     }
+
+    public function nices() {
+        return $this->hasMany(Nice::class);
+    }
 }
