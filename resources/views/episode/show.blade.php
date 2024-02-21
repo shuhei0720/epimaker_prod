@@ -39,6 +39,29 @@
             </div>
         </div>
 
+        <span>
+            <!-- もし$niceがあれば＝ユーザーが「いいね」をしていたら -->
+            @if($nice)
+            <!-- 「いいね」取消用ボタンを表示 -->
+                <a href="{{ route('unnice', $episode) }}" class="btn btn-success btn-sm flex">
+                    <img src="{{asset('img/nicebutton.png')}}" width="30px">
+                    <!-- 「いいね」の数を表示 -->
+                    <span class="text-lg">
+                        {{ $episode->nices->count() }}
+                    </span>
+                </a>
+            @else
+            <!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
+                <a href="{{ route('nice', $episode) }}" class="btn btn-secondary btn-sm flex">
+                    <img src="{{asset('img/nicebutton.png')}}" width="30px">
+                    <!-- 「いいね」の数を表示 -->
+                    <span class="text-lg">
+                        {{ $episode->nices->count() }}
+                    </span>
+                </a>
+            @endif
+        </span>
+
         @foreach($episode->comments as $comment)
         <div class="bg-white w-full rounded-2xl px-10 py-2 shadow-lg mt-8 whitespace-pre-line">
             {{$comment->body}}
