@@ -6,6 +6,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,10 @@ Route::middleware(['verified'])->group(function() {
 
     Route::post('episode/comment/store', [CommentController::class, 'store'])
     ->name('comment.store');
+
+    // いいねボタン
+    Route::get('/nice/nice/{episode}', [NiceController::class, 'nice'])->name('nice');
+    Route::get('/nice/unnice/{episode}', [NiceController::class, 'unnice'])->name('unnice');
 });
 
 Route::get('contact/create', [ContactController::class, 'create'])
