@@ -50,7 +50,7 @@
                 @else
                 <!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
                     <a href="{{ route('nice', $episode) }}" class="btn btn-secondary btn-sm flex">
-                        <img src="{{asset('img/nicebutton.png')}}" width="30px">
+                        <img src="{{asset('img/unnicebutton.png')}}" width="30px">
                         <!-- 「いいね」の数を表示 -->
                         <span class="text-lg">
                             {{ $episode->nices->count() }}
