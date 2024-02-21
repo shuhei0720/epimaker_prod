@@ -104,9 +104,19 @@ class EpisodeController extends Controller
     }
 
     public function mycomment() {
-        $user=auth()->user()->id;
-        $comments=Comment::where('user_id', $user)->orderBy('created_at', 'desc')->paginate(10);
-        return view('episode.mycomment', compact('comments'));
+        $user = auth()->user();
+        $comments = Comment::where('user_id', $user->id)
+                            ->orderBy('created_at', 'desc')
+                            ->paginate(10);
+        // コメントに関連するエピソードを取得
+        $episodes = $comments->pluck('episode');
+        // 各エピソードに対してNicesをロード
+        $episodes->each(function ($episode) use ($user) {
+            $episode->load(['nices' => function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            }]);
+        });
+        return view('episode.mycomment', compact('comments', 'episodes'));
     }
 
 }

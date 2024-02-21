@@ -22,4 +22,8 @@ class Comment extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function nices() {
+        return $this->hasMany(Nice::class);
+    }
 }

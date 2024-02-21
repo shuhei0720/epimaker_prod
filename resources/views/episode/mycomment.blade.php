@@ -36,6 +36,28 @@
                     作成者：{{$episode->user->name??'匿名'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
                 </p>
             </div>
+            <span>
+                <!-- もし$niceがあれば＝ユーザーが「いいね」をしていたら -->
+                @if ($episode->nices->contains('user_id', auth()->id()))
+                <!-- 「いいね」取消用ボタンを表示 -->
+                    <a href="{{ route('unnice', $episode) }}" class="btn btn-success btn-sm flex">
+                        <img src="{{asset('img/nicebutton.png')}}" width="30px">
+                        <!-- 「いいね」の数を表示 -->
+                        <span class="text-lg">
+                            {{ $episode->nices->count() }}
+                        </span>
+                    </a>
+                @else
+                <!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
+                    <a href="{{ route('nice', $episode) }}" class="btn btn-secondary btn-sm flex">
+                        <img src="{{asset('img/nicebutton.png')}}" width="30px">
+                        <!-- 「いいね」の数を表示 -->
+                        <span class="text-lg">
+                            {{ $episode->nices->count() }}
+                        </span>
+                    </a>
+                @endif
+            </span>
             <hr class="w-full mb-2">
             @if($episode->comments->count())
             <span class="badge">
