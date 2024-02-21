@@ -20,4 +20,8 @@ class Episode extends Model
     public function comments() {
         return $this->hasMany(Comment::class);
     }
+
+    public function nices() {
+        return $this->hasMany(Nice::class);
+    }
 }
