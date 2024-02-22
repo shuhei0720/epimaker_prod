@@ -33,6 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('profile/index', [ProfileController::class, 'index'])->name('profile.index');
         Route::get('/profile/adedit/{user}', [ProfileController::class, 'adedit'])->name('profile.adedit');
         Route::patch('/profile/adupdate/{user}', [ProfileController::class, 'adupdate'])->name('profile.adupdate');
+        Route::delete('profile/{user}', [ProfileController::class, 'addestroy'])->name('profile.addestroy');
         Route::patch('roles/{user}/attach', [RoleController::class, 'attach'])->name('role.attach');
         Route::patch('roles/{user}/detach', [RoleController::class, 'detach'])->name('role.detach');
     });
