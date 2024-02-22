@@ -16,7 +16,15 @@
                     @csrf
                     @method('patch')
                     <input type="hidden" name="role" value="{{$role->id}}">
-                    <button class="btnroleb">
+                    <button class="btnroleb
+                        @if($user->roles->contains($role))
+                        bg-gray-300
+                        @endif
+                        "
+                        @if($user->roles->contains($role))
+                            disabled
+                        @endif
+                        >
                         役割付与
                     </button>
                 </form>
@@ -26,7 +34,15 @@
                     @csrf
                     @method('patch')
                     <input type="hidden" name="role" value="{{$role->id}}">
-                    <button class="btnroler">
+                    <button class="btnroler
+                        @if(!$user->roles->contains($role))
+                        bg-gray-300
+                        @endif
+                        "
+                        @if(!$user->roles->contains($role))
+                            disabled
+                        @endif
+                        >
                         役割削除
                     </button>
                 </form>
