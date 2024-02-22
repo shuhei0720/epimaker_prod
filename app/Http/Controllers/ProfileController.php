@@ -77,4 +77,12 @@ class ProfileController extends Controller
         $users = User::all();
         return view('profile.index', compact('users'));
     }
+
+    public function adedit(User $user) {
+        $admin=true;
+        return view('profile.edit', [
+            'user' => $user,
+            'admin' => $admin,
+        ]);
+    }
 }
