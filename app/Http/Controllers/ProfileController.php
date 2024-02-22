@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -84,5 +85,33 @@ class ProfileController extends Controller
             'user' => $user,
             'admin' => $admin,
         ]);
+    }
+
+    public function adupdate(User $user, Request $request): RedirectResponse
+    {
+        $inputs=$request->validate([
+            'name' => ['string', 'max:255'],
+            'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($user)],
+            'avatar'=> ['image', 'max:1024'],
+        ]);
+
+        // アバター画像の保存
+        if(request()->hasFile('avatar')) {
+            // 古いアバター削除用コード
+            if ($user->avatar!=='user_default.jpg') {
+                $oldavatar='public/avatar/'.$user->avatar;
+                Storage::delete($oldavatar);
+            }
+            $name=request()->file( 'avatar')->getClientOriginalName();
+            $avatar=date('Ymd_His').'_'.$name;
+            request()->file('avatar')->storeAs('public/avatar', $avatar);
+            $user->avatar = $avatar;
+        }
+
+        $user->name=$inputs['name'];
+        $user->email=$inputs['email'];
+        $user->save();
+
+        return Redirect::route('profile.adedit', compact('user'))->with('status', 'profile-updated');
     }
 }
