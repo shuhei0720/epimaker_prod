@@ -7,7 +7,7 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="bg-yellow-100 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500">
             <div class="mt-4 p-4">
-                <div class="rounded-full w-12 h-12 mb-2">
+                <div class="rounded-full w-12 h-12 mb-2 overflow-hidden">
                     {{-- アバター表示 --}}
                     <img src="{{asset('storage/avatar/'.($episode->user->avatar??'user_default.jpg'))}}" class="object-cover w-full h-full">
                 </div>
@@ -69,8 +69,8 @@
         @foreach($episode->comments as $comment)
         <div class="bg-white w-full rounded-2xl px-10 py-2 shadow-lg mt-8 whitespace-pre-line">
             {{$comment->body}}
-            <div class="text-sm font-semibold flex flex-row-reverse ">
-                <p class="float-left pt-4 ">&nbsp &nbsp{{$comment->user->name}}<br>&nbsp &nbsp{{$comment->created_at->diffForHumans()}}</p>
+            <div class="text-sm font-semibold flex flex-row-reverse">
+                <p class="float-left pt-4">&nbsp &nbsp{{$comment->user->name}}<br>&nbsp &nbsp{{$comment->created_at->diffForHumans()}}</p>
                 <span class="rounded-full w-12 h-12">
                     <img src="{{asset('storage/avatar/'.($comment->user->avatar??'user_default.jpg'))}}" class="object-cover w-full h-full">
                 </span>
