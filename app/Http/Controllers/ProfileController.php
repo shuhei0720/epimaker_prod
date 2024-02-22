@@ -82,7 +82,7 @@ class ProfileController extends Controller
 
     public function adedit(User $user) {
         $admin=true;
-        $roles=Roles::all();
+        $roles=Role::all();
         return view('profile.edit', [
             'user' => $user,
             'admin' => $admin,
