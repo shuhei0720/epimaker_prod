@@ -11,6 +11,7 @@ use Illuminate\View\View;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use App\Models\Role;
 
 class ProfileController extends Controller
 {
@@ -81,9 +82,11 @@ class ProfileController extends Controller
 
     public function adedit(User $user) {
         $admin=true;
+        $roles=Roles::all();
         return view('profile.edit', [
             'user' => $user,
             'admin' => $admin,
+            'roles' => $roles
         ]);
     }
 
