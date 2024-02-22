@@ -7,6 +7,7 @@ use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NiceController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('profile/index', [ProfileController::class, 'index'])->name('profile.index');
         Route::get('/profile/adedit/{user}', [ProfileController::class, 'adedit'])->name('profile.adedit');
         Route::patch('/profile/adupdate/{user}', [ProfileController::class, 'adupdate'])->name('profile.adupdate');
+        Route::patch('roles/{user}/attach', [RoleController::class, 'attach'])->name('role.attach');
+        Route::patch('roles/{user}/detach', [RoleController::class, 'detach'])->name('role.detach');
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
