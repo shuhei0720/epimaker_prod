@@ -21,7 +21,7 @@
             $episode=$comment->episode;
         @endphp
         <div class="mt-4 p-8 bg-yellow-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500">
-            <div class="rounded-full w-12 h-12 mb-1 overflow-hidden bg-yellow-200">
+            <div class="rounded-full w-12 h-12 mb-1 overflow-hidden">
                 {{-- アバター表示 --}}
                 <img src="{{asset('storage/avatar/'.($episode->user->avatar??'user_default.jpg'))}}" class="object-cover w-full h-full">
             </div>
@@ -37,7 +37,7 @@
             </p>
             <div class="p-4 text-sm font-semibold  bg-white border border-gray-400">
                 <p>
-                    作成者：{{$episode->user->name??'匿名'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
+                    作成者：{{$episode->user->name??'削除されたユーザー'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
                 </p>
             </div>
             <span>

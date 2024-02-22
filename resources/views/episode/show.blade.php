@@ -38,7 +38,7 @@
                     {{$episode->episode}}
                 </p>
                 <div class="text-sm font-semibold flex flex-row-reverse">
-                    <p> {{$episode->user->name}}・{{$episode->created_at->diffForHumans()}}</p>
+                    <p> {{ $episode->user->name??'削除されたユーザー' }}・{{$episode->created_at->diffForHumans()}}</p>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
         <div class="bg-white w-full rounded-2xl px-10 py-2 shadow-lg mt-8 whitespace-pre-line">
             {{$comment->body}}
             <div class="text-sm font-semibold flex flex-row-reverse">
-                <p class="float-left pt-4">&nbsp &nbsp{{$comment->user->name}}<br>&nbsp &nbsp{{$comment->created_at->diffForHumans()}}</p>
+                <p class="float-left pt-4">&nbsp &nbsp{{$comment->user->name??'削除されたユーザー'}}<br>&nbsp &nbsp{{$comment->created_at->diffForHumans()}}</p>
                 <span class="rounded-full w-12 h-12">
                     <img src="{{asset('storage/avatar/'.($comment->user->avatar??'user_default.jpg'))}}" class="object-cover w-full h-full">
                 </span>

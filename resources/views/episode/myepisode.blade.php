@@ -33,7 +33,7 @@
             </p>
             <div class="p-4 text-sm font-semibold  bg-white border border-gray-400">
                 <p>
-                    作成者：{{$episode->user->name??'匿名'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
+                    作成者：{{$episode->user->name??'削除されたユーザー'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
                 </p>
             </div>
             <span>
