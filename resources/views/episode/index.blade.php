@@ -31,27 +31,27 @@
                     作成者：{{$episode->user->name??'削除されたユーザー'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
                 </p>
             </div>
-            <span>
-                <!-- もし$niceがあれば＝ユーザーが「いいね」をしていたら -->
-                @if ($episode->nices->contains('user_id', auth()->id()))
-                <!-- 「いいね」取消用ボタンを表示 -->
-                    <a href="{{ route('unnice', $episode) }}" class="btn btn-success btn-sm flex">
-                        <img src="{{asset('img/nicebutton.png')}}" width="30px">
-                        <!-- 「いいね」の数を表示 -->
-                        <span class="text-lg">
-                            {{ $episode->nices->count() }}
-                        </span>
-                    </a>
-                @else
-                <!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
-                    <a href="{{ route('nice', $episode) }}" class="btn btn-secondary btn-sm flex">
-                        <img src="{{asset('img/unnicebutton.png')}}" width="30px">
-                        <!-- 「いいね」の数を表示 -->
-                        <span class="text-lg">
-                            {{ $episode->nices->count() }}
-                        </span>
-                    </a>
-                @endif
+            <span style="display: flex; align-items: center;">
+                <!-- もしユーザーがログインしていて、かつそのユーザーが「いいね」している場合 -->
+                @auth
+                    @if ($episode->nices->contains('user_id', auth()->id()))
+                        <!-- 「いいね」取消用ボタンを表示 -->
+                        <a href="{{ route('unnice', $episode) }}" class="btn btn-success btn-sm flex">
+                            <img src="{{ asset('img/nicebutton.png') }}" alt="Nice Button" width="30px">
+                        </a>
+                    @else
+                        <!-- ユーザーが「いいね」をしていない場合、「いいね」ボタンを表示 -->
+                        <a href="{{ route('nice', $episode) }}" class="btn btn-secondary btn-sm flex">
+                            <img src="{{ asset('img/unnicebutton.png') }}" alt="Unnice Button" width="30px">
+                        </a>
+                    @endif
+                @endauth
+
+                <!-- すべてのユーザーの「いいね」の合計数を表示 -->
+                <span class="text-lg" style="margin-right: 10px;">
+                    {{ $episode->nices()->count() }}
+                </span>
+
             </span>
             <hr class="w-full mb-2">
             @if($episode->comments->count())
