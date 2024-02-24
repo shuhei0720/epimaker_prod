@@ -84,7 +84,7 @@
             <p class="text-green-600 mt-2">【例】ある日の掃除時間、その友達は掃除をサボって、掃除用具入れに隠れていた。しかもトイレットペーパーを全身に巻いて。そこへ何も知らない先生がやってきて掃除用具棚のドアを開けた</p>
 
             <div class="w-full flex flex-col">
-                <label for="conclusion" class="font-semibold mt-4 text-blue-800 text-lg">結(話のオチ。最終的にどうなったか。)</label>
+                <label for="conclusion" class="font-semibold mt-4 text-blue-800 text-lg">結(話のオチ。最終的にどうなったか)</label>
                 <textarea name="conclusion" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="conclusion" cols="30" rows="2"></textarea>
             </div>
             <p class="text-green-600 mt-2">【例】するとその友達が飛び出してきて、先生ビックリ！友達はこっぴどく怒られた。</p>
