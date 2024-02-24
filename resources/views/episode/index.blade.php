@@ -16,14 +16,14 @@
                 {{-- アバター表示 --}}
                 <img src="{{asset('storage/avatar/'.($episode->user->avatar??'user_default.jpg'))}}" class="object-cover w-full h-full">
             </div>
-            <h1 class="p-4 text-lg font-semibold bg-white border border-gray-400">
+            <h1 class="p-4 font-semibold bg-white border border-gray-400">
                 タイトル：
                 <a href="{{route('episode.show', $episode)}}" class="text-blue-600">
                 {{$episode->title}}
                 </a>
             </h1>
             <hr class="w-full">
-            <p class="mt-4 p-4 bg-white border border-gray-400">
+            <p class="mt-4 p-4 bg-white border border-gray-400 text-sm md:text-xs" style="white-space: pre-line;">
                 {{$episode->episode}}
             </p>
             <div class="p-4 text-sm font-semibold  bg-white border border-gray-400">

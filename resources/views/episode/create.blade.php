@@ -89,7 +89,7 @@
             </div>
             <p class="text-green-600 mt-2">【例】するとその友達が飛び出してきて、先生ビックリ！友達はこっぴどく怒られた。</p>
 
-            <div class="w-full flex flex-col">
+            <div class="w-full flex flex-col" style="white-space: pre-line;">
                 <label for="episode" class="font-semibold mt-4 text-blue-800 text-lg">■起承転結をつなげて足りない分を補足し、より面白くなるよう脚色したら完成！(すべて実話でなくて構いません)<br>比喩や擬態法も入れてみよう(こっそり、びっくり、まるで～など)</label>
                 <x-input-error :messages="$errors->get('episode')" class="mt-2" />
                 <textarea name="episode" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="episode" cols="30" rows="10"></textarea>
