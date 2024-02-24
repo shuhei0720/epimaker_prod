@@ -31,7 +31,7 @@
             <p class="mt-2 p-4 bg-white border border-gray-400 text-sm md:text-xs rounded-sm" style="padding-top: 0; white-space: pre-line;">
                 {{$episode->episode}}
             </p>
-            <div class="p-4 text-sm font-semibold  bg-white border border-gray-400">
+            <div class="p-3 text-sm font-semibold  bg-white border border-gray-400">
                 <p>
                     作成者：{{$episode->user->name??'削除されたユーザー'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
                 </p>
