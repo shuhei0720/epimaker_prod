@@ -70,8 +70,8 @@
             @else
             <span>コメントはまだありません。</span>
             @endif
-            <a href="{{route('episode.show', $episode)}}" style="color.white;">
-                <x-primary-button class="float-right">コメントする</x-primary-button>
+            <a href="{{route('episode.show', $episode)}}" style="color:white; display: inline-block;">
+                <x-primary-button style="margin-left: 10px;">コメントする</x-primary-button>
             </a>
         </div>
         @endforeach
