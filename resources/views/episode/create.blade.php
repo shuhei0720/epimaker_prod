@@ -95,8 +95,7 @@
                 <textarea name="episode" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="episode" cols="30" rows="10"></textarea>
                 <value="{{old('episode')}}">
             </div>
-
-            <x-primary-button class="mt-4">
+            <x-primary-button class="mt-0">
                 投稿する！
             </x-primary-button>
         </form>
