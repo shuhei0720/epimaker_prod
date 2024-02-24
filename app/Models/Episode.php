@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Flag;
 
 class Episode extends Model
 {
@@ -23,5 +24,9 @@ class Episode extends Model
 
     public function nices() {
         return $this->hasMany(Nice::class);
+    }
+
+    public function flag() {
+        return $this->hasOne(Flag::class, 'episode_id');
     }
 }

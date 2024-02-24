@@ -84,6 +84,8 @@ Route::middleware(['verified'])->group(function() {
     // いいねボタン
     Route::get('/nice/nice/{episode}', [NiceController::class, 'nice'])->name('nice');
     Route::get('/nice/unnice/{episode}', [NiceController::class, 'unnice'])->name('unnice');
+
+    Route::put('/episodes/{id}/toggle-visibility', [EpisodeController::class, 'toggleEpisodeVisibility'])->name('episodes.toggleVisibility');
 });
 
 Route::get('contact/create', [ContactController::class, 'create'])

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Episode;
 use App\Models\Comment;
 use App\Models\Nice;
+use App\Models\Flag;
 
 class EpisodeController extends Controller
 {
@@ -31,21 +32,33 @@ class EpisodeController extends Controller
             'episode' => 'required|max:1000',
         ]);
 
+        $status = $request->input('status');
+
         $validated['user_id'] = auth()->id();
 
-        $post = Episode::create($validated);
+        $episode = Episode::create($validated);
+
+        // エピソードの公開状態を設定
+        $flag = new Flag();
+        $flag->episode_id = $episode->id;
+        $flag->flag = $status;
+        $flag->save();
+
 
         $request->session()->flash('message', 'お疲れ様でした！エピソードを保存しました！');
         return back();
     }
 
     public function index(Episode $episode) {
-        //$episodes=Episode::where('user_id', auth()->id())->get();
         $user = auth()->user();
-        $episodes=Episode::orderBy('created_at', 'desc')->paginate(5);
+        $episodes = Episode::whereHas('flag', function ($query) {
+            $query->where('flag', 1);
+        })->orderBy('created_at', 'desc')->paginate(5);
+
         $episodes->load(['nices' => function ($query) use ($user) {
             $query->where('user_id', $user->id);
         }]);
+
         return view('episode.index', compact('episodes'));
     }
 
@@ -117,6 +130,15 @@ class EpisodeController extends Controller
             }]);
         });
         return view('episode.mycomment', compact('comments', 'episodes'));
+    }
+
+    public function toggleEpisodeVisibility($id) {
+    $episode = Episode::findOrFail($id);
+    $flag = $episode->flag()->firstOrNew(['episode_id' => $episode->id]);
+    // フラグを切り替える
+    $flag->flag = !$flag->flag;
+    $flag->save();
+    return redirect()->back()->with('success', 'エピソードの公開状態が変更されました。');
     }
 
 }
