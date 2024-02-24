@@ -53,7 +53,7 @@
         </div>
 
         <div>
-            <x-input-label for="avatar" :value="__('プロフィール画像（任意・1MBまで）')" />
+            <x-input-label for="avatar" :value="__('プロフィール画像（10MBまで）')" />
             <div class="rounded-full w-36">
                 <img src="{{asset('storage/avatar/'.($user->avatar??'user_default.jpg'))}}">
             </div>
