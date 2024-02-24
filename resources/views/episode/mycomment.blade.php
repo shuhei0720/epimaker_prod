@@ -32,7 +32,7 @@
                 </a>
             </h1>
             <hr class="w-full">
-            <p class="mt-4 p-4 bg-white border border-gray-400 text-sm md:text-xs" style="white-space: pre-line;">
+            <p class="mt-2 p-4 bg-white border border-gray-400 text-sm md:text-xs" style="padding-top: 0; white-space: pre-line;">
                 {{$episode->episode}}
             </p>
             <div class="p-4 text-sm font-semibold  bg-white border border-gray-400">
