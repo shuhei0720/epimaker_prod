@@ -89,6 +89,24 @@
             </div>
             <p class="text-green-600 mt-2">【例】するとその友達が飛び出してきて、先生ビックリ！友達はこっぴどく怒られた。</p>
 
+            <script>
+                function copyTextToEpisode() {
+                    // development、turnand、conclusionのテキストを取得
+                    var beginningText = document.getElementById('beginning').value;
+                    var developmentText = document.getElementById('development').value;
+                    var turnandText = document.getElementById('turnand').value;
+                    var conclusionText = document.getElementById('conclusion').value;
+
+                    // 結合してepisodeのテキストエリアにコピー
+                    var episodeTextarea = document.getElementById('episode');
+                    episodeTextarea.value = beginningText + "\n" + developmentText + "\n" + turnandText + "\n" + conclusionText;
+                }
+            </script>
+
+            <!-- コピーするボタン -->
+            <x-primary-button class="mt-4 bg-red-700" type="button" onclick="copyTextToEpisode()">起承転結の内容を反映</x-primary-button>
+            <p class="text-red-700">※下記エピソードの内容をクリアして反映します。</p>
+
             <div class="w-full flex flex-col" style="white-space: pre-line;">
                 <label for="episode" class="font-semibold mt-4 text-blue-800 text-lg">■起承転結をつなげて足りない分を補足し、より面白くなるよう脚色したら完成！(すべて実話でなくて構いません)<br>比喩や擬態法も入れてみよう(こっそり、びっくり、まるで～など)</label>
                 <x-input-error :messages="$errors->get('episode')" class="mt-2" />
@@ -104,7 +122,7 @@
                 </select>
             </div>
 
-            <x-primary-button class="mt-4">
+            <x-primary-button class="mt-4 bg-red-700">
                 投稿する！
             </x-primary-button>
         </form>
