@@ -18,7 +18,7 @@
 
         <!-- Avatar -->
         <div class="mt-4">
-            <x-input-label for="avatar" :value="__('プロフィール画像（10MBまで）')" />
+            <x-input-label for="avatar" :value="__('プロフィール画像（1MBまで）')" />
 
             <x-text-input id="avatar" class="block mt-1 w-full rounded-none" type="file" name="avatar" :value="old('avatar')" />
         </div>
