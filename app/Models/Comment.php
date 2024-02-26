@@ -26,4 +26,9 @@ class Comment extends Model
     public function nices() {
         return $this->hasMany(Nice::class);
     }
+
+    public function deleteComment()
+    {
+        $this->delete();
+    }
 }

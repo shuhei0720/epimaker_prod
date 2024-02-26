@@ -82,8 +82,17 @@
         </span>
 
         @foreach($episode->comments as $comment)
-        <div class="bg-white w-full rounded-2xl px-10 py-2 shadow-lg mt-8 whitespace-pre-line">
+        <div class="bg-white w-full rounded-2xl px-10 shadow-lg mt-8 whitespace-pre-line">
             {{$comment->body}}
+            @if(Auth::check() && Auth::user()->id === $comment->user_id)
+                <form action="{{ route('comments.destroy', $comment->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <x-primary-button class="bg-red-700 float-right w-30 h-7 min-w-min">
+                        <div class="inline-block">削除する</div>
+                    </x-primary-button>
+                </form>
+            @endif
             <div class="text-sm font-semibold flex flex-row-reverse">
                 <p class="float-left pt-4">&nbsp &nbsp{{$comment->user->name??'削除されたユーザー'}}<br>&nbsp &nbsp{{$comment->created_at->diffForHumans()}}</p>
                 <span class="rounded-full w-12 h-12">
