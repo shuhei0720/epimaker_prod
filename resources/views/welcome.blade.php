@@ -49,4 +49,7 @@
             </div><!-- /.home-content -->
         </divclass=>
     </body>
+    <footer class="bg-gray-200" style="width: 100%; height: 120px; text-align: center; padding: 50px 0;">
+        <p>© All rights reserved by SuberaNotes.</p>
+    </footer>
 </html>

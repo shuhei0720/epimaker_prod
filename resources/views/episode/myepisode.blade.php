@@ -71,7 +71,7 @@
             </a>
         </div>
         @endforeach
-        <div class="mb-4">
+        <div class="mb-4" style="margin-bottom: 0px;">
             {{ $episodes->links() }}
         </div>
         @endif

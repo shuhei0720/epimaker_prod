@@ -122,7 +122,7 @@
                 </select>
             </div>
 
-            <x-primary-button class="mt-4 bg-red-700">
+            <x-primary-button class="mt-4 bg-red-700" style="margin-bottom: 20px;">
                 投稿する！
             </x-primary-button>
         </form>
