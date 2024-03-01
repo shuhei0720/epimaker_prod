@@ -65,8 +65,32 @@
             </div>
             <p class="text-green-600 mt-2">【例】掃除をサボって遊んでいた友達、しかも全身にトイレットペーパーを巻いてフザけるような調子乗りな奴だから、先生に怒られても自業自得だ！</p>
 
+            
+            <div id="result" class="mt-4 text-lg text-red-700"></div>
+
+            <script>
+                // Get specified input elements
+                const specifiedInputs = document.querySelectorAll('#when, #where, #who, #what, #do, #why, #how');
+
+                // Function to update result
+                function updateResult() {
+                    const resultDiv = document.getElementById('result');
+                    const values = [];
+                    specifiedInputs.forEach(input => {
+                        values.push(input.value);
+                    });
+                    // Join values with commas, filtering out empty values
+                    resultDiv.textContent = values.filter(value => value.trim() !== '').join('、');
+                }
+
+                // Add event listener to each specified input for input event
+                specifiedInputs.forEach(input => {
+                    input.addEventListener('input', updateResult);
+                });
+            </script>
+
             <div class="w-full flex flex-col">
-                <label for="beginning" class="font-semibold mt-4 text-blue-800 text-lg">■起承転結にまとめて、フリとオチを作ってみよう！<br><br>起(導入)</label>
+                <label for="beginning" class="font-semibold mt-4 text-blue-800 text-lg">■上記をもとに起承転結にまとめて、フリとオチを作ってみよう！<br><br>起(導入)</label>
                 <textarea name="beginning" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="beginning" cols="30" rows="2"></textarea>
             </div>
             <p class="text-green-600 mt-2">【例】小学生のころ、すごく調子乗りな友達がいた。</p>
