@@ -8,6 +8,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NiceController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,5 +97,8 @@ Route::get('contact/create', [ContactController::class, 'create'])
 
 Route::post('contact/store', [ContactController::class, 'store'])
 ->name('contact.store');
+
+Route::get('sitemap.xml', [SitemapController::class, 'index' ])
+->name('get.sitemap');
 
 require __DIR__.'/auth.php';
