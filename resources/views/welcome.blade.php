@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="いつもの日記がすべらない話になる、SuberaNotes">
+        <meta name="description" content="すべらない話、エピソードトークが作れるサイト。日常がすべらない話やエピソードトークであふれ、豊かな人生を目指す。">
+        <meta name="keywords" content="すべらない話,エピソードトーク,面白い話,作れる,作成できる,作り方,作成方法">
 
         <title>SuberaNotes</title>
 
@@ -21,6 +22,11 @@
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
         <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+
+        <link rel="icon" href="{{asset('/storage/images/favicon.ico')}}">
+        <link rel="apple-touch-icon" href="{{asset('/storage/images/favicon.ico')}}" />
+        <link rel="icon" type="image/png" href="{{asset('/storage/images/favicon.ico')}}">
+        
     </head>
     <body id="home" class="antialiased big-bg">
         <divclass="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
