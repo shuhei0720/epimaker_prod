@@ -23,51 +23,77 @@
 
             <div class="w-full flex flex-col">
                 <label for="when" class="font-semibold mt-4 text-blue-800 text-lg">■出来事を5W1H1Dに整理してみよう！<br><br>いつ？</label>
-                <input type="text" name="when" class="w-auto py-2 border border-gray-400 rounded-md" id="when" value="{{old('when', $episode->when)}}">
+                <input type="text" name="when" class="w-auto py-2 border border-gray-400 rounded-md" id="when" value="{{ old('when', $episode->when) }}">
             </div>
             <p class="text-green-600 mt-2">【例】小学校の掃除時間</p>
 
             <div class="w-full flex flex-col">
                 <label for="where" class="font-semibold mt-4 text-blue-800 text-lg">どこで？</label>
-                <input type="text" name="where" class="w-auto py-2 border border-gray-400 rounded-md" id="where" value="{{old('where', $episode->where)}}">
+                <input type="text" name="where" class="w-auto py-2 border border-gray-400 rounded-md" id="where" value="{{ old('where', $episode->where) }}">
             </div>
             <p class="text-green-600 mt-2">【例】教室で</p>
 
             <div class="w-full flex flex-col">
                 <label for="who" class="font-semibold mt-4 text-blue-800 text-lg">だれが？</label>
-                <input type="text" name="who" class="w-auto py-2 border border-gray-400 rounded-md" id="who" value="{{old('who', $episode->who)}}">
+                <input type="text" name="who" class="w-auto py-2 border border-gray-400 rounded-md" id="who" value="{{ old('who', $episode->who) }}">
             </div>
             <p class="text-green-600 mt-2">【例】トイレットペーパーを全身に巻いた友達が</p>
 
             <div class="w-full flex flex-col">
                 <label for="what" class="font-semibold mt-4 text-blue-800 text-lg">なにを？</label>
-                <input type="text" name="what" class="w-auto py-2 border border-gray-400 rounded-md" id="what" value="{{old('what', $episode->what)}}">
+                <input type="text" name="what" class="w-auto py-2 border border-gray-400 rounded-md" id="what" value="{{ old('what', $episode->what) }}">
             </div>
             <p class="text-green-600 mt-2">【例】先生を</p>
 
             <div class="w-full flex flex-col">
                 <label for="do" class="font-semibold mt-4 text-blue-800 text-lg">どうした？</label>
-                <input type="text" name="do" class="w-auto py-2 border border-gray-400 rounded-md" id="do" value="{{old('do', $episode->do)}}">
+                <input type="text" name="do" class="w-auto py-2 border border-gray-400 rounded-md" id="do" value="{{ old('do', $episode->do) }}">
             </div>
             <p class="text-green-600 mt-2">【例】怒らせた</p>
 
             <div class="w-full flex flex-col">
                 <label for="why" class="font-semibold mt-4 text-blue-800 text-lg">なぜ？</label>
-                <input type="text" name="why" class="w-auto py-2 border border-gray-400 rounded-md" id="why" value="{{old('why', $episode->why)}}">
+                <input type="text" name="why" class="w-auto py-2 border border-gray-400 rounded-md" id="why" value="{{ old('why', $episode->why) }}">
             </div>
             <p class="text-green-600 mt-2">【例】間違って先生を驚かしたから</p>
 
             <div class="w-full flex flex-col">
                 <label for="how" class="font-semibold mt-4 text-blue-800 text-lg">どのように？</label>
-                <input type="text" name="how" class="w-auto py-2 border border-gray-400 rounded-md" id="how" value="{{old('how', $episode->how)}}">
+                <input type="text" name="how" class="w-auto py-2 border border-gray-400 rounded-md" id="how" value="{{ old('how', $episode->how) }}">
             </div>
             <p class="text-green-600 mt-2">【例】掃除用具入れから飛び出してきて</p>
 
             <div class="w-full flex flex-col">
                 <label for="point" class="font-semibold mt-4 text-blue-800 text-lg">この話で一番共感してほしい、または、一番面白いポイントは？</label>
-                <input type="text" name="point" class="w-auto py-2 border border-gray-400 rounded-md" id="point" value="{{old('point', $episode->point)}}">
+                <input type="text" name="point" class="w-auto py-2 border border-gray-400 rounded-md" id="point" value="{{ old('point', $episode->point) }}">
             </div>
             <p class="text-green-600 mt-2">【例】掃除をサボって遊んでいた友達、しかも全身にトイレットペーパーを巻いてフザけるような調子乗りな奴だから、先生に怒られても自業自得だ！</p>
+
+            <div id="result" class="mt-4 text-lg text-red-700"></div>
+
+            <script>
+                // Get specified input elements
+                const specifiedInputs = document.querySelectorAll('#when, #where, #who, #what, #do, #why, #how');
+
+                // Function to update result
+                function updateResult() {
+                    const resultDiv = document.getElementById('result');
+                    const values = [];
+                    specifiedInputs.forEach(input => {
+                        values.push(input.value);
+                    });
+                    // Join values with commas, filtering out empty values
+                    resultDiv.textContent = values.filter(value => value.trim() !== '').join('、');
+                }
+
+                // Call updateResult() initially
+                updateResult();
+
+                // Add event listener to each specified input for input event
+                specifiedInputs.forEach(input => {
+                    input.addEventListener('input', updateResult);
+                });
+            </script>
 
             <div class="w-full flex flex-col">
                 <label for="beginning" class="font-semibold mt-4 text-blue-800 text-lg">■起承転結にまとめて、フリとオチを作ってみよう！<br><br>起(導入)</label>
@@ -93,14 +119,32 @@
             </div>
             <p class="text-green-600 mt-2">【例】するとその友達が飛び出してきて、先生ビックリ！友達はこっぴどく怒られた。</p>
 
+            <script>
+                function copyTextToEpisode() {
+                    // development、turnand、conclusionのテキストを取得
+                    var beginningText = document.getElementById('beginning').value;
+                    var developmentText = document.getElementById('development').value;
+                    var turnandText = document.getElementById('turnand').value;
+                    var conclusionText = document.getElementById('conclusion').value;
+
+                    // 結合してepisodeのテキストエリアにコピー
+                    var episodeTextarea = document.getElementById('episode');
+                    episodeTextarea.value = beginningText + "\n" + developmentText + "\n" + turnandText + "\n" + conclusionText;
+                }
+            </script>
+
+            <!-- コピーするボタン -->
+            <x-primary-button class="mt-4 bg-red-700" type="button" onclick="copyTextToEpisode()">起承転結の内容を反映</x-primary-button>
+            <p class="text-red-700">※下記エピソードの内容をクリアして反映します。</p>
+
             <div class="w-full flex flex-col">
             <label for="episode" class="font-semibold mt-4 text-blue-800 text-lg">■起承転結をつなげて足りない分を補足し、より面白くなるよう脚色したら完成！(すべて実話でなくて構いません)<br>比喩や擬態法も入れてみよう(こっそり、びっくり、まるで～など)</label>
                 <x-input-error :messages="$errors->get('episode')" class="mt-2" />
                 <textarea name="episode" class="w-auto py-2 border border-gray-400 rounded-md" id="episode" cols="30" rows="10">{{old('episode', $episode->episode)}}</textarea>
             </div>
 
-            <x-primary-button class="mt-0" style="margin-bottom: 0px;">
-                完成！
+            <x-primary-button class="mt-4 bg-red-700" style="margin-bottom: 20px;">
+                保存する！
             </x-primary-button>
         </form>
     </div>
