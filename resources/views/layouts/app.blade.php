@@ -14,6 +14,11 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link rel="stylesheet" href="{{asset('css/forum.css')}}">
+
+        <link rel="icon" href="{{asset('/storage/images/favicon.ico')}}">
+        <link rel="apple-touch-icon" href="{{asset('/storage/images/favicon.ico')}}" />
+        <link rel="icon" type="image/png" href="{{asset('/storage/images/favicon.ico')}}">
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
