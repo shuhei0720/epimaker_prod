@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-2xl leading-tight bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
-            あなただけのすべらない話作成画面
+            あなただけのエピソード作成画面
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto px-6 bg-yellow-200">

@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="すべらない話、エピソードトークが作れるサイト。日常がすべらない話やエピソードトークであふれ、豊かな人生を目指す。">
-        <meta name="keywords" content="すべらない話,エピソードトーク,面白い話,作れる,作成できる,作り方,作成方法">
+        <meta name="description" content="エピソードトークが作れるサイト。日常がエピソードトークであふれ、豊かな人生を目指す。">
+        <meta name="keywords" content="エピソードトーク,面白い話,作れる,作成できる,作り方,作成方法">
 
         <title>SuberaNotes</title>
 
@@ -45,15 +45,17 @@
             @endif
 
             <div class="home-content wrapper">
-                <h2 class="page-title">日常にすべらない話があふれる</h2>
-                <p>日記感覚ですべらない話を作ってみませんか？</p>
-                <p>すべらない話を作ることで、より面白く豊かな日常になるはずです。</p>
+                <h2 class="page-title">日記感覚でエピソードトーク！</h2>
+                <p>このサイトでは、日記感覚でエピソードトークを作ることができます。</p>
+                <p>日常にはあなただけの人生一度だけのエピソードが日々起こっていますが、それは徐々に記憶から薄れ無くなっていきます。</p>
+                <p>そこで、このサイトに記録することであなただけの物語を作っていきましょう！</p>
+                <p>さらに、新規作成画面に沿ってエピソードを作ることで、起承転結に整理されたきれいなエピソードになり、家族や友人に話すとき話が上手な人と思われるようになるかもしれません。</p>
                 <a class="button" href="{{ route('login') }}">ログイン</a>
                 <a class="button" href="{{ route('register') }}">登録する</a>
                 <br><br><br>
                 <a class="button" href="{{route('contact.create')}}">お問い合わせ</a>
             </div><!-- /.home-content -->
-        </divclass=>
+        </div>
     </body>
     <footer class="bg-gray-200" style="width: 100%; height: 120px; text-align: center; padding: 50px 0;">
         <p>© All rights reserved by SuberaNotes.</p>
