@@ -6,9 +6,9 @@ html {
     font-size: 100%;
 }
 body{
-    font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
+    font-family: "Comic Sans MS", "Arial", sans-serif;
     line-height: 1.7;
-    color: #432;
+    color: #0bd;
 }
 a {
     text-decoration: none;
@@ -32,7 +32,7 @@ img {
 /* 見出し */
 .page-title {
     font-size: 4rem;
-    font-family: 'Philosopher', serif;
+    font-family: "Comic Sans MS", "Arial", sans-serif;
     text-transform: uppercase;
     font-weight: normal;
 }
@@ -112,6 +112,6 @@ img {
 
     /* HOME */
     .home-content {
-        margin-top: 20%;
+        margin-top: 5%;
     }
 }

@@ -33,12 +33,12 @@
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
-                        <a href="{{ route('episode.index') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">SuberaNotes</a>
+                        <a href="{{ route('episode.index') }}" class="font-semibold text-cyan-500 hover:text-cyan-500 dark:text-cyan-500 dark:hover:text-cyan-500 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">SuberaNotes</a>
                     @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ログイン</a>
+                        <a href="{{ route('login') }}" class="font-semibold text-cyan-500 hover:text-cyan-500 dark:text-cyan-500 dark:hover:text-cyan-500 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ログイン</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">新規登録</a>
+                            <a href="{{ route('register') }}" class="ml-4 font-semibold font-semibold text-cyan-500 hover:text-cyan-500 dark:text-cyan-500 dark:hover:text-cyan-500 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">新規登録</a>
                         @endif
                     @endauth
                 </div>
@@ -46,10 +46,7 @@
 
             <div class="home-content wrapper">
                 <h2 class="page-title">日記感覚でエピソードトーク！</h2>
-                <p>このサイトでは、日記感覚でエピソードトークを作ることができます。</p>
-                <p>日常にはあなただけの人生一度だけのエピソードが日々起こっていますが、それは徐々に記憶から薄れ無くなっていきます。</p>
-                <p>そこで、このサイトに記録することであなただけの物語を作っていきましょう！</p>
-                <p>さらに、新規作成画面に沿ってエピソードを作ることで、起承転結に整理されたきれいなエピソードになり、家族や友人に話すとき話が上手な人と思われるようになるかもしれません。</p>
+                <p>このサイトでは、日記感覚でエピソードトークを作ることができます。<br>日常にはあなただけの人生一度だけのエピソードが日々起こっていますが、それは徐々に記憶から薄れ無くなっていきます。<br>そこで、このサイトに記録することであなただけの物語を作っていきましょう！<br>さらに、新規作成画面に沿ってエピソードを作ることで、起承転結に整理されたきれいなエピソードになり、家族や友人に話すとき話が上手な人と思われるようになるかもしれません。</p>
                 <a class="button" href="{{ route('login') }}">ログイン</a>
                 <a class="button" href="{{ route('register') }}">登録する</a>
                 <br><br><br>
