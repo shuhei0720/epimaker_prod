@@ -151,4 +151,54 @@
             </x-primary-button>
         </form>
     </div>
+    <script>
+        // ローカルストレージをクリアする関数
+        function clearLocalStorage() {
+            localStorage.clear(); // ローカルストレージをクリアする
+        }
+
+        // ページが読み込まれた後に実行される関数
+        window.onload = function() {
+            // ローカルストレージからフォームの値を取得し、フォームに設定する
+            const formInputs = ['title', 'when', 'where', 'who', 'what', 'do', 'why', 'how', 'point', 'beginning', 'development', 'turnand', 'conclusion', 'episode'];
+            formInputs.forEach(function(inputName) {
+                const savedValue = localStorage.getItem(inputName);
+                if (savedValue !== null) {
+                    document.getElementById(inputName).value = savedValue;
+                }
+            });
+
+            // フラッシュメッセージが存在するかどうかをチェック
+            const flashMessage = document.querySelector('.flash-message');
+            if (!flashMessage) {
+                // フラッシュメッセージが存在しない場合、ローカルストレージをクリアしない
+                return;
+            }
+
+            // フラッシュメッセージが存在する場合、ローカルストレージをクリアする
+            clearLocalStorage();
+        };
+
+        // フォームの値が変更された時に実行される関数
+        function handleInputChange(event) {
+            const { name, value } = event.target;
+            // 変更された値をローカルストレージに保存する
+            localStorage.setItem(name, value);
+        }
+
+        // 全てのフォームにイベントリスナーを追加する
+        document.querySelectorAll('input, textarea').forEach(function(input) {
+            input.addEventListener('input', handleInputChange);
+        });
+
+        // フォーム送信後に実行される関数
+        function handleFormSubmit(event) {
+            // フラッシュメッセージが存在するかどうかをチェック
+            const flashMessage = document.querySelector('.flash-message');
+            if (!flashMessage) {
+                // フラッシュメッセージが存在しない場合、ローカルストレージをクリアしない
+                return;
+            }
+        }
+    </script>
 </x-app-layout>
