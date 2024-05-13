@@ -9,8 +9,8 @@
         <form method="post" action="{{ route('episode.store') }}">
             @csrf
             <div class="w-full flex flex-col">
-                <p class="font-semibold mt-4 text-red-600 text-lg ">※個人情報を入れないよう人名や地名などは抽象的な表現でかつ、聞き手がイメージできるような表現にしてください。【例】同級生の田中（偽名）くん</p>
-                <label for="title" class="font-semibold mt-4 text-blue-800 text-lg ">■タイトルを考えよう！（エピソードを作ってから決めてもOK）<br><br>(遊び、ニュース、季節、友達、旅、健康、仕事、学校、家族、恋人、住居、食事、etc...)を思い返してみよう</label>
+                <p class="font-semibold mt-4 text-green-600 text-lg ">※個人名などは抽象的な表現にしてください。【例】同級生の田中（偽名）くん</p>
+                <label for="title" class="font-semibold mt-4 text-blue-800 text-lg ">■タイトルを考えよう！<br><br>(遊び、ニュース、季節、友達、旅、健康、仕事、学校、家族、恋人、住居、食事、etc...)を思い返してみよう</label>
                 <x-input-error :messages="$errors->get('title')" class="mt-2" />
                 <input type="text" name="title" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="title">
                 <value="{{old('title')}}">
@@ -60,13 +60,13 @@
             <p class="text-green-600 mt-2">【例】掃除用具入れから飛び出してきて</p>
 
             <div class="w-full flex flex-col">
-                <label for="point" class="font-semibold mt-4 text-blue-800 text-lg">この話で一番共感してほしい、または、一番面白いポイントは？</label>
+                <label for="point" class="font-semibold mt-4 text-blue-800 text-lg">この話で一番共感してほしい、面白いポイントは？</label>
                 <input type="text" name="point" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="point">
             </div>
             <p class="text-green-600 mt-2">【例】掃除をサボって遊んでいた友達、しかも全身にトイレットペーパーを巻いてフザけるような調子乗りな奴だから、先生に怒られても自業自得だ！</p>
 
             
-            <div id="result" class="mt-4 text-lg text-red-700"></div>
+            <div id="result" class="mt-4 text-lg text-red-700" style="border: 1px solid black; padding: 10px;"></div>
 
             <script>
                 // Get specified input elements
@@ -129,10 +129,10 @@
 
             <!-- コピーするボタン -->
             <x-primary-button class="mt-4 bg-red-700" type="button" onclick="copyTextToEpisode()">起承転結の内容を反映</x-primary-button>
-            <p class="text-red-700">※下記エピソードの内容をクリアして反映します。</p>
+            <p class="text-green-600">※下記エピソードの内容をクリアして反映します。</p>
 
             <div class="w-full flex flex-col" style="white-space: pre-line;">
-                <label for="episode" class="font-semibold mt-4 text-blue-800 text-lg">■起承転結をつなげて足りない分を補足し、より面白くなるよう脚色したら完成！(すべて実話でなくて構いません)<br>比喩や擬態法も入れてみよう(こっそり、びっくり、まるで～など)</label>
+                <label for="episode" class="font-semibold mt-4 text-blue-800 text-lg">■足りない分を補足し、より面白くなるよう脚色したら完成！<br>比喩や例えなども入れてみよう(こっそり、びっくり、まるで～など)</label>
                 <x-input-error :messages="$errors->get('episode')" class="mt-2" />
                 <textarea name="episode" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="episode" cols="30" rows="10"></textarea>
                 <value="{{old('episode')}}">
