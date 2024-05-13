@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>EpiMaker</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
         <meta name="description" content="すべらない話、エピソードトークが作れるサイト。日常がすべらない話やエピソードトークであふれ、豊かな人生を目指す。">
         <meta name="keywords" content="すべらない話,エピソードトーク,面白い話,作れる,作成できる,作り方,作成方法">
 
