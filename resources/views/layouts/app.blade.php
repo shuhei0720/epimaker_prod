@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>EpiMaker</title>
         <meta name="description" content="すべらない話、エピソードトークが作れるサイト。日常がすべらない話やエピソードトークであふれ、豊かな人生を目指す。">
         <meta name="keywords" content="すべらない話,エピソードトーク,面白い話,作れる,作成できる,作り方,作成方法">
 
@@ -17,9 +17,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link rel="stylesheet" href="{{asset('css/forum.css')}}">
 
-        <link rel="icon" href="{{asset('/storage/images/favicon.ico')}}">
-        <link rel="apple-touch-icon" href="{{asset('/storage/images/favicon.ico')}}" />
-        <link rel="icon" type="image/png" href="{{asset('/storage/images/favicon.ico')}}">
+        <link rel="icon" href="{{asset('img/すべらない話.png')}}">
+        <link rel="apple-touch-icon" href="{{asset('img/すべらない話.png')}}" />
+        <link rel="icon" type="image/png" href="{{asset('img/すべらない話.png')}}">
 
     </head>
     <body class="font-sans antialiased">

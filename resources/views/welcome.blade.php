@@ -6,7 +6,7 @@
         <meta name="description" content="エピソードトークが作れるサイト。日常がエピソードトークであふれ、豊かな人生を目指す。">
         <meta name="keywords" content="エピソードトーク,面白い話,作れる,作成できる,作り方,作成方法">
 
-        <title>SuberaNotes</title>
+        <title>EpiMaker</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -23,9 +23,9 @@
         <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
 
-        <link rel="icon" href="{{asset('/storage/images/favicon.ico')}}">
-        <link rel="apple-touch-icon" href="{{asset('/storage/images/favicon.ico')}}" />
-        <link rel="icon" type="image/png" href="{{asset('/storage/images/favicon.ico')}}">
+        <link rel="icon" href="{{asset('img/すべらない話.png')}}">
+        <link rel="apple-touch-icon" href="{{asset('img/すべらない話.png')}}" />
+        <link rel="icon" type="image/png" href="{{asset('img/すべらない話.png')}}">
         
     </head>
     <body id="home" class="antialiased big-bg">
