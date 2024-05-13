@@ -26,8 +26,8 @@ return [
     ],
 
     'ses' => [
-        'key' => env('SES_ACCESS_KEY_ID'),
-        'secret' => env('SES_SECRET_ACCESS_KEY'),
+        'key' => env('AKIAUAUEK5MBVBUW22V7'),
+        'secret' => env('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'),
         'region' => env('SES_DEFAULT_REGION', 'us-east-1'),
     ],
 
