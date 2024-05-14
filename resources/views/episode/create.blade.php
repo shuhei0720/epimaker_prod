@@ -3,6 +3,12 @@
         <h2 class="font-semibold text-2xl leading-tight bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
             あなただけのエピソード作成画面
         </h2>
+        <div style="display: flex; justify-content: flex-left; padding-top: 20px;">
+            <x-primary-button id="generate-btn">
+                AIで作成
+            </x-primary-button>
+            <span style="margin-left: 10px; font-size: 22px;">🌟 1～7まで入力すると、AIに作成してもらうこともできます。🌟</span>
+        </div>
     </x-slot>
     <div class="max-w-7xl mx-auto px-6 bg-yellow-200">
         <x-message :message="session('message')" />
@@ -18,49 +24,49 @@
             <p class="text-green-600 mt-2">【例】調子乗りの友達</p>
 
             <div class="w-full flex flex-col">
-                <label for="when" class="font-semibold mt-4 text-blue-800 text-lg">■出来事を5W1H1Dに整理してみよう！<br><br>いつ？</label>
+                <label for="when" class="font-semibold mt-4 text-blue-800 text-lg">■出来事を5W1H1Dに整理してみよう！<br><br>1.いつ？</label>
                 <input type="text" name="when" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="when">
             </div>
             <p class="text-green-600 mt-2">【例】小学校の掃除時間</p>
 
             <div class="w-full flex flex-col">
-                <label for="where" class="font-semibold mt-4 text-blue-800 text-lg">どこで？</label>
+                <label for="where" class="font-semibold mt-4 text-blue-800 text-lg">2.どこで？</label>
                 <input type="text" name="where" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="where">
             </div>
             <p class="text-green-600 mt-2">【例】教室で</p>
 
             <div class="w-full flex flex-col">
-                <label for="who" class="font-semibold mt-4 text-blue-800 text-lg">だれが？</label>
+                <label for="who" class="font-semibold mt-4 text-blue-800 text-lg">3.だれが？</label>
                 <input type="text" name="who" class="w-auto py-2 border border-gray-400 rounded-md" id="who">
             </div>
             <p class="text-green-600 mt-2">【例】トイレットペーパーを全身に巻いた友達が</p>
 
             <div class="w-full flex flex-col">
-                <label for="what" class="font-semibold mt-4 text-blue-800 text-lg">なにを？</label>
+                <label for="what" class="font-semibold mt-4 text-blue-800 text-lg">4.なにを？</label>
                 <input type="text" name="what" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="what">
             </div>
             <p class="text-green-600 mt-2">【例】先生を</p>
 
             <div class="w-full flex flex-col">
-                <label for="do" class="font-semibold mt-4 text-blue-800 text-lg">どうした？</label>
+                <label for="do" class="font-semibold mt-4 text-blue-800 text-lg">5.どうした？</label>
                 <input type="text" name="do" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="do">
             </div>
             <p class="text-green-600 mt-2">【例】怒らせた</p>
 
             <div class="w-full flex flex-col">
-                <label for="why" class="font-semibold mt-4 text-blue-800 text-lg">なぜ？</label>
+                <label for="why" class="font-semibold mt-4 text-blue-800 text-lg">6.なぜ？</label>
                 <input type="text" name="why" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="why">
             </div>
             <p class="text-green-600 mt-2">【例】間違って先生を驚かしたから</p>
 
             <div class="w-full flex flex-col">
-                <label for="how" class="font-semibold mt-4 text-blue-800 text-lg">どのように？</label>
+                <label for="how" class="font-semibold mt-4 text-blue-800 text-lg">7.どのように？</label>
                 <input type="text" name="how" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="how">
             </div>
             <p class="text-green-600 mt-2">【例】掃除用具入れから飛び出してきて</p>
 
             <div class="w-full flex flex-col">
-                <label for="point" class="font-semibold mt-4 text-blue-800 text-lg">この話で一番共感してほしい、面白いポイントは？</label>
+                <label for="point" class="font-semibold mt-4 text-blue-800 text-lg">8.この話で一番共感してほしい、面白いポイントは？</label>
                 <input type="text" name="point" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="point">
             </div>
             <p class="text-green-600 mt-2">【例】掃除をサボって遊んでいた友達、しかも全身にトイレットペーパーを巻いてフザけるような調子乗りな奴だから、先生に怒られても自業自得だ！</p>
@@ -90,25 +96,25 @@
             </script>
 
             <div class="w-full flex flex-col">
-                <label for="beginning" class="font-semibold mt-4 text-blue-800 text-lg">■上記をもとに起承転結にまとめて、フリとオチを作ってみよう！<br><br>起(導入)</label>
+                <label for="beginning" class="font-semibold mt-4 text-blue-800 text-lg">■上記をもとに起承転結にまとめて、フリとオチを作ってみよう！<br><br>9.起(導入)</label>
                 <textarea name="beginning" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="beginning" cols="30" rows="2"></textarea>
             </div>
             <p class="text-green-600 mt-2">【例】小学生のころ、すごく調子乗りな友達がいた。</p>
 
             <div class="w-full flex flex-col">
-                <label for="development" class="font-semibold mt-4 text-blue-800 text-lg">承(起の情報を深める)</label>
+                <label for="development" class="font-semibold mt-4 text-blue-800 text-lg">10.承(起の情報を深める)</label>
                 <textarea name="development" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="development" cols="30" rows="2"></textarea>
             </div>
             <p class="text-green-600 mt-2">【例】保健の時間に「女子だけ体育館に集合」とかってときに、こっそりついて行って怒られるような奴。</p>
 
             <div class="w-full flex flex-col">
-                <label for="turnand" class="font-semibold mt-4 text-blue-800 text-lg">転(話の山場。聞き手の興味関心を惹く)</label>
+                <label for="turnand" class="font-semibold mt-4 text-blue-800 text-lg">11.転(話の山場。聞き手の興味関心を惹く)</label>
                 <textarea name="turnand" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="turnand" cols="30" rows="2"></textarea>
             </div>
             <p class="text-green-600 mt-2">【例】ある日の掃除時間、その友達は掃除をサボって、掃除用具入れに隠れていた。しかもトイレットペーパーを全身に巻いて。そこへ何も知らない先生がやってきて掃除用具棚のドアを開けた</p>
 
             <div class="w-full flex flex-col">
-                <label for="conclusion" class="font-semibold mt-4 text-blue-800 text-lg">結(話のオチ。最終的にどうなったか)</label>
+                <label for="conclusion" class="font-semibold mt-4 text-blue-800 text-lg">12.結(話のオチ。最終的にどうなったか)</label>
                 <textarea name="conclusion" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="conclusion" cols="30" rows="2"></textarea>
             </div>
             <p class="text-green-600 mt-2">【例】するとその友達が飛び出してきて、先生ビックリ！友達はこっぴどく怒られた。</p>
@@ -200,5 +206,49 @@
                 return;
             }
         }
+    </script>
+
+    <script>
+        // APIキー
+        const apiKey = 'sk-proj-lNaUg35QZtmlwMz5vNjXT3BlbkFJ0E1JyvXHFxuWgdUBUKGI';
+        // モデル
+        const model = 'gpt-3.5-turbo-instruct';
+
+        // エピソード生成関数
+        async function generateEpisode() {
+            const inputs = ['when', 'where', 'who', 'what', 'do', 'why', 'how', 'point'];
+            const values = inputs.map(inputName => document.getElementById(inputName).value);
+
+            const prompt = `${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。という5W1H1Dにまとめられたエピソードがあります。このエピソードを、フリとオチを作ってお笑い芸人風に面白いエピソードに清書して、冷静に披露してください！`;
+
+            try {
+                const response = await fetch('https://api.openai.com/v1/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: model,
+                        prompt: prompt,
+                        max_tokens: 1000,
+                        temperature: 0.7,
+                        n: 1
+                    })
+                });
+
+                const data = await response.json();
+                const episode = data.choices[0].text.trim();
+
+                // エピソードテキストエリアにセット
+                document.getElementById('episode').value = episode;
+            } catch (error) {
+                console.error('Error:', error);
+                alert('エピソードの生成中にエラーが発生しました。');
+            }
+        }
+
+        // AIで作成ボタンにクリックイベントを追加
+        document.getElementById('generate-btn').addEventListener('click', generateEpisode);
     </script>
 </x-app-layout>
