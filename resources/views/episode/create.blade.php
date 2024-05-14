@@ -7,7 +7,7 @@
             <x-primary-button id="generate-btn">
                 AIで作成
             </x-primary-button>
-            <span style="margin-left: 10px; font-size: 22px;">🌟 1～7まで入力すると、AIに作成してもらうこともできます。🌟</span>
+            <span style="margin-left: 10px; font-size: 22px;">🌟 1～8まで入力すると、AIに作成してもらえます🌟</span>
         </div>
     </x-slot>
     <div class="max-w-7xl mx-auto px-6 bg-yellow-200">
@@ -157,60 +157,9 @@
             </x-primary-button>
         </form>
     </div>
-    <script>
-        // ローカルストレージをクリアする関数
-        function clearLocalStorage() {
-            localStorage.clear(); // ローカルストレージをクリアする
-        }
-
-        // ページが読み込まれた後に実行される関数
-        window.onload = function() {
-            // ローカルストレージからフォームの値を取得し、フォームに設定する
-            const formInputs = ['title', 'when', 'where', 'who', 'what', 'do', 'why', 'how', 'point', 'beginning', 'development', 'turnand', 'conclusion', 'episode'];
-            formInputs.forEach(function(inputName) {
-                const savedValue = localStorage.getItem(inputName);
-                if (savedValue !== null) {
-                    document.getElementById(inputName).value = savedValue;
-                }
-            });
-
-            // フラッシュメッセージが存在するかどうかをチェック
-            const flashMessage = document.querySelector('.flash-message');
-            if (!flashMessage) {
-                // フラッシュメッセージが存在しない場合、ローカルストレージをクリアしない
-                return;
-            }
-
-            // フラッシュメッセージが存在する場合、ローカルストレージをクリアする
-            clearLocalStorage();
-        };
-
-        // フォームの値が変更された時に実行される関数
-        function handleInputChange(event) {
-            const { name, value } = event.target;
-            // 変更された値をローカルストレージに保存する
-            localStorage.setItem(name, value);
-        }
-
-        // 全てのフォームにイベントリスナーを追加する
-        document.querySelectorAll('input, textarea').forEach(function(input) {
-            input.addEventListener('input', handleInputChange);
-        });
-
-        // フォーム送信後に実行される関数
-        function handleFormSubmit(event) {
-            // フラッシュメッセージが存在するかどうかをチェック
-            const flashMessage = document.querySelector('.flash-message');
-            if (!flashMessage) {
-                // フラッシュメッセージが存在しない場合、ローカルストレージをクリアしない
-                return;
-            }
-        }
-    </script>
 
     <script>
-        // APIキー
-        const apiKey = 'sk-proj-lNaUg35QZtmlwMz5vNjXT3BlbkFJ0E1JyvXHFxuWgdUBUKGI';
+        const apiKey = "{{ env('OPENAI_API_KEY') }}";
         // モデル
         const model = 'gpt-3.5-turbo-instruct';
 

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold leading-tight text-2xl leading-tight bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
-            コメントした投稿一覧
+            コメントしたエピソード一覧
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto px-6">
