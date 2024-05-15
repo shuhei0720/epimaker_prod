@@ -165,10 +165,13 @@
 
         // エピソード生成関数
         async function generateEpisode() {
+            const generateBtn = document.getElementById('generate-btn');
+            generateBtn.textContent = 'AI生成中...';
+            generateBtn.disabled = true;
             const inputs = ['when', 'where', 'who', 'what', 'do', 'why', 'how', 'point'];
             const values = inputs.map(inputName => document.getElementById(inputName).value);
 
-            const prompt = `${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。という5W1H1Dにまとめられたエピソードがあります。このエピソードを、フリとオチを作ってお笑い芸人風に面白いエピソードに清書して、冷静に披露してください！`;
+            const prompt = `${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。というエピソードがあります。このエピソードを、フリとオチを作ってお笑い芸人風に面白いエピソードに清書して、冷静に披露してください！※フリ：、オチ：などは省いて本文のみ生成してください。`;
 
             try {
                 const response = await fetch('https://api.openai.com/v1/completions', {
@@ -191,9 +194,15 @@
 
                 // エピソードテキストエリアにセット
                 document.getElementById('episode').value = episode;
+                // ポップアップメッセージ表示
+                alert('AI生成完了');
             } catch (error) {
                 console.error('Error:', error);
                 alert('エピソードの生成中にエラーが発生しました。');
+            } finally {
+                // ボタンの状態を元に戻す
+                generateBtn.textContent = 'AIで作成';
+                generateBtn.disabled = false;
             }
         }
 
