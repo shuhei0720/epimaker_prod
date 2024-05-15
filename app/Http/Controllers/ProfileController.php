@@ -95,7 +95,7 @@ class ProfileController extends Controller
         $inputs=$request->validate([
             'name' => ['string', 'max:255'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($user)],
-            'avatar'=> ['image', 'max:1024'],
+            'avatar'=> ['image', 'max:10240'],
         ]);
 
         // アバター画像の保存

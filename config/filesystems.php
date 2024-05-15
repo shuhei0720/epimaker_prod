@@ -42,6 +42,7 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,
+            'max_file_size' => 10240, // 10MBを意味する例
         ],
 
         's3' => [
