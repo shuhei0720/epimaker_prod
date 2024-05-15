@@ -23,7 +23,7 @@
             </div>
             <h1 class="p-3 font-semibold bg-white border border-gray-400 rounded-2xl">
                 タイトル：
-                <a href="{{route('episode.show', $episode)}}" class="text-blue-600">
+                <a href="{{ route('episode.show', $episode) }}" class="text-blue-600" style="text-decoration: underline;">
                 {{$episode->title}}
                 </a>
             </h1>

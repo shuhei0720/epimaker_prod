@@ -1,16 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-2xl leading-tight bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
-            あなただけのエピソード作成画面
+            エピソード作成画面
         </h2>
-        <div style="display: flex; justify-content: flex-left; padding-top: 20px;">
+        <div class="mt-1 max-w-7xl mx-auto px-6" style="display: flex; justify-content: flex-left; padding-top: 20px;">
             <x-primary-button id="generate-btn">
                 AIで作成
             </x-primary-button>
             <span style="margin-left: 10px; font-size: 22px;">🌟 1～7まで入力すると、AIに作成してもらえます🌟</span>
         </div>
     </x-slot>
-    <div class="max-w-7xl mx-auto px-6 bg-gray-50">
+    <div class="mt-1 max-w-7xl mx-auto px-6 bg-gray-50">
         <x-message :message="session('message')" />
         <form method="post" action="{{ route('episode.store') }}">
             @csrf
@@ -166,12 +166,12 @@
         // エピソード生成関数
         async function generateEpisode() {
             const generateBtn = document.getElementById('generate-btn');
-            generateBtn.textContent = 'AI生成中...';
+            generateBtn.textContent = '生成中...';
             generateBtn.disabled = true;
             const inputs = ['when', 'where', 'who', 'what', 'do', 'why', 'how', 'point'];
             const values = inputs.map(inputName => document.getElementById(inputName).value);
 
-            const prompt = `「${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。」というエピソードがあります。このエピソードを、フリとオチのあるお笑い芸人が披露するような面白いエピソードに清書して、冷静に披露してください！※フリ：、オチ：などは省いて本文のみ生成してください。`;
+            const prompt = `「${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。」というエピソードがあります。このエピソードを、フリとオチのある面白いエピソードに清書して、冷静に披露してください！※「フリ：」、「オチ：」という文字や、話し手などは省いて本文のみ生成してください。`;
 
             try {
                 const response = await fetch('https://api.openai.com/v1/completions', {
@@ -183,7 +183,7 @@
                     body: JSON.stringify({
                         model: model,
                         prompt: prompt,
-                        max_tokens: 1000,
+                        max_tokens: 1500,
                         temperature: 0.7,
                         n: 1
                     })
@@ -195,7 +195,7 @@
                 // エピソードテキストエリアにセット
                 document.getElementById('episode').value = episode;
                 // ポップアップメッセージ表示
-                alert('AI生成完了');
+                alert('AI生成が完了しました。\nエピソード欄をご確認ください。');
             } catch (error) {
                 console.error('Error:', error);
                 alert('エピソードの生成中にエラーが発生しました。');
