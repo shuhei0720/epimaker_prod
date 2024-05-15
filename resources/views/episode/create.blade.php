@@ -7,16 +7,16 @@
             <x-primary-button id="generate-btn">
                 AIで作成
             </x-primary-button>
-            <span style="margin-left: 10px; font-size: 22px;">🌟 1～8まで入力すると、AIに作成してもらえます🌟</span>
+            <span style="margin-left: 10px; font-size: 22px;">🌟 1～7まで入力すると、AIに作成してもらえます🌟</span>
         </div>
     </x-slot>
-    <div class="max-w-7xl mx-auto px-6 bg-yellow-200">
+    <div class="max-w-7xl mx-auto px-6 bg-gray-50">
         <x-message :message="session('message')" />
         <form method="post" action="{{ route('episode.store') }}">
             @csrf
             <div class="w-full flex flex-col">
                 <p class="font-semibold mt-4 text-green-600 text-lg ">※個人名などは抽象的な表現にしてください。【例】同級生の田中（偽名）くん</p>
-                <label for="title" class="font-semibold mt-4 text-blue-800 text-lg ">■タイトルを考えよう！<br><br>(遊び、ニュース、季節、友達、旅、健康、仕事、学校、家族、恋人、住居、食事、etc...)を思い返してみよう</label>
+                <label for="title" class="font-semibold mt-4 text-blue-800 text-lg ">■タイトルを考えよう！(必須)<br><br>(遊び、ニュース、季節、友達、旅、健康、仕事、学校、家族、恋人、住居、食事、etc...)</label>
                 <x-input-error :messages="$errors->get('title')" class="mt-2" />
                 <input type="text" name="title" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="title">
                 <value="{{old('title')}}">
@@ -138,7 +138,7 @@
             <p class="text-green-600">※下記エピソードの内容をクリアして反映します。</p>
 
             <div class="w-full flex flex-col" style="white-space: pre-line;">
-                <label for="episode" class="font-semibold mt-4 text-blue-800 text-lg">■足りない分を補足し、より面白くなるよう脚色したら完成！<br>比喩や例えなども入れてみよう(こっそり、びっくり、まるで～など)</label>
+                <label for="episode" class="font-semibold mt-4 text-blue-800 text-lg">■足りない分を補足し、より面白くなるよう脚色してエピソードを完成させよう！（必須）</label>
                 <x-input-error :messages="$errors->get('episode')" class="mt-2" />
                 <textarea name="episode" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="episode" cols="30" rows="10"></textarea>
                 <value="{{old('episode')}}">
@@ -171,7 +171,7 @@
             const inputs = ['when', 'where', 'who', 'what', 'do', 'why', 'how', 'point'];
             const values = inputs.map(inputName => document.getElementById(inputName).value);
 
-            const prompt = `${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。というエピソードがあります。このエピソードを、フリとオチを作ってお笑い芸人風に面白いエピソードに清書して、冷静に披露してください！※フリ：、オチ：などは省いて本文のみ生成してください。`;
+            const prompt = `「${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。」というエピソードがあります。このエピソードを、フリとオチのあるお笑い芸人が披露するような面白いエピソードに清書して、冷静に披露してください！※フリ：、オチ：などは省いて本文のみ生成してください。`;
 
             try {
                 const response = await fetch('https://api.openai.com/v1/completions', {

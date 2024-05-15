@@ -4,7 +4,7 @@
             自分のエピソード一覧
         </h2>
     </x-slot>
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-0">
         @if(session('message'))
         <div class="text-red-600 font-bold">
             {{session('message')}}
@@ -16,7 +16,7 @@
         </p>
         @else
         @foreach($episodes as $episode)
-        <div class="mt-4 p-8 bg-yellow-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500">
+        <div class="mt-4 p-8 bg-gray-50 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500">
             <div class="rounded-full w-12 h-12 mb-1 overflow-hidden">
                 {{-- アバター表示 --}}
                 <img src="{{asset('storage/avatar/'.($episode->user->avatar??'user_default.jpg'))}}" class="object-cover w-full h-full">
