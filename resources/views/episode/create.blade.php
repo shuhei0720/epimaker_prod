@@ -5,9 +5,9 @@
         </h2>
         <div class="mt-1 max-w-7xl mx-auto px-6" style="display: flex; justify-content: flex-left; padding-top: 20px;">
             <x-primary-button id="generate-btn">
-                AIで作成
+                AIで生成
             </x-primary-button>
-            <span style="margin-left: 10px; font-size: 22px;">🌟 1～7まで入力すると、AIに作成してもらえます🌟</span>
+            <span style="margin-left: 10px; font-size: 22px;">🌟 1～7までを使用して、&nbsp;AI生成できます🌟</span>
         </div>
     </x-slot>
     <div class="mt-1 max-w-7xl mx-auto px-6 bg-gray-50">
@@ -69,7 +69,7 @@
                 <label for="point" class="font-semibold mt-4 text-blue-800 text-lg">8.この話で一番共感してほしい、面白いポイントは？</label>
                 <input type="text" name="point" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="point">
             </div>
-            <p class="text-green-600 mt-2">【例】掃除をサボって遊んでいた友達、しかも全身にトイレットペーパーを巻いてフザけるような調子乗りな奴だから、先生に怒られても自業自得だ！</p>
+            <p class="text-green-600 mt-2">【例】友達が調子に乗って、罰が当たるところ</p>
 
             
             <div id="result" class="mt-4 text-lg text-red-700" style="border: 1px solid black; padding: 10px;"></div>
@@ -105,13 +105,13 @@
                 <label for="development" class="font-semibold mt-4 text-blue-800 text-lg">10.承(起の情報を深める)</label>
                 <textarea name="development" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="development" cols="30" rows="2"></textarea>
             </div>
-            <p class="text-green-600 mt-2">【例】保健の時間に「女子だけ体育館に集合」とかってときに、こっそりついて行って怒られるような奴。</p>
+            <p class="text-green-600 mt-2">【例】「女子だけ体育館に集合」ってときに、こっそりついて行って怒られるようなお調子者だった。</p>
 
             <div class="w-full flex flex-col">
                 <label for="turnand" class="font-semibold mt-4 text-blue-800 text-lg">11.転(話の山場。聞き手の興味関心を惹く)</label>
                 <textarea name="turnand" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="turnand" cols="30" rows="2"></textarea>
             </div>
-            <p class="text-green-600 mt-2">【例】ある日の掃除時間、その友達は掃除をサボって、掃除用具入れに隠れていた。しかもトイレットペーパーを全身に巻いて。そこへ何も知らない先生がやってきて掃除用具棚のドアを開けた</p>
+            <p class="text-green-600 mt-2">【例】ある日の掃除時間、その友達はトイレットペーパーを全身に巻いて掃除用具入れに隠れていた。何も知らない先生がやってきて掃除用具入れを開けた。</p>
 
             <div class="w-full flex flex-col">
                 <label for="conclusion" class="font-semibold mt-4 text-blue-800 text-lg">12.結(話のオチ。最終的にどうなったか)</label>

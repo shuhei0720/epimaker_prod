@@ -20,13 +20,13 @@
                             <form action="{{ route('episodes.toggleVisibility', $episode->id) }}" method="POST" class="flex flex-1 mb-2" style="margin: 0 0 0 auto">
                                 @csrf
                                 @method('PUT')
-                                <x-primary-button class="bg-sky-700 ml-2">公開中</x-primary-button>
+                                <x-primary-button class="bg-red-700 ml-2">非公開にする</x-primary-button>
                             </form>
                         @else
                             <form action="{{ route('episodes.toggleVisibility', $episode->id) }}" method="POST" class="flex flex-1 mb-2" style="margin: 0 0 0 auto">
                                 @csrf
                                 @method('PUT')
-                                <x-primary-button class="bg-red-700 ml-2">非公開</x-primary-button>
+                                <x-primary-button class="bg-sky-700 ml-2">公開する</x-primary-button>
                             </form>
                         @endif
                     @endif
@@ -111,146 +111,25 @@
             </form>
         </div>
 
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
+        <div class="bg-gray-100 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500">
             <div class="mt-4 p-4">
                 <h1 class="text-lg font-semibold">
-                    いつ？
+                    エピソード詳細
                 </h1>
                 <hr class="w-full">
                 <p class="mt-4 whitespace-pre-line">
-                    {{$episode->when}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    どこで？
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->where}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    だれが？
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->who}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    なにを？
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->what}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    どうした？
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->do}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    なぜ？
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->why}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    どのように？
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->how}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    面白ポイント
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->point}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    起
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->beginning}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    承
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->development}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    転
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->turnand}}
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-sky-200 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"">
-            <div class="mt-4 p-4">
-                <h1 class="text-lg font-semibold">
-                    結
-                </h1>
-                <hr class="w-full">
-                <p class="mt-4 whitespace-pre-line">
-                    {{$episode->conclusion}}
+                    いつ？ : {{$episode->when}}<br>
+                    どこで？：{{$episode->where}}<br>
+                    だれが？：{{$episode->who}}<br>
+                    なにを？：{{$episode->what}}<br>
+                    どうした？：{{$episode->do}}<br>
+                    なぜ？：{{$episode->why}}<br>
+                    どうやって？：{{$episode->how}}<br>
+                    ポイント：{{$episode->point}}<br>
+                    起：{{$episode->beginning}}<br>
+                    承：{{$episode->development}}<br>
+                    転：{{$episode->turnand}}<br>
+                    結：{{$episode->conclusion}}<br>
                 </p>
             </div>
         </div>
