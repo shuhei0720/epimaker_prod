@@ -7,7 +7,7 @@
             <x-primary-button id="generate-btn">
                 AIで生成
             </x-primary-button>
-            <span style="margin-left: 10px; font-size: 22px;">🌟 1～7までを使用して、&nbsp;AI生成できます🌟</span>
+            <span style="margin-left: 10px; font-size: 22px;">🌟 1～7まで入力すると、&nbsp;AI生成できます🌟</span>
         </div>
     </x-slot>
     <div class="mt-1 max-w-7xl mx-auto px-6 bg-gray-50">
@@ -16,7 +16,7 @@
             @csrf
             <div class="w-full flex flex-col">
                 <p class="font-semibold mt-4 text-green-600 text-lg ">※個人名などは抽象的な表現にしてください。【例】同級生の田中（偽名）くん</p>
-                <label for="title" class="font-semibold mt-4 text-blue-800 text-lg ">■タイトルを考えよう！(必須)<br><br>(遊び、ニュース、季節、友達、旅、健康、仕事、学校、家族、恋人、住居、食事、etc...)</label>
+                <label for="title" class="font-semibold mt-4 text-blue-800 text-lg ">■タイトル(必須)<br><br>(遊び、ニュース、季節、友達、旅、健康、仕事、学校、家族、恋人、住居、食事、etc...)</label>
                 <x-input-error :messages="$errors->get('title')" class="mt-2" />
                 <input type="text" name="title" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="title">
                 <value="{{old('title')}}">
@@ -24,7 +24,7 @@
             <p class="text-green-600 mt-2">【例】調子乗りの友達</p>
 
             <div class="w-full flex flex-col">
-                <label for="when" class="font-semibold mt-4 text-blue-800 text-lg">■出来事を5W1H1Dに整理してみよう！<br><br>1.いつ？</label>
+                <label for="when" class="font-semibold mt-4 text-blue-800 text-lg">■5W1H1Dに整理する<br><br>1.いつ？</label>
                 <input type="text" name="when" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="when">
             </div>
             <p class="text-green-600 mt-2">【例】小学校の掃除時間</p>
@@ -66,7 +66,7 @@
             <p class="text-green-600 mt-2">【例】掃除用具入れから飛び出してきて</p>
 
             <div class="w-full flex flex-col">
-                <label for="point" class="font-semibold mt-4 text-blue-800 text-lg">8.この話で一番共感してほしい、面白いポイントは？</label>
+                <label for="point" class="font-semibold mt-4 text-blue-800 text-lg">8.この話で一番共感してほしい、面白ポイントは？</label>
                 <input type="text" name="point" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="point">
             </div>
             <p class="text-green-600 mt-2">【例】友達が調子に乗って、罰が当たるところ</p>
@@ -96,25 +96,25 @@
             </script>
 
             <div class="w-full flex flex-col">
-                <label for="beginning" class="font-semibold mt-4 text-blue-800 text-lg">■上記をもとに起承転結にまとめて、フリとオチを作ってみよう！<br><br>9.起(導入)</label>
+                <label for="beginning" class="font-semibold mt-4 text-blue-800 text-lg">■起承転結にまとめて、フリとオチを作る<br><br>9.起(フリ：導入)</label>
                 <textarea name="beginning" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="beginning" cols="30" rows="2"></textarea>
             </div>
             <p class="text-green-600 mt-2">【例】小学生のころ、すごく調子乗りな友達がいた。</p>
 
             <div class="w-full flex flex-col">
-                <label for="development" class="font-semibold mt-4 text-blue-800 text-lg">10.承(起の情報を深める)</label>
+                <label for="development" class="font-semibold mt-4 text-blue-800 text-lg">10.承(フリ：起の情報を深める)</label>
                 <textarea name="development" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="development" cols="30" rows="2"></textarea>
             </div>
             <p class="text-green-600 mt-2">【例】「女子だけ体育館に集合」ってときに、こっそりついて行って怒られるようなお調子者だった。</p>
 
             <div class="w-full flex flex-col">
-                <label for="turnand" class="font-semibold mt-4 text-blue-800 text-lg">11.転(話の山場。聞き手の興味関心を惹く)</label>
+                <label for="turnand" class="font-semibold mt-4 text-blue-800 text-lg">11.転(フリ：話の山場。聞き手の興味関心を惹く)</label>
                 <textarea name="turnand" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="turnand" cols="30" rows="2"></textarea>
             </div>
             <p class="text-green-600 mt-2">【例】ある日の掃除時間、その友達はトイレットペーパーを全身に巻いて掃除用具入れに隠れていた。何も知らない先生がやってきて掃除用具入れを開けた。</p>
 
             <div class="w-full flex flex-col">
-                <label for="conclusion" class="font-semibold mt-4 text-blue-800 text-lg">12.結(話のオチ。最終的にどうなったか)</label>
+                <label for="conclusion" class="font-semibold mt-4 text-blue-800 text-lg">12.結(オチ：最終的にどうなったか)</label>
                 <textarea name="conclusion" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="conclusion" cols="30" rows="2"></textarea>
             </div>
             <p class="text-green-600 mt-2">【例】するとその友達が飛び出してきて、先生ビックリ！友達はこっぴどく怒られた。</p>
@@ -138,7 +138,7 @@
             <p class="text-green-600">※下記エピソードの内容をクリアして反映します。</p>
 
             <div class="w-full flex flex-col" style="white-space: pre-line;">
-                <label for="episode" class="font-semibold mt-4 text-blue-800 text-lg">■足りない分を補足し、より面白くなるよう脚色してエピソードを完成させよう！（必須）</label>
+                <label for="episode" class="font-semibold mt-4 text-blue-800 text-lg">■足りない所を補足して完成！（必須）</label>
                 <x-input-error :messages="$errors->get('episode')" class="mt-2" />
                 <textarea name="episode" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="episode" cols="30" rows="10"></textarea>
                 <value="{{old('episode')}}">
