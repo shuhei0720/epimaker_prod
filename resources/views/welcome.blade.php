@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="description" content="エピソードトークが作れるサイト。日常がエピソードトークであふれ、豊かな人生を目指す。">
+        <meta name="description" content="AIを使ってエピソードトークが作れるサイト。">
         <meta name="keywords" content="エピソードトーク,面白い話,作れる,作成できる,作り方,作成方法">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
@@ -72,7 +72,7 @@
                     </div>
                     <div class="container pt-10 md:pt-18 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
                         <div class="w-full text-m text-center md:text-left fade-in border-2 p-4 bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent leading-8 mb-8">
-                            <P> このサイトでは、日記感覚でエピソードトークを作ることができます。<br>日常にはあなただけの人生一度だけのエピソードが日々起こっていますが、それは徐々に記憶から薄れ無くなっていきます。<br>そこで、このサイトに記録することであなただけの物語を作っていきましょう！<br>さらに、作成画面に沿ってエピソードを作ることで、起承転結に整理されたきれいなエピソードになり、人と話すとき話が上手な人と思われるようになるかもしれません。</p>
+                            <P> このサイトでは、日記感覚でエピソードトークを作ることができます。<br>日常にはあなただけの人生一度だけのエピソードが日々起こっていますが、それは徐々に記憶から薄れ無くなっていきます。<br>そこで、このサイトに記録することであなただけの物語を作っていきましょう！<br>さらに、作成画面に沿ってエピソードを作ることで、起承転結に整理されたきれいなエピソードになり、人と話すとき話が上手な人と思われるようになるかもしれません。<br>【new!】&nbsp;AIでエピソードを作成できる機能をリリースしました。ぜひ、AIエピソード作成を使いこなしてください！</p>
                         </div>
                         <!--フッタ-->
                         <div class="w-full pt-10 pb-6 text-sm md:text-left fade-in">
