@@ -148,7 +148,7 @@
                 <label for="status">公開状態:</label>
                 <select id="status" name="status">
                     <option value="0">非公開</option>
-                    <option value="1">公開</option>
+                    <option value="1" selected>公開</option>
                 </select>
             </div>
 
