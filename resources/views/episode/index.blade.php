@@ -67,7 +67,11 @@
         </div>
         @endforeach
         <div class="mb-4">
-            {{ $episodes->links() }}
+            <nav class="flex justify-center" aria-label="Page navigation">
+                <ul class="pagination">
+                    {{ $episodes->links() }}
+                </ul>
+            </nav>
         </div>
     </div>
 </x-app-layout>

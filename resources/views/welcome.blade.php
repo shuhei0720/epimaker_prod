@@ -56,7 +56,7 @@
                             <p class="leading-normal text-xl md:text-4xl mb-8 text-center md:text-left slide-in-bottom-subtitle bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
                                 AIを使って手軽にエピソードトークを作ることができます。
                             </p>
-                            <div class="flex w-full justify-center md:justify-start pb-5 lg:pb-2 fade-in ">
+                            <div class="flex w-full justify-center md:justify-start pb-2 lg:pb-2 fade-in ">
                                 <a href="{{route('contact.create')}}"><x-primary-button class="btnsetg">お問い合わせ</x-primary-button></a>
                                 <a href="{{route('register')}}"><x-primary-button class="btnsetr">ご登録はこちら</x-primary-button></a>
                                 
