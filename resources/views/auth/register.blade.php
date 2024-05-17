@@ -25,7 +25,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('パスワード (8文字以上)')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
