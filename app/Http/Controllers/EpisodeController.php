@@ -141,4 +141,20 @@ class EpisodeController extends Controller
     return redirect()->back()->with('success', 'エピソードの公開状態が変更されました。');
     }
 
+    public function ranking() {
+        $user = auth()->user();
+        $episodes = Episode::withCount('nices')
+                            ->whereHas('flag', function ($query) {
+                                $query->where('flag', 1);
+                            })
+                            ->orderBy('nices_count', 'desc')
+                            ->paginate(5);
+    
+        $episodes->load(['nices' => function ($query) use ($user) {
+            $query->where('user_id', $user->id);
+        }]);
+    
+        return view('episode.ranking', compact('episodes'));
+    }
+
 }

@@ -67,6 +67,9 @@ Route::middleware(['verified'])->group(function() {
     Route::get('episode', [EpisodeController::class, 'index'])
     ->middleware(['auth'])->name('episode.index');
 
+    Route::get('/ranking', [EpisodeController::class, 'ranking'])
+    ->middleware(['auth'])->name('episode.ranking');
+
     Route::get('episode/show/{episode}', [EpisodeController::class, 'show'])
     ->middleware(['auth'])->name('episode.show');
 
