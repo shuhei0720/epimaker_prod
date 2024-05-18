@@ -171,7 +171,7 @@
             const inputs = ['when', 'where', 'who', 'what', 'do', 'why', 'how', 'point'];
             const values = inputs.map(inputName => document.getElementById(inputName).value);
 
-            const prompt = `「${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。」というエピソードがあります。このエピソードを、フリとオチのある面白いエピソードに清書して、冷静に披露してください！※「フリ：」、「オチ：」という文字や、話し手などは省いて本文のみ生成してください。`;
+            const prompt = `「${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。」というエピソードがあります。このエピソードを、300文字以内でフリとオチのある面白いエピソードに清書して、冷静に披露してください！※フリ、オチという文言は含めず、話し手などは省いて本文のみ生成してください。`;
 
             try {
                 const response = await fetch('https://api.openai.com/v1/completions', {
