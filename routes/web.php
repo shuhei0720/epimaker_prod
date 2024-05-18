@@ -93,6 +93,10 @@ Route::middleware(['verified'])->group(function() {
     Route::get('/nice/unnice/{episode}', [NiceController::class, 'unnice'])->name('unnice');
 
     Route::put('/episodes/{id}/toggle-visibility', [EpisodeController::class, 'toggleEpisodeVisibility'])->name('episodes.toggleVisibility');
+
+    Route::get('/manual', function () {
+        return view('manual');
+    })->name('manual');
 });
 
 Route::get('contact/create', [ContactController::class, 'create'])

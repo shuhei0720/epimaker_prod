@@ -21,19 +21,21 @@
                 <a href="{{ route('episode.show', $episode) }}" class="text-blue-600" style="text-decoration: underline;">
                 {{$episode->title}}
                 </a>
-                @if ($index == 0)
-                    <span class="ms-2 text-2xl">👑</span>
-                @elseif ($index == 1)
-                    <span class="ms-2 text-2xl">🥈</span>
-                @elseif ($index == 2)
-                    <span class="ms-2 text-2xl">🥉</span>
+                @if ($episodes->currentPage() == 1)
+                    @if ($index == 0)
+                        <span class="ms-2 text-2xl">👑</span>
+                    @elseif ($index == 1)
+                        <span class="ms-2 text-2xl">🥈</span>
+                    @elseif ($index == 2)
+                        <span class="ms-2 text-2xl">🥉</span>
+                    @endif
                 @endif
             </h1>
             <hr class="w-full">
             <p class="mt-2 p-4 bg-white border border-gray-400 text-sm md:text-lg rounded-sm" style="padding-top: 0; white-space: pre-line;">
                 {{$episode->episode}}
             </p>
-            <div class="p-3 text-sm font-semibold  bg-white border border-gray-400 rounded-sm">
+            <div class="p-3 text-sm font-semibold bg-white border border-gray-400 rounded-sm">
                 <p>
                     作成者：{{$episode->user->name??'削除されたユーザー'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
                 </p>
