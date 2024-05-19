@@ -13,22 +13,22 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('manual')" :active="request()->routeIs('manual')">
-                        マニュアル
+                        マニュアル📚
                     </x-nav-link>
                     <x-nav-link :href="route('episode.ranking')" :active="request()->routeIs('episode.ranking')">
-                        いいねランキング👑
+                        いいねランキング🏆
                     </x-nav-link>
                     <x-nav-link :href="route('episode.index')" :active="request()->routeIs('episode.index')">
-                        みんなの投稿
+                        みんなの投稿🌐
                     </x-nav-link>
                     <x-nav-link :href="route('episode.create')" :active="request()->routeIs('episode.create')">
-                        新規作成
+                        新規作成📄
                     </x-nav-link>
                     <x-nav-link :href="route('episode.myepisode')" :active="request()->routeIs('episode.myepisode')">
-                        自分の投稿
+                        自分の投稿👤
                     </x-nav-link>
                     <x-nav-link :href="route('episode.mycomment')" :active="request()->routeIs('episode.mycomment')">
-                        コメントした投稿
+                        コメントした投稿💬
                     </x-nav-link>
                     @can('admin')
                     <x-nav-link :href="route('profile.index')" :active="request()->routeIs('profile.index')">
@@ -88,22 +88,22 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('manual')" :active="request()->routeIs('manual')">
-                マニュアル
+                マニュアル📚
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('episode.ranking')" :active="request()->routeIs('episode.ranking')">
-                いいねランキング👑
+                いいねランキング🏆
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('episode.index')" :active="request()->routeIs('episode.index')">
-                みんなの投稿
+                みんなの投稿🌐
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('episode.create')" :active="request()->routeIs('episode.create')">
-                新規作成
+                新規作成📄
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('episode.myepisode')" :active="request()->routeIs('episode.myepisode')">
-                自分の投稿
+                自分の投稿👤
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('episode.mycomment')" :active="request()->routeIs('episode.mycomment')">
-                コメントした投稿
+                コメントした投稿💬
             </x-responsive-nav-link>
             @can('admin')
             <x-responsive-nav-link :href="route('profile.index')" :active="request()->routeIs('profile.index')">

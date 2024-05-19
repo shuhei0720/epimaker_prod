@@ -6,19 +6,47 @@
     </x-slot>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-4">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-            <h3 class="text-xl font-bold mb-4">ナビゲーションメニューのマニュアル</h3>
+            <h3 class="text-xl font-bold mb-4">このサイトの使い方</h3>
             <div id="manual-contents">
                 <div class="manual-item">
                     <button onclick="toggleSection('manual-settings')" class="manual-button">
-                        <span class="arrow">▼</span> <span class="emphasis">スマホユーザー向けの設定</span>
+                        <span class="arrow">▼</span> <span class="emphasis">【Tips】スマホユーザー向けの設定📱</span>
                     </button>
                     <div id="manual-settings" class="manual-content hidden">
-                        <p>ここに「スマホユーザー向けの設定」に関する説明を記載します。</p>
+                        <p class="text-base mb-4">
+                            スマホユーザーの方は以下の設定をおすすめします。スマホアプリのように使用することができます。
+                        </p>
+                        <p class="text-base mb-4">①epimakerのブラウザ画面で共有ボタンを押します。</p>
+                        <img src="{{ asset('img/manual/IMG_7403.png') }}" alt="スマホ設定" class="manual-img">
+                        <p class="text-base mb-4">②「ホーム画面」に追加を押します。</p>
+                        <img src="{{ asset('img/manual/IMG_7404.png') }}" alt="スマホ設定" class="manual-img">
+                        <p class="text-base mb-4">③「追加」を押します。</p>
+                        <img src="{{ asset('img/manual/IMG_7405.PNG') }}" alt="スマホ設定" class="manual-img">
+                        <p class="text-base mb-4">④ホーム画面にepimakerアイコンが追加されます。今後、ここからアクセスすることができます。</p>
+                        <img src="{{ asset('img/manual/IMG_7406.PNG') }}" alt="スマホ設定" class="manual-img">
+                    </div>
+                </div>
+                <div class="manual-item">
+                    <button onclick="toggleSection('manual-create1')" class="manual-button">
+                        <span class="arrow">▼</span> 【Tips】おすすめのエピソード作成方法✨
+                    </button>
+                    <div id="manual-create1" class="manual-content hidden">
+                        <p class="text-base mb-4">
+                            管理人おすすめのエピソード作成方法を紹介します。
+                        </p>
+                        <p class="text-base mb-4">①「新規作成」画面に移動します。</p>
+                        <img src="{{ asset('img/manual/osusume1.png') }}" alt="オススメ設定" class="manual-img-large">
+                        <p class="text-base mb-4">②「ホーム画面」に追加を押します。</p>
+                        <img src="{{ asset('img/manual/IMG_7404.png') }}" alt="スマホ設定" class="manual-img">
+                        <p class="text-base mb-4">③「追加」を押します。</p>
+                        <img src="{{ asset('img/manual/IMG_7405.PNG') }}" alt="スマホ設定" class="manual-img">
+                        <p class="text-base mb-4">④ホーム画面にepimakerアイコンが追加されます。今後、ここからアクセスすることができます。</p>
+                        <img src="{{ asset('img/manual/IMG_7406.PNG') }}" alt="スマホ設定" class="manual-img">
                     </div>
                 </div>
                 <div class="manual-item">
                     <button onclick="toggleSection('manual-create')" class="manual-button">
-                        <span class="arrow">▼</span> 新規作成画面
+                        <span class="arrow">▼</span> 新規作成画面📄
                     </button>
                     <div id="manual-create" class="manual-content hidden">
                         <p>ここに「新規作成画面」に関する説明を記載します。</p>
@@ -26,7 +54,7 @@
                 </div>
                 <div class="manual-item">
                     <button onclick="toggleSection('manual-episodes')" class="manual-button">
-                        <span class="arrow">▼</span> みんなの投稿
+                        <span class="arrow">▼</span> みんなの投稿🌐
                     </button>
                     <div id="manual-episodes" class="manual-content hidden">
                         <p>ここに「みんなの投稿」に関する説明を記載します。</p>
@@ -34,7 +62,7 @@
                 </div>
                 <div class="manual-item">
                     <button onclick="toggleSection('manual-edit')" class="manual-button">
-                        <span class="arrow">▼</span> エピソード編集
+                        <span class="arrow">▼</span> エピソード編集✍️
                     </button>
                     <div id="manual-edit" class="manual-content hidden">
                         <p>ここに「エピソード編集」に関する説明を記載します。</p>
@@ -42,7 +70,7 @@
                 </div>
                 <div class="manual-item">
                     <button onclick="toggleSection('manual-myepisode')" class="manual-button">
-                        <span class="arrow">▼</span> 自分の投稿
+                        <span class="arrow">▼</span> 自分の投稿👤
                     </button>
                     <div id="manual-myepisode" class="manual-content hidden">
                         <p>ここに「自分の投稿」に関する説明を記載します。</p>
@@ -50,7 +78,7 @@
                 </div>
                 <div class="manual-item">
                     <button onclick="toggleSection('manual-ranking')" class="manual-button">
-                        <span class="arrow">▼</span> いいねランキング
+                        <span class="arrow">▼</span> いいねランキング🏆
                     </button>
                     <div id="manual-ranking" class="manual-content hidden">
                         <p>ここに「いいねランキング」に関する説明を記載します。</p>
@@ -58,7 +86,7 @@
                 </div>
                 <div class="manual-item">
                     <button onclick="toggleSection('manual-mycomment')" class="manual-button">
-                        <span class="arrow">▼</span> コメントした投稿
+                        <span class="arrow">▼</span> コメントした投稿💬
                     </button>
                     <div id="manual-mycomment" class="manual-content hidden">
                         <p>ここに「コメントした投稿」に関する説明を記載します。</p>
@@ -99,6 +127,18 @@
             padding: 10px;
             border-top: 1px solid #ddd;
             background-color: #fff;
+        }
+        .manual-img {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 10px 0;
+        }
+        .manual-img-large {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin: 10px 0;
         }
     </style>
 
