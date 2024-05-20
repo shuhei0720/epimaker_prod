@@ -1,66 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="description" content="AIを使ってエピソードトークが作れるサイト。">
+        <meta name="keywords" content="エピソードトーク,面白い話,作れる,作成できる,作り方,作成方法">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-## About Laravel
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+        <link rel="icon" href="{{asset('img/すべらない話.png')}}">
+        <link rel="apple-touch-icon" href="{{asset('img/すべらない話.png')}}" />
+        <link rel="icon" type="image/png" href="{{asset('img/すべらない話.png')}}">
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body>
+        <div class="font-sans text-gray-900 antialiased">
+        <div class="w-full container mx-auto p-6">
+                <div class="w-full flex items-center justify-between">
+                    <div class="flex w-1/2 justify-end content-center">
+                        {{-- ログイン・登録部分 --}}
+                        @if (Route::has('login'))
+                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                            @auth
+                                <a href="{{ url('/post') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">HOME</a>
+                            @else
+                                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline font-bold text-base">ログイン</a>
+        
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline font-bold text-base">登録</a>
+                                @endif
+                            @endauth
+                        @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <div class="w-full container mx-auto p-6">
+                <div class="h-screen pb-14 bg-right bg-cover">
+                    <div class="container pt-10 md:pt-18 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center bg-gray-50">
+                        <!--左側-->
+                        <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden ">
+                            <h1 class="font-semibold text-3xl md:text-5xl leading-tight bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent text-center md:text-left slide-in-bottom-h1">EpiMaker</h1>
+                            <p class="leading-normal text-xl md:text-4xl mb-8 text-center md:text-left slide-in-bottom-subtitle bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
+                                AIを使って手軽にエピソードトークを作ることができます。
+                            </p>
+                            <div class="flex w-full justify-center md:justify-start pb-2 lg:pb-2 fade-in ">
+                                <a href="{{route('contact.create')}}"><x-primary-button class="btnsetg">お問い合わせ</x-primary-button></a>
+                                <a href="{{route('register')}}"><x-primary-button class="btnsetr">ご登録はこちら</x-primary-button></a>
+                                
+                            </div>
+                            <div class="flex w-full justify-center md:justify-start pb-5 lg:pb-2 fade-in ">
+                                <a href="{{ route('login') }}"><x-primary-button class="btnsetl">登録済みの方はこちら</x-primary-button></a>
+                            </div>
+                        </div>
+                        {{-- 右側 --}}
+                        <div class="w-full xl:w-3/5 py-6 overflow-y-hidden">
+                            <img class="w-5/6 mx-auto lg:mr-0 slide-in-bottom rounded-lg shadow-xl" src="{{asset('img/Designer.jpeg')}}">
+                        </div>
+                    </div>
+                    <div class="container pt-10 md:pt-18 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+                        <div class="w-full text-m text-center md:text-left fade-in border-2 p-4 bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent leading-8 mb-8">
+                            <P> このサイトでは、日記感覚でエピソードトークを作ることができます。<br>日常にはあなただけの人生一度だけのエピソードが日々起こっていますが、それは徐々に記憶から薄れ無くなっていきます。<br>そこで、このサイトに記録することであなただけの物語を作っていきましょう！<br>さらに、作成画面に沿ってエピソードを作ることで、起承転結に整理されたきれいなエピソードになり、人と話すとき話が上手な人と思われるようになるかもしれません。<br>【new!】&nbsp;AIでエピソードを作成できる機能をリリースしました。ぜひ、AIエピソード作成を使いこなしてください！</p>
+                        </div>
+                        <!--フッタ-->
+                        <div class="w-full pt-10 pb-6 text-sm md:text-left fade-in">
+                            <p class="text-gray-500 text-center">@2024 EpiMaker</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+</html>
