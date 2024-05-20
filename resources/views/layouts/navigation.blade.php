@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('episode.myepisode')" :active="request()->routeIs('episode.myepisode')">
                         自分の投稿👤
                     </x-nav-link>
+                    <x-nav-link :href="route('episode.mynice')" :active="request()->routeIs('episode.mynice')">
+                        いいねした投稿👍
+                    </x-nav-link>
                     <x-nav-link :href="route('episode.mycomment')" :active="request()->routeIs('episode.mycomment')">
                         コメントした投稿💬
                     </x-nav-link>
@@ -101,6 +104,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('episode.myepisode')" :active="request()->routeIs('episode.myepisode')">
                 自分の投稿👤
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('episode.mynice')" :active="request()->routeIs('episode.mynice')">
+                いいねした投稿👍
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('episode.mycomment')" :active="request()->routeIs('episode.mycomment')">
                 コメントした投稿💬
