@@ -97,6 +97,8 @@ Route::middleware(['verified'])->group(function() {
     Route::get('/manual', function () {
         return view('manual');
     })->name('manual');
+
+    Route::get('/episode/mynice', [EpisodeController::class, 'mynice'])->name('episode.mynice');
 });
 
 Route::get('contact/create', [ContactController::class, 'create'])

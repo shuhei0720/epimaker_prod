@@ -11,15 +11,19 @@
         </div>
         @endif
         @foreach($episodes as $index => $episode)
+        @php
+            $rankingPosition = ($episodes->currentPage() - 1) * $episodes->perPage() + $index + 1;
+        @endphp
         <div class="mt-4 p-8 bg-gray-50 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500">
             <div class="rounded-full w-12 h-12 mb-1 overflow-hidden">
                 {{-- アバター表示 --}}
                 <img src="{{asset('storage/avatar/'.($episode->user->avatar??'user_default.jpg'))}}" class="object-cover w-full h-full">
             </div>
             <h1 class="p-3 font-semibold bg-white border border-gray-400 rounded-2xl flex items-center">
+                <span class="ranking-position">{{ $rankingPosition }}位</span>
                 タイトル：
                 <a href="{{ route('episode.show', $episode) }}" class="text-blue-600" style="text-decoration: underline;">
-                {{$episode->title}}
+                    {{$episode->title}}
                 </a>
                 @if ($episodes->currentPage() == 1)
                     @if ($index == 0)

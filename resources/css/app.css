@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/* 順位表示用のスタイル */
+.ranking-position {
+    font-family: 'Lobster', cursive;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #FF6347; /* お好みで色を調整 */
+}
+
 .btnroleb {
     @apply  inline-flex items-center px-2 py-1  text-blue-500 border border-blue-500 rounded-md font-bold text-base uppercase tracking-widest hover:bg-blue-200 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150;
 }

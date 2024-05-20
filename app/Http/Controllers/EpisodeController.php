@@ -157,4 +157,19 @@ class EpisodeController extends Controller
         return view('episode.ranking', compact('episodes'));
     }
 
+    public function mynice() {
+        $user = auth()->user();
+        // ユーザーが「いいね」したエピソードを取得
+        $episodes = Episode::whereHas('nices', function($query) use ($user) {
+            $query->where('user_id', $user->id);
+        })->orderBy('created_at', 'desc')->paginate(5);
+    
+        // 各エピソードに対してNicesをロード
+        $episodes->load(['nices' => function ($query) use ($user) {
+            $query->where('user_id', $user->id);
+        }]);
+    
+        return view('episode.mynice', compact('episodes'));
+    }
+
 }
