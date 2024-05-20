@@ -35,13 +35,15 @@
                             管理人おすすめのエピソード作成方法を紹介します。
                         </p>
                         <p class="text-base mb-4">①「新規作成」画面に移動します。</p>
-                        <img src="{{ asset('img/manual/osusume1.png') }}" alt="オススメ設定" class="manual-img-large">
-                        <p class="text-base mb-4">②「ホーム画面」に追加を押します。</p>
-                        <img src="{{ asset('img/manual/IMG_7404.png') }}" alt="スマホ設定" class="manual-img">
-                        <p class="text-base mb-4">③「追加」を押します。</p>
-                        <img src="{{ asset('img/manual/IMG_7405.PNG') }}" alt="スマホ設定" class="manual-img">
-                        <p class="text-base mb-4">④ホーム画面にepimakerアイコンが追加されます。今後、ここからアクセスすることができます。</p>
-                        <img src="{{ asset('img/manual/IMG_7406.PNG') }}" alt="スマホ設定" class="manual-img">
+                        <img src="{{ asset('img/manual/osusume1.png') }}" alt="オススメ設定" class="manual-img-large"><br>
+                        <p class="text-base mb-4">②5W1H1Dの中で分かるところを埋めます。分からないところは空欄でOKです。</p>
+                        <img src="{{ asset('img/manual/osusume2.png') }}" alt="オススメ設定" class="manual-img-large"><br>
+                        <p class="text-base mb-4">③「AIで生成」ボタンを押します。</p>
+                        <img src="{{ asset('img/manual/osusume3.png') }}" alt="オススメ設定" class="manual-img-large"><br>
+                        <p class="text-base mb-4">④画面下部のエピソード欄にエピソードが自動生成されます。もう一度生成しなおしたい場合は、「AIで生成」ボタンをもう一度押すと、生成をやり直すことができます。<br>
+                            &nbsp;&nbsp;生成されたエピソードを元に事実と違うところ等を修正したら完了です。</p>
+                        <img src="{{ asset('img/manual/osusume4.png') }}" alt="オススメ設定" class="manual-img-large"><br>
+                        <p class="text-base mb-4">以上の手順で、簡単に本格的なエピソードが作成できます。</p>
                     </div>
                 </div>
                 <div class="manual-item">
