@@ -209,17 +209,15 @@
                     </button>
                     <div id="manual-myepisode" class="manual-content hidden">
                         <p class="text-base mb-4">
-                            エピソード詳細画面の説明です。
+                            自分の投稿一覧画面の説明です。
                         </p>
                         <img src="{{ asset('img/manual/myepisode1.png') }}" alt="自分の投稿" class="manual-img-large">
                         <p class="text-base mb-4">
-                            ①「公開状態」<br>エピソードの公開状態を設定できます。<br><br>
-                            ②「編集」<br>エピソードの編集画面に移動します。<br><br>
-                            ③「削除」<br>エピソードを削除します。<br><br>
-                            ④「いいね」<br>エピソードにいいねすることができます。いいねをするとハートマークが赤くなります。<br><br>
-                            ⑤「コメント」<br>エピソードにコメントすることができます。コメント入力欄に入力し、「コメントする」ボタンを押します。<br><br>
+                            ①「タイトル」<br>エピソードのタイトルです。タイトルを押すと、エピソードの詳細画面を見ることができます。<br><br>
+                            ②「いいね」<br>エピソードにいいねすることができます。いいねをするとハートマークが赤くなります。<br><br>
+                            ③「コメントする」<br>タイトルと同じく、エピソードの詳細画面に移動します。エピソードの詳細画面でコメントを入力することができます。<br><br>
                         </p>
-                        <p class="text-base mb-4">エピソード詳細画面の説明は以上です。</p>
+                        <p class="text-base mb-4">自分の投稿一覧画面の説明は以上です。</p>
                     </div>
                 </div>
                 <div class="manual-item">
