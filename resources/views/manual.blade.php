@@ -225,7 +225,17 @@
                         <span class="arrow">▼</span> いいねランキング🏆
                     </button>
                     <div id="manual-ranking" class="manual-content hidden">
-                        <p>ここに「いいねランキング」に関する説明を記載します。</p>
+                        <p class="text-base mb-4">
+                            いいねランキング画面の説明です。
+                        </p>
+                        <img src="{{ asset('img/manual/ranking1.png') }}" alt="いいねランキング" class="manual-img-large">
+                        <p class="text-base mb-4">
+                            ①「順位」<br>順位が表示されます。<br><br>
+                            ②「タイトル」<br>エピソードのタイトルです。タイトルを押すと、エピソードの詳細画面を見ることができます。<br><br>
+                            ③「いいね」<br>エピソードにいいねすることができます。いいねをするとハートマークが赤くなります。<br><br>
+                            ④「コメントする」<br>タイトルと同じく、エピソードの詳細画面に移動します。エピソードの詳細画面でコメントを入力することができます。<br><br>
+                        </p>
+                        <p class="text-base mb-4">いいねランキング画面の説明は以上です。</p>
                     </div>
                 </div>
                 <div class="manual-item">
@@ -233,7 +243,16 @@
                         <span class="arrow">▼</span> コメントした投稿💬
                     </button>
                     <div id="manual-mycomment" class="manual-content hidden">
-                        <p>ここに「コメントした投稿」に関する説明を記載します。</p>
+                        <p class="text-base mb-4">
+                            コメントした投稿一覧画面の説明です。
+                        </p>
+                        <img src="{{ asset('img/manual/mycomment1.png') }}" alt="コメントした投稿" class="manual-img-large">
+                        <p class="text-base mb-4">
+                            ①「タイトル」<br>エピソードのタイトルです。タイトルを押すと、エピソードの詳細画面を見ることができます。<br><br>
+                            ②「いいね」<br>エピソードにいいねすることができます。いいねをするとハートマークが赤くなります。<br><br>
+                            ③「コメントする」<br>タイトルと同じく、エピソードの詳細画面に移動します。エピソードの詳細画面でコメントを入力することができます。<br><br>
+                        </p>
+                        <p class="text-base mb-4">コメントした投稿一覧画面の説明は以上です。</p>
                     </div>
                 </div>
             </div>
