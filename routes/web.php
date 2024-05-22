@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NiceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\Auth\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,5 +110,8 @@ Route::post('contact/store', [ContactController::class, 'store'])
 
 Route::get('sitemap.xml', [SitemapController::class, 'index' ])
 ->name('get.sitemap');
+
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 require __DIR__.'/auth.php';

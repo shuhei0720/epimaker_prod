@@ -64,4 +64,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function nices() {
         return $this->hasMany(Nice::class);
     }
+
+    public function isGoogleUser()
+    {
+        return $this->google_id !== null;
+    }
 }
