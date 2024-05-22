@@ -80,6 +80,7 @@ class AuthenticatedSessionController extends Controller
             Auth::login($user);
         }
 
-        return redirect()->intended('/dashboard');
+        // メールアドレスの確認をスキップしてログイン画面にリダイレクト
+        return redirect()->route('login');
     }
 }

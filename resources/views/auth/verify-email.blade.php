@@ -28,4 +28,8 @@
             </button>
         </form>
     </div>
+
+    <div class="mt-4 mb-4 font-medium text-sm text-green-600">
+            {{ __('Googleで登録された方は一度ログアウトしてもう一度ログインしてください。') }}
+        </div>
 </x-guest-layout>

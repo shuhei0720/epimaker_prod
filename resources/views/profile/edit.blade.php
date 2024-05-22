@@ -15,26 +15,17 @@
                     @unless(auth()->user()->isGoogleUser())
                         @include('profile.partials.update-password-form')
                     @endunless
+
+                    {{-- 管理者の場合のみ表示 --}}
+                    @if(isset($admin))
+                        <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                            <div class="max-w-xl">
+                                @include('profile.partials.role-user-form')
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
-
-            {{-- Googleログインしたユーザーかどうかを確認して表示を制御 --}}
-            @unless(auth()->user()->isGoogleUser())
-                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                    <div class="max-w-xl">
-                        @include('profile.partials.update-password-form')
-                    </div>
-                </div>
-            @endunless
-
-            {{-- 管理者の場合のみ表示 --}}
-            @if(isset($admin))
-                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                    <div class="max-w-xl">
-                        @include('profile.partials.role-user-form')
-                    </div>
-                </div>
-            @endif
 
             {{-- 削除フォーム --}}
             {{-- <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">

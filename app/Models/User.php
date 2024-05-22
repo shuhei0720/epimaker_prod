@@ -69,4 +69,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->google_id !== null;
     }
+
+    public function hasVerifiedEmail()
+    {
+        if ($this->isGoogleUser()) {
+            return true;
+        }
+        return $this->getAttribute('email_verified_at') !== null;
+    }
 }
