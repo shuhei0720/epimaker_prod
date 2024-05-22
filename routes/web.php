@@ -114,4 +114,7 @@ Route::get('sitemap.xml', [SitemapController::class, 'index' ])
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
+Route::view('/privacy-policy', 'privacy')->name('privacy.policy');
+Route::view('/terms-of-service', 'terms')->name('terms.service');
+
 require __DIR__.'/auth.php';

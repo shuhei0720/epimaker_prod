@@ -42,6 +42,14 @@
         </div>
     </body>
     <footer class="bg-gray-200" style="width: 100%; height: 120px; text-align: center; padding: 50px 0;">
-        <p>© All rights reserved by SuberaNotes.</p>
+        <p>© All rights reserved by Epimaker.</p>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('privacy.policy') }}">プライバシーポリシー</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('terms.service') }}">利用規約</a>
+            </li>
+        </ul>
     </footer>
 </html>

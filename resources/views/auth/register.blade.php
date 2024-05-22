@@ -60,6 +60,15 @@
             </x-primary-button>
         </div>
 
+        <div class="mt-4 flex items-center justify-center flex-col sm:flex-row">
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-2 sm:mb-0 sm:mr-2" href="{{ route('privacy.policy') }}">
+                {{ __('プライバシーポリシー') }}
+            </a>
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('terms.service') }}">
+                {{ __('利用規約') }}
+            </a>
+        </div>
+
         
     </form>
 </x-guest-layout>
