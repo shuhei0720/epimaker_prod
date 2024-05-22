@@ -3,8 +3,14 @@
         <h2 class="font-semibold text-2xl leading-tight bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
             エピソード編集画面
         </h2>
+        <div class="mt-1 max-w-7xl mx-auto px-6" style="display: flex; justify-content: flex-left; padding-top: 20px;">
+            <x-primary-button id="generate-btn">
+                AIで生成
+            </x-primary-button>
+            <span style="margin-left: 10px; font-size: 22px;">🌟 1～7まで入力すると、&nbsp;AI生成できます🌟</span>
+        </div>
     </x-slot>
-    <div class="max-w-7xl mx-auto px-6 bg-gray-50">
+    <div class="mt-1 max-w-7xl mx-auto px-6 bg-gray-50">
         @if(session('message'))
             <div class="text-red-600 font-bold">
                 {{session('message')}}
@@ -134,4 +140,56 @@
             </x-primary-button>
         </form>
     </div>
+
+    <script>
+        const apiKey = "{{ env('OPENAI_API_KEY') }}";
+        // モデル
+        const model = 'gpt-3.5-turbo-instruct';
+
+        // エピソード生成関数
+        async function generateEpisode() {
+            const generateBtn = document.getElementById('generate-btn');
+            generateBtn.textContent = '生成中...';
+            generateBtn.disabled = true;
+            const inputs = ['when', 'where', 'who', 'what', 'do', 'why', 'how', 'point'];
+            const values = inputs.map(inputName => document.getElementById(inputName).value);
+
+            const prompt = `「${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。」というエピソードがあります。このエピソードを、300文字以内でフリとオチのある面白いエピソードに清書して、冷静に披露してください！※フリ、オチという文言は含めず、話し手などは省いて本文のみ生成してください。`;
+
+            try {
+                const response = await fetch('https://api.openai.com/v1/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: model,
+                        prompt: prompt,
+                        max_tokens: 1500,
+                        temperature: 0.7,
+                        n: 1
+                    })
+                });
+
+                const data = await response.json();
+                const episode = data.choices[0].text.trim();
+
+                // エピソードテキストエリアにセット
+                document.getElementById('episode').value = episode;
+                // ポップアップメッセージ表示
+                alert('AI生成が完了しました。\nエピソード欄をご確認ください。');
+            } catch (error) {
+                console.error('Error:', error);
+                alert('エピソードの生成中にエラーが発生しました。');
+            } finally {
+                // ボタンの状態を元に戻す
+                generateBtn.textContent = 'AIで作成';
+                generateBtn.disabled = false;
+            }
+        }
+
+        // AIで作成ボタンにクリックイベントを追加
+        document.getElementById('generate-btn').addEventListener('click', generateEpisode);
+    </script>
 </x-app-layout>

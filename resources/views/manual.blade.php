@@ -149,9 +149,9 @@
                     </button>
                     <div id="manual-edit" class="manual-content hidden">
                     <p class="text-base mb-4">
-                                新規作成画面の説明です。
+                                エピソード編集画面の説明です。
                         </p>
-                        <img src="{{ asset('img/manual/new1.png') }}" alt="エピソード編集" class="manual-img-large">
+                        <img src="{{ asset('img/manual/edit1.png') }}" alt="エピソード編集" class="manual-img-large">
                         <p class="text-base mb-4">
                             ①「AIで生成」<br>AIでエピソードを生成することができます。生成する際は、5W1H1Dを参照します。何も入力していなくても生成することはできます。<br><br>
                             ②「タイトル」<br>エピソードのタイトルを入力します。必須項目なので、ここを入力せずに保存しようとするとエラーになります。<br>
