@@ -52,7 +52,7 @@
                     </button>
                     <div id="manual-create" class="manual-content hidden">
                         <p class="text-base mb-4">
-                                新規作成画面の説明です。
+                                新規作成画面の説明です。エピソードを作成して投稿することができます。
                         </p>
                         <img src="{{ asset('img/manual/new1.png') }}" alt="新規作成設定" class="manual-img-large">
                         <p class="text-base mb-4">
@@ -113,7 +113,7 @@
                     </button>
                     <div id="manual-episodes" class="manual-content hidden">
                         <p class="text-base mb-4">
-                                みんなの投稿画面の説明です。
+                                みんなの投稿画面の説明です。公開されているエピソードが表示されます。
                         </p>
                         <img src="{{ asset('img/manual/index1.png') }}" alt="みんなの投稿" class="manual-img-large">
                         <p class="text-base mb-4">
@@ -130,7 +130,7 @@
                     </button>
                     <div id="manual-syousai" class="manual-content hidden">
                         <p class="text-base mb-4">
-                            エピソード詳細画面の説明です。
+                            エピソード詳細画面の説明です。エピソードの詳細を確認できます。
                         </p>
                         <img src="{{ asset('img/manual/syousai1.png') }}" alt="エピソード詳細" class="manual-img-large">
                         <p class="text-base mb-4">
@@ -149,7 +149,7 @@
                     </button>
                     <div id="manual-edit" class="manual-content hidden">
                     <p class="text-base mb-4">
-                                エピソード編集画面の説明です。
+                                エピソード編集画面の説明です。投稿したエピソードを編集できます。
                         </p>
                         <img src="{{ asset('img/manual/edit1.png') }}" alt="エピソード編集" class="manual-img-large">
                         <p class="text-base mb-4">
@@ -209,7 +209,7 @@
                     </button>
                     <div id="manual-myepisode" class="manual-content hidden">
                         <p class="text-base mb-4">
-                            自分の投稿一覧画面の説明です。
+                            自分の投稿一覧画面の説明です。自分が投稿したエピソードが表示されます。
                         </p>
                         <img src="{{ asset('img/manual/myepisode1.png') }}" alt="自分の投稿" class="manual-img-large">
                         <p class="text-base mb-4">
@@ -226,7 +226,7 @@
                     </button>
                     <div id="manual-ranking" class="manual-content hidden">
                         <p class="text-base mb-4">
-                            いいねランキング画面の説明です。
+                            いいねランキング画面の説明です。いいねの数が多い順に表示されます。
                         </p>
                         <img src="{{ asset('img/manual/ranking1.png') }}" alt="いいねランキング" class="manual-img-large">
                         <p class="text-base mb-4">
@@ -244,7 +244,7 @@
                     </button>
                     <div id="manual-mycomment" class="manual-content hidden">
                         <p class="text-base mb-4">
-                            コメントした投稿一覧画面の説明です。
+                            コメントした投稿一覧画面の説明です。自分がコメントしたエピソードが表示されます。
                         </p>
                         <img src="{{ asset('img/manual/mycomment1.png') }}" alt="コメントした投稿" class="manual-img-large">
                         <p class="text-base mb-4">
