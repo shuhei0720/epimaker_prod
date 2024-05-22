@@ -132,7 +132,7 @@
                         <p class="text-base mb-4">
                             エピソード詳細画面の説明です。
                         </p>
-                        <img src="{{ asset('img/manual/syousai1.png') }}" alt="エピソード招請" class="manual-img-large">
+                        <img src="{{ asset('img/manual/syousai1.png') }}" alt="エピソード詳細" class="manual-img-large">
                         <p class="text-base mb-4">
                             ①「公開状態」<br>エピソードの公開状態を設定できます。<br><br>
                             ②「編集」<br>エピソードの編集画面に移動します。<br><br>
@@ -194,14 +194,13 @@
                             ⑮「結(オチ：最終的にどうなったか)」<br>結末、オチを入力します。<br>
                             【例】するとその友達が飛び出してきて、先生ビックリ！友達はこっぴどく怒られた。<br><br>
                         </p>
-                        <img src="{{ asset('img/manual/new6.png') }}" alt="エピソード編集" class="manual-img-large">
+                        <img src="{{ asset('img/manual/edit2.png') }}" alt="エピソード編集" class="manual-img-large">
                         <p class="text-base mb-4">
                             ⑯「起承転結の内容を反映」<br>このボタンを押すと、起承転結の内容を結合して下のエピソード欄に反映します。<br><br>
                             ⑰「エピソード欄」<br>エピソード本体になります。必須項目です。これまでで作成した内容を確認し、補足や脚色を入れて清書します。<br><br>
-                            ⑱「公開状態」<br>エピソードを他のユーザーに公開するか、公開しないかを選びます。公開するとランキングにも参加できます。<br><br>
-                            ⑲「投稿する」<br>エピソードを保存します。<br><br>
+                            ⑱「保存する」<br>エピソードを保存します。<br><br>
                         </p>
-                        <p class="text-base mb-4">新規作成画面の説明は以上です。</p>
+                        <p class="text-base mb-4">エピソード編集画面の説明は以上です。</p>
                     </div>
                 </div>
                 <div class="manual-item">
@@ -209,7 +208,18 @@
                         <span class="arrow">▼</span> 自分の投稿👤
                     </button>
                     <div id="manual-myepisode" class="manual-content hidden">
-                        <p>ここに「自分の投稿」に関する説明を記載します。</p>
+                        <p class="text-base mb-4">
+                            エピソード詳細画面の説明です。
+                        </p>
+                        <img src="{{ asset('img/manual/myepisode1.png') }}" alt="自分の投稿" class="manual-img-large">
+                        <p class="text-base mb-4">
+                            ①「公開状態」<br>エピソードの公開状態を設定できます。<br><br>
+                            ②「編集」<br>エピソードの編集画面に移動します。<br><br>
+                            ③「削除」<br>エピソードを削除します。<br><br>
+                            ④「いいね」<br>エピソードにいいねすることができます。いいねをするとハートマークが赤くなります。<br><br>
+                            ⑤「コメント」<br>エピソードにコメントすることができます。コメント入力欄に入力し、「コメントする」ボタンを押します。<br><br>
+                        </p>
+                        <p class="text-base mb-4">エピソード詳細画面の説明は以上です。</p>
                     </div>
                 </div>
                 <div class="manual-item">
