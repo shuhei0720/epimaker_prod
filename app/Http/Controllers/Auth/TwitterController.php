@@ -38,7 +38,6 @@ class TwitterController extends Controller
             if ($user) {
                 // メールアドレスが既存のユーザーに存在する場合、そのユーザーを更新
                 $user->twitter_id = $twitterUser->getId(); // 必要であればtwitter_idを更新
-                $user->name = $twitterUser->getName(); // 名前を更新
                 $user->save();
                 Auth::login($user);
             } else {

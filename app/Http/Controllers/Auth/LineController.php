@@ -38,7 +38,6 @@ class LineController extends Controller
             if ($user) {
                 // メールアドレスが既存のユーザーに存在する場合、そのユーザーを更新
                 $user->line_id = $lineUser->getId(); // 必要であればline_idを更新
-                $user->name = $lineUser->getName(); // 名前を更新
                 $user->save();
                 Auth::login($user);
             } else {
