@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LineController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ContactController;
@@ -66,5 +67,8 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 
 Route::view('/privacy-policy', 'privacy')->name('privacy.policy');
 Route::view('/terms-of-service', 'terms')->name('terms.service');
+
+Route::get('auth/line', [LineController::class, 'redirectToLine'])->name('auth.line');
+Route::get('auth/line/callback', [LineController::class, 'handleLineCallback']);
 
 require __DIR__.'/auth.php';

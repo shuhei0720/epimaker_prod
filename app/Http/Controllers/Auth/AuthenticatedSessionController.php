@@ -8,8 +8,10 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -82,5 +84,46 @@ class AuthenticatedSessionController extends Controller
 
         // メールアドレスの確認をスキップしてログイン画面にリダイレクト
         return redirect()->route('login');
+    }
+
+    /**
+     * Redirect to LINE authentication page.
+     */
+    public function redirectToLine()
+    {
+        return Socialite::driver('line')->redirect();
+    }
+
+    /**
+     * Handle LINE callback.
+     */
+    public function handleLineCallback()
+    {
+        try {
+            $lineUser = Socialite::driver('line')->user();
+            $user = User::where('email', $lineUser->getEmail())->first();
+
+            if ($user) {
+                // LINE IDがない場合のみ登録する
+                if (!$user->line_id) {
+                    $user->line_id = $lineUser->getId();
+                    $user->save();
+                }
+                Auth::login($user);
+            } else {
+                $user = User::create([
+                    'name' => $lineUser->getName(),
+                    'email' => $lineUser->getEmail(),
+                    'line_id' => $lineUser->getId(),
+                    'password' => Hash::make(uniqid()), // Temporarily set a random password
+                ]);
+                Auth::login($user);
+            }
+
+            // メールアドレスの確認をスキップしてログイン画面にリダイレクト
+            return redirect()->route('login');
+        } catch (\Exception $e) {
+            return redirect('/login')->with('error', 'Unable to login using LINE. Please try again.');
+        }
     }
 }

@@ -23,6 +23,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'avatar',
         'password',
+        'google_id',
+        'line_id',
     ];
 
     /**
@@ -72,9 +74,15 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function hasVerifiedEmail()
     {
-        if ($this->isGoogleUser()) {
+        if ($this->isGoogleUser() || $this->isLineUser()) {
             return true;
         }
         return $this->getAttribute('email_verified_at') !== null;
     }
+
+    public function isLineUser()
+    {
+        return $this->line_id !== null;
+    }
+    
 }

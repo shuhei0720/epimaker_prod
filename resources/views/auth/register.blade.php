@@ -9,6 +9,12 @@
                     {{ __('Googleアカウントで登録') }}
                 </a>
             </div>
+            <div class="flex items-center justify-end mt-4">
+                <a href="{{ route('auth.line') }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full flex items-center justify-center transition duration-300 ease-in-out w-full">
+                    <img src="{{ asset('img/line.png') }}" alt="LINE Logo" class="w-6 h-6 mr-2">
+                    {{ __('LINEアカウントで登録') }}
+                </a>
+            </div>
         </div>
 
         <!-- Name -->
@@ -68,7 +74,5 @@
                 {{ __('利用規約') }}
             </a>
         </div>
-
-        
     </form>
 </x-guest-layout>

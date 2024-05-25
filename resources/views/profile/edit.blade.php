@@ -11,8 +11,8 @@
                 <div class="max-w-xl">
                     @include('profile.partials.update-profile-information-form')
 
-                    {{-- Googleログインしたユーザーかどうかを確認して表示を制御 --}}
-                    @unless(auth()->user()->isGoogleUser())
+                    {{-- GoogleログインまたはLINEログインしたユーザーかどうかを確認して表示を制御 --}}
+                    @unless(auth()->user()->isGoogleUser() || auth()->user()->isLineUser())
                         @include('profile.partials.update-password-form')
                     @endunless
 

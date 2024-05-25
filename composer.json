@@ -11,7 +11,9 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/socialite": "^5.14",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "socialiteproviders/line": "^4.1",
+        "socialiteproviders/manager": "^4.6"
     },
     "require-dev": {
         "askdkc/breezejp": "^1.8",
