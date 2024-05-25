@@ -13,7 +13,8 @@
         "laravel/socialite": "^5.14",
         "laravel/tinker": "^2.8",
         "socialiteproviders/line": "^4.1",
-        "socialiteproviders/manager": "^4.6"
+        "socialiteproviders/manager": "^4.6",
+        "thujohn/twitter": "^1.1"
     },
     "require-dev": {
         "askdkc/breezejp": "^1.8",

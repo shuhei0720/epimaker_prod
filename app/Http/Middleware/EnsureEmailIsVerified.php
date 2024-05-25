@@ -13,7 +13,8 @@ class EnsureEmailIsVerified
         if ($request->user() &&
             !$request->user()->hasVerifiedEmail() &&
             !$request->user()->isGoogleUser() &&
-            !$request->user()->isLineUser()) {
+            !$request->user()->isLineUser() &&
+            !$request->user()->isTwitterUser()) {
             return $request->expectsJson()
                 ? abort(403, 'Your email address is not verified.')
                 : Redirect::route($redirectToRoute ?: 'verification.notice');

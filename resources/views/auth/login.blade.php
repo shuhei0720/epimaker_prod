@@ -17,6 +17,12 @@
                     {{ __('LINEアカウントでログイン') }}
                 </a>
             </div>
+            <div class="flex items-center justify-end mt-4">
+                <a href="{{ route('auth.twitter') }}" class="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full flex items-center justify-center transition duration-300 ease-in-out w-full">
+                    <img src="{{ asset('img/X.png') }}" alt="X Logo" class="w-6 h-6 mr-2">
+                    {{ __('Xアカウントでログイン') }}
+                </a>
+            </div>
         </div>
 
         

@@ -12,7 +12,7 @@
                     @include('profile.partials.update-profile-information-form')
 
                     {{-- GoogleログインまたはLINEログインしたユーザーかどうかを確認して表示を制御 --}}
-                    @unless(auth()->user()->isGoogleUser() || auth()->user()->isLineUser())
+                    @unless(auth()->user()->isGoogleUser() || auth()->user()->isLineUser() || auth()->user()->isTwitterUser())
                         @include('profile.partials.update-password-form')
                     @endunless
 
@@ -26,13 +26,6 @@
                     @endif
                 </div>
             </div>
-
-            {{-- 削除フォーム --}}
-            {{-- <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div> --}}
         </div>
     </div>
 </x-app-layout>

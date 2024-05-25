@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LineController;
+use App\Http\Controllers\Auth\TwitterController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ContactController;
@@ -70,5 +71,12 @@ Route::view('/terms-of-service', 'terms')->name('terms.service');
 
 Route::get('auth/line', [LineController::class, 'redirectToLine'])->name('auth.line');
 Route::get('auth/line/callback', [LineController::class, 'handleLineCallback']);
+
+Route::get('auth/twitter', [TwitterController::class, 'redirectToTwitter'])->name('auth.twitter');
+Route::get('auth/twitter/callback', [TwitterController::class, 'handleTwitterCallback']);
+
+Route::post('/tweet/share', 'TweetController@shareEpisode')->name('tweet.share');
+
+
 
 require __DIR__.'/auth.php';

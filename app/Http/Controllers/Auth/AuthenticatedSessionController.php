@@ -126,4 +126,45 @@ class AuthenticatedSessionController extends Controller
             return redirect('/login')->with('error', 'Unable to login using LINE. Please try again.');
         }
     }
+
+    /**
+     * Redirect to Twitter authentication page.
+     */
+    public function redirectToTwitter()
+    {
+        return Socialite::driver('twitter')->redirect();
+    }
+
+    /**
+     * Handle Twitter callback.
+     */
+    public function handleTwitterCallback()
+    {
+        try {
+            $twitterUser = Socialite::driver('twitter')->user();
+            $user = User::where('email', $twitterUser->getEmail())->first();
+
+            if ($user) {
+                // Twitter IDがない場合のみ登録する
+                if (!$user->twitter_id) {
+                    $user->twitter_id = $twitterUser->getId();
+                    $user->save();
+                }
+                Auth::login($user);
+            } else {
+                $user = User::create([
+                    'name' => $twitterUser->getName(),
+                    'email' => $twitterUser->getEmail(),
+                    'twitter_id' => $twitterUser->getId(),
+                    'password' => Hash::make(uniqid()), // Temporarily set a random password
+                ]);
+                Auth::login($user);
+            }
+
+            // メールアドレスの確認をスキップしてログイン画面にリダイレクト
+            return redirect()->route('login');
+        } catch (\Exception $e) {
+            return redirect('/login')->with('error', 'Unable to login using Twitter. Please try again.');
+        }
+    }
 }

@@ -30,7 +30,7 @@
 
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            @unless(auth()->user()->isGoogleUser())
+            @unless(auth()->user()->isGoogleUser() || auth()->user()->isLineUser() || auth()->user()->isTwitterUser())
                 <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             @else
                 <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" readonly />

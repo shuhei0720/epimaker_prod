@@ -25,6 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'google_id',
         'line_id',
+        'twitter_id', // 追加
     ];
 
     /**
@@ -74,7 +75,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function hasVerifiedEmail()
     {
-        if ($this->isGoogleUser() || $this->isLineUser()) {
+        if ($this->isGoogleUser() || $this->isLineUser() || $this->isTwitterUser()) { // 追加
             return true;
         }
         return $this->getAttribute('email_verified_at') !== null;
@@ -83,6 +84,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isLineUser()
     {
         return $this->line_id !== null;
+    }
+    
+    public function isTwitterUser() // 追加
+    {
+        return $this->twitter_id !== null;
     }
     
 }
