@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
+use Laravel\Socialite\Two\InvalidStateException;
 
 class LineController extends Controller
 {
@@ -29,7 +30,7 @@ class LineController extends Controller
     public function handleLineCallback(Request $request)
     {
         try {
-            $lineUser = Socialite::driver('line')->user();
+            $lineUser = Socialite::driver('line')->stateless()->user();
             \Log::info('Line user data: ', ['user' => $lineUser]);
 
             // メールアドレスで既存のユーザーを検索
@@ -37,8 +38,10 @@ class LineController extends Controller
 
             if ($user) {
                 // メールアドレスが既存のユーザーに存在する場合、そのユーザーを更新
-                $user->line_id = $lineUser->getId(); // 必要であればline_idを更新
-                $user->save();
+                if (!$user->line_id) {
+                    $user->line_id = $lineUser->getId();
+                    $user->save();
+                }
                 Auth::login($user);
             } else {
                 // 新しいユーザーを作成
@@ -51,9 +54,12 @@ class LineController extends Controller
                 Auth::login($user);
             }
 
-            return redirect()->route('episode.index'); // ログイン後にダッシュボードにリダイレクト
+            return redirect()->route('episode.index'); // ログイン後にエピソード一覧にリダイレクト
+        } catch (InvalidStateException $e) {
+            \Log::error('Line login invalid state: ', ['error' => $e->getMessage(), 'exception' => $e]);
+            return redirect('/login')->with('error', 'Unable to login using LINE due to an invalid state. Please try again.');
         } catch (\Exception $e) {
-            \Log::error('Line login error: ', ['error' => $e->getMessage()]);
+            \Log::error('Line login error: ', ['error' => $e->getMessage(), 'exception' => $e]);
             return redirect('/login')->with('error', 'Unable to login using LINE. Please try again.');
         }
     }
