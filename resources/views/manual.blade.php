@@ -44,7 +44,7 @@
                             &nbsp;&nbsp;生成されたエピソードを元に事実と違うところ等を修正したら完了です。</p>
                         <img src="{{ asset('img/manual/osusume4.png') }}" alt="オススメ設定" class="manual-img-large"><br>
                         <p class="text-base mb-4">⑤最後に「タイトル」を入力します。タイトルが無いと、エピソードを保存できませんのでご注意ください。<br>
-                            &nbsp;&nbsp;生成されたエピソードを元に事実と違うところ等を修正したら完了です。</p>
+                            &nbsp;&nbsp;もし間違えてタイトルを入力せず「投稿する」を押してしまった場合、ブラウザバックで前の画面に戻ってください。。</p>
                         <img src="{{ asset('img/manual/osusume5.png') }}" alt="オススメ設定" class="manual-img-large"><br>
                         <p class="text-base mb-4">以上の手順で、簡単に本格的なエピソードが作成できます。</p>
                     </div>
