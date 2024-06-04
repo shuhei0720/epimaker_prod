@@ -41,7 +41,7 @@
             </p>
             <div class="p-3 text-sm font-semibold bg-white border border-gray-400 rounded-sm">
                 <p>
-                    作成者：{{$episode->user->name??'削除されたユーザー'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}}
+                    作成者：{{$episode->user->name??'削除されたユーザー'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}} &emsp;  &emsp; {{$episode->created_at->format('Y/m/d')}}
                 </p>
             </div>
             <span style="display: flex; align-items: center;">

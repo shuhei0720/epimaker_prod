@@ -53,7 +53,7 @@
                     {{ $episode->episode }}
                 </p>
                 <div class="text-sm font-semibold flex flex-row-reverse">
-                    <p>{{ $episode->user->name ?? '削除されたユーザー' }}・{{ $episode->created_at->diffForHumans() }}</p>
+                    <p>作成者：{{ $episode->user->name ?? '削除されたユーザー' }} &emsp; {{ $episode->created_at->diffForHumans() }} &emsp; {{$episode->created_at->format('Y/m/d')}}</p>
                 </div>
             </div>
         </div>
