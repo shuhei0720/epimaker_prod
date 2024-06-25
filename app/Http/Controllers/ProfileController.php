@@ -54,7 +54,8 @@ class ProfileController extends Controller
         // bio フィールドを保存
         $user->bio = $request->input('bio');
 
-        $user->save();
+        // XPを更新し、レベルを再計算して保存
+        $user->updateXp();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
@@ -122,7 +123,9 @@ class ProfileController extends Controller
         $user->name = $inputs['name'];
         $user->email = $inputs['email'];
         $user->bio = $inputs['bio']; // bio フィールドを保存
-        $user->save();
+
+        // XPを更新し、レベルを再計算して保存
+        $user->updateXp();
 
         return Redirect::route('profile.adedit', compact('user'))->with('status', 'profile-updated');
     }
@@ -164,6 +167,9 @@ class ProfileController extends Controller
             $query->where('flag', 1);
         })->orderBy('created_at', 'desc')->paginate(5);
 
-        return view('user.show', compact('user', 'isOwner', 'episodes', 'likedEpisodes', 'commentedEpisodes'));
+        $levelProgress = $user->calculateLevelProgress();
+        [$currentXp, $nextLevelXp] = $user->getCurrentAndNextLevelXp();
+
+        return view('user.show', compact('user', 'isOwner', 'episodes', 'likedEpisodes', 'commentedEpisodes', 'levelProgress', 'currentXp', 'nextLevelXp'));
     }
 }

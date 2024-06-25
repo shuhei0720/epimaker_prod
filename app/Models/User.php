@@ -23,10 +23,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'avatar',
         'password',
-        'bio', // 追加
+        'bio',
+        'level',
+        'xp',
         'google_id',
         'line_id',
-        'twitter_id', // 追加
+        'twitter_id',
     ];
 
     /**
@@ -76,7 +78,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function hasVerifiedEmail()
     {
-        if ($this->isGoogleUser() || $this->isLineUser() || $this->isTwitterUser()) { // 追加
+        if ($this->isGoogleUser() || $this->isLineUser() || $this->isTwitterUser()) {
             return true;
         }
         return $this->getAttribute('email_verified_at') !== null;
@@ -87,8 +89,56 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->line_id !== null;
     }
     
-    public function isTwitterUser() // 追加
+    public function isTwitterUser()
     {
         return $this->twitter_id !== null;
+    }
+
+    public function calculateLevel()
+    {
+        $xp = $this->xp;
+        $level = 1;
+        $threshold = 100;
+
+        while ($xp >= $threshold) {
+            $level++;
+            $xp -= $threshold;
+            $threshold = intval($threshold * 1.5);
+        }
+
+        return $level;
+    }
+
+    public function getCurrentAndNextLevelXp()
+    {
+        $xp = $this->xp;
+        $level = 1;
+        $threshold = 100;
+
+        while ($xp >= $threshold) {
+            $level++;
+            $xp -= $threshold;
+            $threshold = intval($threshold * 1.1);
+        }
+
+        $currentXp = $xp;
+        $nextLevelXp = $threshold;
+
+        return [$currentXp, $nextLevelXp];
+    }
+
+    public function calculateLevelProgress()
+    {
+        [$currentXp, $nextLevelXp] = $this->getCurrentAndNextLevelXp();
+        return ($currentXp / $nextLevelXp) * 100;
+    }
+
+    public function updateXp()
+    {
+        $this->xp = $this->episodes->sum(function($episode) {
+            return strlen($episode->episode);
+        });
+        $this->level = $this->calculateLevel();
+        $this->save();
     }
 }

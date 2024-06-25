@@ -5,16 +5,25 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+                <div class="text-left">
                     <div class="flex items-center mb-4">
-                        <div class="rounded-full w-20 h-20 overflow-hidden mr-4">
-                            <img src="{{ asset('storage/avatar/' . ($user->avatar ?? 'user_default.jpg')) }}" class="object-cover w-full h-full">
+                        <div class="rounded-full w-24 h-24 sm:w-16 sm:h-16 md:w-12 md:h-12 overflow-hidden mr-4 flex-shrink-0">
+                            <img src="{{ asset('storage/avatar/' . ($user->avatar ?? 'user_default.jpg')) }}" class="object-cover w-full h-full rounded-full">
                         </div>
-                        <div>
-                            <h1 class="text-3xl">{{ $user->name }}</h1>
+                        <div class="w-full">
+                            <h1 class="text-3xl sm:text-2xl md:text-xl font-semibold">{{ $user->name }}</h1>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex items-center mb-4">
+                        <p class="mr-2 text-lg sm:text-base md:text-sm font-semibold whitespace-nowrap">レベル: {{ $user->level }}</p>
+                        <div class="relative flex-grow h-6 bg-gray-300 rounded-full">
+                            <div class="absolute top-0 left-0 h-6 bg-green-500 rounded-full" style="width: {{ $levelProgress }}%;"></div>
+                            <div class="absolute top-0 left-0 w-full h-6 flex justify-center items-center text-xs font-semibold text-black">
+                                {{ intval($currentXp) }} / {{ intval($nextLevelXp) }} XP
+                            </div>
                         </div>
                     </div>
                     <div class="mt-4">
@@ -81,6 +90,21 @@
             color: white;
             background-color: #3490dc;
             border-bottom: none;
+        }
+        .whitespace-nowrap {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 640px) {
+            .w-24 {
+                width: 4rem;
+            }
+            .h-24 {
+                height: 4rem;
+            }
+            .text-3xl {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </x-app-layout>

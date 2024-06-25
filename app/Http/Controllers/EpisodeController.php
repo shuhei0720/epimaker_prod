@@ -44,6 +44,9 @@ class EpisodeController extends Controller
         $flag->flag = $status;
         $flag->save();
 
+        // ユーザーのXPを更新し、レベルを再計算して保存
+        $user = auth()->user();
+        $user->updateXp();
 
         $request->session()->flash('message', 'お疲れ様でした！エピソードを保存しました！');
         return back();
@@ -95,6 +98,10 @@ class EpisodeController extends Controller
 
         $episode->update($validated);
 
+        // ユーザーのXPを更新し、レベルを再計算して保存
+        $user = auth()->user();
+        $user->updateXp();
+
         $request->session()->flash('message', 'エピソードを更新しました！');
         return back();
     }
@@ -103,6 +110,11 @@ class EpisodeController extends Controller
         $this->authorize('delete', $episode);
         $episode->comments()->delete();
         $episode->delete();
+
+        // ユーザーのXPを更新し、レベルを再計算して保存
+        $user = auth()->user();
+        $user->updateXp();
+
         $request->session()->flash('message', 'エピソードを削除しました！');
         return redirect()->route('episode.index');
     }
@@ -171,5 +183,4 @@ class EpisodeController extends Controller
     
         return view('episode.mynice', compact('episodes'));
     }
-
 }
