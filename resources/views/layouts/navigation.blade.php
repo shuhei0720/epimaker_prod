@@ -24,15 +24,6 @@
                     <x-nav-link :href="route('episode.create')" :active="request()->routeIs('episode.create')">
                         新規作成📄
                     </x-nav-link>
-                    <x-nav-link :href="route('episode.myepisode')" :active="request()->routeIs('episode.myepisode')">
-                        自分の投稿👤
-                    </x-nav-link>
-                    <x-nav-link :href="route('episode.mynice')" :active="request()->routeIs('episode.mynice')">
-                        いいねした投稿👍
-                    </x-nav-link>
-                    <x-nav-link :href="route('episode.mycomment')" :active="request()->routeIs('episode.mycomment')">
-                        コメントした投稿💬
-                    </x-nav-link>
                     @can('admin')
                     <x-nav-link :href="route('profile.index')" :active="request()->routeIs('profile.index')">
                         ユーザー一覧
@@ -50,15 +41,15 @@
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
                             </div>
                         </button>
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                        <x-dropdown-link :href="route('user.show', Auth::user()->id)" :active="request()->routeIs('user.show', Auth::user()->id)">
+                            {{ __('プロフィール👤') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -102,15 +93,6 @@
             <x-responsive-nav-link :href="route('episode.create')" :active="request()->routeIs('episode.create')">
                 新規作成📄
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('episode.myepisode')" :active="request()->routeIs('episode.myepisode')">
-                自分の投稿👤
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('episode.mynice')" :active="request()->routeIs('episode.mynice')">
-                いいねした投稿👍
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('episode.mycomment')" :active="request()->routeIs('episode.mycomment')">
-                コメントした投稿💬
-            </x-responsive-nav-link>
             @can('admin')
             <x-responsive-nav-link :href="route('profile.index')" :active="request()->routeIs('profile.index')">
                 ユーザー一覧
@@ -126,8 +108,8 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                <x-responsive-nav-link :href="route('user.show', Auth::user()->id)" :active="request()->routeIs('user.show', Auth::user()->id)">
+                    {{ __('プロフィール👤') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->

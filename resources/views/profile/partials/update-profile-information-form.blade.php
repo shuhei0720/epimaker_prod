@@ -18,7 +18,6 @@
         <form method="post" action="{{ route('profile.adupdate', $user) }}" class="mt-6 space-y-6" enctype="multipart/form-data">
     @endif
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
@@ -59,10 +58,16 @@
         <div>
             <x-input-label for="avatar" :value="__('プロフィール画像（1MBまで）')" />
             <div class="rounded-full w-36">
-                <img src="{{asset('storage/avatar/'.($user->avatar??'user_default.jpg'))}}">
+                <img src="{{ asset('storage/avatar/' . ($user->avatar ?? 'user_default.jpg')) }}">
             </div>
             <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('avatar')" />
             <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
+        </div>
+
+        <div>
+            <x-input-label for="bio" :value="__('自己紹介')" />
+            <textarea id="bio" name="bio" class="mt-1 block w-full" rows="4">{{ old('bio', $user->bio) }}</textarea>
+            <x-input-error class="mt-2" :messages="$errors->get('bio')" />
         </div>
 
         <div class="flex items-center gap-4">

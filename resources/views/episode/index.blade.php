@@ -14,7 +14,9 @@
         <div class="mt-4 p-8 bg-gray-50 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500">
             <div class="rounded-full w-12 h-12 mb-1 overflow-hidden">
                 {{-- アバター表示 --}}
-                <img src="{{asset('storage/avatar/'.($episode->user->avatar??'user_default.jpg'))}}" class="object-cover w-full h-full">
+                <a href="{{ route('user.show', $episode->user->id) }}">
+                    <img src="{{ asset('storage/avatar/' . ($episode->user->avatar ?? 'user_default.jpg')) }}" class="object-cover w-full h-full">
+                </a>
             </div>
             <h1 class="p-3 font-semibold bg-white border border-gray-400 rounded-2xl">
                 タイトル：

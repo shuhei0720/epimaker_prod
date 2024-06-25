@@ -23,6 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'avatar',
         'password',
+        'bio', // 追加
         'google_id',
         'line_id',
         'twitter_id', // 追加
@@ -90,5 +91,4 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->twitter_id !== null;
     }
-    
 }
