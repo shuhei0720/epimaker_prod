@@ -56,7 +56,7 @@ class EpisodeController extends Controller
         $user = auth()->user();
         $episodes = Episode::whereHas('flag', function ($query) {
             $query->where('flag', 1);
-        })->orderBy('created_at', 'desc')->paginate(5);
+        })->orderBy('created_at', 'desc')->paginate(10);
 
         $episodes->load(['nices' => function ($query) use ($user) {
             $query->where('user_id', $user->id);
@@ -121,7 +121,7 @@ class EpisodeController extends Controller
 
     public function myepisode() {
         $user = auth()->user();
-        $episodes=Episode::where('user_id', $user->id)->orderBy('created_at','desc')->paginate(5);
+        $episodes=Episode::where('user_id', $user->id)->orderBy('created_at','desc')->paginate(10);
         $episodes->load(['nices' => function ($query) use ($user) {
             $query->where('user_id', $user->id);
         }]);
@@ -160,7 +160,7 @@ class EpisodeController extends Controller
                                 $query->where('flag', 1);
                             })
                             ->orderBy('nices_count', 'desc')
-                            ->paginate(5);
+                            ->paginate(10);
     
         $episodes->load(['nices' => function ($query) use ($user) {
             $query->where('user_id', $user->id);
@@ -174,7 +174,7 @@ class EpisodeController extends Controller
         // ユーザーが「いいね」したエピソードを取得
         $episodes = Episode::whereHas('nices', function($query) use ($user) {
             $query->where('user_id', $user->id);
-        })->orderBy('created_at', 'desc')->paginate(5);
+        })->orderBy('created_at', 'desc')->paginate(10);
     
         // 各エピソードに対してNicesをロード
         $episodes->load(['nices' => function ($query) use ($user) {

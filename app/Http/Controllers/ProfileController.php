@@ -148,7 +148,7 @@ class ProfileController extends Controller
         $isOwner = $authUser && $authUser->id === $user->id;
 
         if ($isOwner) {
-            $episodes = Episode::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
+            $episodes = Episode::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
         } else {
             $episodes = Episode::where('user_id', $user->id)->whereHas('flag', function($query) {
                 $query->where('flag', 1);
@@ -159,13 +159,13 @@ class ProfileController extends Controller
             $query->where('user_id', $user->id);
         })->whereHas('flag', function($query) {
             $query->where('flag', 1);
-        })->orderBy('created_at', 'desc')->paginate(5);
+        })->orderBy('created_at', 'desc')->paginate(10);
 
         $commentedEpisodes = Episode::whereHas('comments', function($query) use ($user) {
             $query->where('user_id', $user->id);
         })->whereHas('flag', function($query) {
             $query->where('flag', 1);
-        })->orderBy('created_at', 'desc')->paginate(5);
+        })->orderBy('created_at', 'desc')->paginate(10);
 
         $levelProgress = $user->calculateLevelProgress();
         [$currentXp, $nextLevelXp] = $user->getCurrentAndNextLevelXp();

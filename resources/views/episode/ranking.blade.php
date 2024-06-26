@@ -15,70 +15,74 @@
             $rankingPosition = ($episodes->currentPage() - 1) * $episodes->perPage() + $index + 1;
         @endphp
         <div class="mt-4 p-8 bg-gray-50 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500">
-            <div class="rounded-full w-12 h-12 mb-1 overflow-hidden">
-                {{-- アバター表示 --}}
-                <a href="{{ route('user.show', $episode->user->id) }}">
-                    <img src="{{ asset('storage/avatar/' . ($episode->user->avatar ?? 'user_default.jpg')) }}" class="object-cover w-full h-full">
-                </a>
+            <div class="flex items-center mb-1">
+                <div class="rounded-full w-12 h-12 overflow-hidden mr-4">
+                    {{-- アバター表示 --}}
+                    <a href="{{ route('user.show', $episode->user->id) }}">
+                        <img src="{{ asset('storage/avatar/' . ($episode->user->avatar ?? 'user_default.jpg')) }}" class="object-cover w-full h-full">
+                    </a>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold">
+                        作成者：{{ $episode->user->name ?? '削除されたユーザー' }}
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        {{ $episode->created_at->diffForHumans() }} &emsp; {{ $episode->created_at->format('Y/m/d') }}
+                    </p>
+                </div>
             </div>
-            <h1 class="p-3 font-semibold bg-white border border-gray-400 rounded-2xl flex items-center">
-                <span class="ranking-position">{{ $rankingPosition }}位</span>
-                タイトル：
-                <a href="{{ route('episode.show', $episode) }}" class="text-blue-600" style="text-decoration: underline;">
-                    {{$episode->title}}
-                </a>
-                @if ($episodes->currentPage() == 1)
-                    @if ($index == 0)
-                        <span class="ms-2 text-2xl">👑</span>
-                    @elseif ($index == 1)
-                        <span class="ms-2 text-2xl">🥈</span>
-                    @elseif ($index == 2)
-                        <span class="ms-2 text-2xl">🥉</span>
+            <div class="p-3 bg-white border border-gray-400 rounded-2xl">
+                <h1 class="font-semibold title-header flex items-center">
+                    <span class="ranking-position">{{ $rankingPosition }}位</span>
+                    タイトル：
+                    <a href="{{ route('episode.show', $episode) }}" class="text-blue-600 title-link">
+                        {{$episode->title}}
+                    </a>
+                    @if ($episodes->currentPage() == 1)
+                        @if ($index == 0)
+                            <span class="ms-2 text-2xl">👑</span>
+                        @elseif ($index == 1)
+                            <span class="ms-2 text-2xl">🥈</span>
+                        @elseif ($index == 2)
+                            <span class="ms-2 text-2xl">🥉</span>
+                        @endif
                     @endif
-                @endif
-            </h1>
-            <hr class="w-full">
-            <p class="mt-2 p-4 bg-white border border-gray-400 text-sm md:text-lg rounded-sm" style="padding-top: 0; white-space: pre-line;">
-                {{$episode->episode}}
-            </p>
-            <div class="p-3 text-sm font-semibold bg-white border border-gray-400 rounded-sm">
-                <p>
-                    作成者：{{$episode->user->name??'削除されたユーザー'}} &emsp;  &emsp; {{$episode->created_at->diffForHumans()}} &emsp;  &emsp; {{$episode->created_at->format('Y/m/d')}}
-                </p>
+                </h1>
+                <hr class="w-full title-divider">
+                <div class="episode-content mt-0 p-4 bg-white text-sm md:text-lg rounded-sm" style="padding-top: 0; white-space: pre-line;">
+                    {{ \Illuminate\Support\Str::limit($episode->episode, 450, '...') }}
+                    @if(strlen($episode->episode) > 450)
+                        <span class="read-more" style="color: blue; cursor: pointer;">続きを読む</span>
+                    @endif
+                </div>
+                <div class="full-episode-content mt-0 p-4 bg-white text-sm md:text-lg rounded-sm" style="display: none; padding-top: 0; white-space: pre-line;">
+                    {{ $episode->episode }}
+                </div>
+                <hr class="w-full content-divider mt-4">
+                <div class="flex items-center justify-between mt-2">
+                    <div class="flex items-center">
+                        @auth
+                            @if ($episode->nices->contains('user_id', auth()->id()))
+                                <a href="{{ route('unnice', $episode) }}" class="btn btn-success btn-sm flex nice-button-margin">
+                                    <img src="{{ asset('img/nicebutton.png') }}" alt="Nice Button" width="30px">
+                                </a>
+                            @else
+                                <a href="{{ route('nice', $episode) }}" class="btn btn-secondary btn-sm flex nice-button-margin">
+                                    <img src="{{ asset('img/unnicebutton.png') }}" alt="Unnice Button" width="30px">
+                                </a>
+                            @endif
+                        @endauth
+                        <span class="text-lg" style="margin-left: 7px;">
+                            {{ $episode->nices()->count() }}
+                        </span>
+                    </div>
+                    @if($episode->comments->count())
+                    <span class="badge">
+                        コメント {{ $episode->comments->count() }}件
+                    </span>
+                    @endif
+                </div>
             </div>
-            <span style="display: flex; align-items: center;">
-                <!-- もしユーザーがログインしていて、かつそのユーザーが「いいね」している場合 -->
-                @auth
-                    @if ($episode->nices->contains('user_id', auth()->id()))
-                        <!-- 「いいね」取消用ボタンを表示 -->
-                        <a href="{{ route('unnice', $episode) }}" class="btn btn-success btn-sm flex">
-                            <img src="{{ asset('img/nicebutton.png') }}" alt="Nice Button" width="30px">
-                        </a>
-                    @else
-                        <!-- ユーザーが「いいね」をしていない場合、「いいね」ボタンを表示 -->
-                        <a href="{{ route('nice', $episode) }}" class="btn btn-secondary btn-sm flex">
-                            <img src="{{ asset('img/unnicebutton.png') }}" alt="Unnice Button" width="30px">
-                        </a>
-                    @endif
-                @endauth
-
-                <!-- すべてのユーザーの「いいね」の合計数を表示 -->
-                <span class="text-lg" style="margin-right: 10px;">
-                    {{ $episode->nices()->count() }}
-                </span>
-
-            </span>
-            <hr class="w-full mb-2">
-            @if($episode->comments->count())
-            <span class="badge">
-                返信 {{$episode->comments->count()}}件
-            </span>
-            @else
-            <span>コメントはまだありません。</span>
-            @endif
-            <a href="{{route('episode.show', $episode)}}" style="color:white; display: inline-block;">
-                <x-primary-button style="margin-left: 10px;">コメントする</x-primary-button>
-            </a>
         </div>
         @endforeach
         <div class="mb-4">
@@ -90,3 +94,36 @@
         </div>
     </div>
 </x-app-layout>
+
+<style>
+.title-header {
+    margin-left: 1rem; /* タイトルの左側に余白を追加 */
+}
+
+.title-divider {
+    margin-top: 0.5rem; /* タイトルとその下の線の間に余白を追加 */
+}
+
+.content-divider {
+    margin-top: 0.5rem; /* エピソード本文と「いいね」および「コメント」の間に余白を追加 */
+}
+
+.nice-button-margin {
+    margin-left: 10px; /* いいねボタンの左側に余白を追加 */
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const readMoreElements = document.querySelectorAll('.read-more');
+    
+    readMoreElements.forEach(element => {
+        element.addEventListener('click', function () {
+            const episodeContent = element.parentElement;
+            const fullContent = episodeContent.nextElementSibling;
+            episodeContent.style.display = 'none';
+            fullContent.style.display = 'block';
+        });
+    });
+});
+</script>

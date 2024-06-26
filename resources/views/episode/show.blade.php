@@ -7,9 +7,11 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="bg-gray-50 w-full rounded-2xl shadow-lg hover:shadow-2xl transition duration-500">
             <div class="mt-4 p-4">
-                <div class="rounded-full w-12 h-12 mb-2 overflow-hidden">
+                <div class="rounded-full w-12 h-12 mb-1 overflow-hidden">
                     {{-- アバター表示 --}}
-                    <img src="{{ asset('storage/avatar/' . ($episode->user->avatar ?? 'user_default.jpg')) }}" class="object-cover w-full h-full">
+                    <a href="{{ route('user.show', $episode->user->id) }}">
+                        <img src="{{ asset('storage/avatar/' . ($episode->user->avatar ?? 'user_default.jpg')) }}" class="object-cover w-full h-full">
+                    </a>
                 </div>
                 <h1 class="text-xl text-red-700 font-semibold">
                     {{ $episode->title }}
