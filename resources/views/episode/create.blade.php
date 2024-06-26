@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-2xl leading-tight bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
+        <h2 class="font-semibold text-xl leading-tight bg-gradient-to-r from-pink-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
             エピソード作成画面
         </h2>
         <div class="mt-1 max-w-7xl mx-auto px-6" style="display: flex; justify-content: flex-left; padding-top: 20px;">
