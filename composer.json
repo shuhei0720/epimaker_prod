@@ -12,6 +12,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/socialite": "^5.14",
         "laravel/tinker": "^2.8",
+        "league/commonmark": "^2.4",
         "socialiteproviders/line": "^4.1",
         "socialiteproviders/manager": "^4.6",
         "thujohn/twitter": "^1.1"

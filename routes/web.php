@@ -12,6 +12,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ManualController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -79,5 +80,7 @@ Route::post('/tweet/share', 'TweetController@shareEpisode')->name('tweet.share')
 
 // プロファイル表示用のルート
 Route::get('/user/{user}', [ProfileController::class, 'show'])->name('user.show');
+
+Route::get('/manual', [ManualController::class, 'show'])->name('manual');
 
 require __DIR__.'/auth.php';
