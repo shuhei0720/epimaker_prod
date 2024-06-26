@@ -12,7 +12,7 @@
     </x-slot>
     <div class="mt-1 max-w-7xl mx-auto px-6 bg-gray-50">
         <x-message :message="session('message')" />
-        <form method="post" action="{{ route('episode.store') }}">
+        <form id="episode-form" method="post" action="{{ route('episode.store') }}">
             @csrf
             <div class="w-full flex flex-col">
                 <p class="font-semibold mt-4 text-green-600 text-lg ">※個人名などは抽象的な表現にしてください。【例】同級生の田中（偽名）くん</p>
@@ -69,7 +69,7 @@
                 <label for="point" class="font-semibold mt-4 text-blue-800 text-lg">8.この話で一番共感してほしい、面白ポイントは？</label>
                 <input type="text" name="point" class="w-auto py-2 border border-gray-400 rounded-md shadow-lg hover:shadow-2xl transition duration-500" id="point">
             </div>
-            <p class="text-green-600 mt-2">【【例】友達が調子に乗って、罰が当たるところ</p>
+            <p class="text-green-600 mt-2">【例】友達が調子に乗って、罰が当たるところ</p>
 
             
             <div id="result" class="mt-4 text-lg text-red-700" style="border: 1px solid black; padding: 10px;"></div>
@@ -152,16 +152,26 @@
                 </select>
             </div>
 
-            <x-primary-button class="mt-4 bg-red-700" style="margin-bottom: 20px;">
-                投稿する
-            </x-primary-button>
+            <div style="display: flex; align-items: center;">
+                <x-primary-button class="mt-4 bg-red-700" style="margin-bottom: 20px;">
+                    投稿する
+                </x-primary-button>
+                <span id="title-required-warning" style="color: red; margin-left: 10px; display: flex; align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 mr-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01m-6.938 4h13.856c1.105 0 2-.895 2-2.001V6.001c0-1.106-.895-2.001-2-2.001H5.062c-1.105 0-2 .895-2 2.001v13.998c0 1.106.895 2.001 2 2.001z" />
+                    </svg>
+                    タイトルを入力してください。
+                </span>
+            </div>
         </form>
     </div>
 
     <script>
-        const apiKey = "{{ env('OPENAI_API_KEY') }}";
-        // モデル
+        // モデルの設定
         const model = 'gpt-3.5-turbo-instruct';
+
+        // APIキーの取得（直接埋め込む）
+        const apiKey = "{{ env('OPENAI_API_KEY') }}";
 
         // エピソード生成関数
         async function generateEpisode() {
@@ -171,6 +181,7 @@
             const inputs = ['when', 'where', 'who', 'what', 'do', 'why', 'how', 'point'];
             const values = inputs.map(inputName => document.getElementById(inputName).value);
 
+            // プロンプトの構成
             const prompt = `「${values[0]}${values[1]}${values[2]}${values[3]}${values[4]}。${values[5]}。${values[6]}。」というエピソードがあります。このエピソードを、300文字以内でフリとオチのある面白いエピソードに清書して、冷静に披露してください！※フリ、オチという文言は含めず、話し手などは省いて本文のみ生成してください。`;
 
             try {
@@ -189,24 +200,62 @@
                     })
                 });
 
-                const data = await response.json();
-                const episode = data.choices[0].text.trim();
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
 
-                // エピソードテキストエリアにセット
-                document.getElementById('episode').value = episode;
-                // ポップアップメッセージ表示
-                alert('AI生成が完了しました。\nエピソード欄をご確認ください。');
+                const data = await response.json();
+
+                // データの整合性を確認
+                if (data.choices && data.choices.length > 0) {
+                    const episode = data.choices[0].text.trim();
+
+                    // タイトルに「(AI作成)」を追加
+                    const titleInput = document.getElementById('title');
+                    titleInput.value = `${titleInput.value.trim()} (AI作成)`;
+
+                    // エピソードテキストエリアにセット
+                    document.getElementById('episode').value = episode;
+
+                    // ポップアップメッセージ表示
+                    alert('AI生成が完了しました。\nエピソード欄をご確認ください。');
+                } else {
+                    throw new Error('API response does not contain expected data.');
+                }
             } catch (error) {
                 console.error('Error:', error);
                 alert('エピソードの生成中にエラーが発生しました。');
             } finally {
                 // ボタンの状態を元に戻す
-                generateBtn.textContent = 'AIで作成';
+                generateBtn.textContent = 'AIで生成';
                 generateBtn.disabled = false;
             }
         }
 
-        // AIで作成ボタンにクリックイベントを追加
+        // AIで生成ボタンにクリックイベントを追加
         document.getElementById('generate-btn').addEventListener('click', generateEpisode);
+
+        // タイトルの入力欄の参照
+        const titleInput = document.getElementById('title');
+        const titleWarning = document.getElementById('title-required-warning');
+
+        // タイトルの入力イベントを監視して警告を非表示に
+        titleInput.addEventListener('input', function() {
+            if (titleInput.value.trim() !== '') {
+                titleWarning.style.display = 'none';
+            } else {
+                titleWarning.style.display = 'flex';
+            }
+        });
+
+        // 投稿ボタンにクリックイベントを追加
+        document.querySelector('form').addEventListener('submit', function (event) {
+            if (titleInput.value.trim() === '') {
+                event.preventDefault();
+                titleWarning.style.display = 'flex';
+            } else {
+                titleWarning.style.display = 'none';
+            }
+        });
     </script>
 </x-app-layout>
