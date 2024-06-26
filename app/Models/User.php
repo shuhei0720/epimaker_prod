@@ -118,7 +118,7 @@ class User extends Authenticatable implements MustVerifyEmail
         while ($xp >= $threshold) {
             $level++;
             $xp -= $threshold;
-            $threshold = intval($threshold * 1.1);
+            $threshold = intval($threshold * 1.03);
         }
 
         $currentXp = $xp;
@@ -140,5 +140,12 @@ class User extends Authenticatable implements MustVerifyEmail
         });
         $this->level = $this->calculateLevel();
         $this->save();
+    }
+
+    public function getBadgeUrlAttribute()
+    {
+        $level = $this->level;
+        $badgeLevel = min(intval($level / 10), 50);
+        return asset('img/badges/badge_' . $badgeLevel . '.png');
     }
 }

@@ -25,9 +25,10 @@
                 <div>
                     <p class="text-sm font-semibold">
                         作成者：{{ $episode->user->name ?? '削除されたユーザー' }}
+                        <img src="{{ $episode->user->badge_url }}" alt="Badge" class="inline-block w-8 h-8 ml-1" style="width: 30px; height: 30px;">
                     </p>
                     <p class="text-xs text-gray-500">
-                        {{ $episode->created_at->diffForHumans() }} &emsp; {{ $episode->created_at->format('Y/m/d') }}
+                        {{ $episode->created_at->diffForHumans() }}
                     </p>
                 </div>
             </div>

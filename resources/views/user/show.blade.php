@@ -14,7 +14,7 @@
                             <img src="{{ asset('storage/avatar/' . ($user->avatar ?? 'user_default.jpg')) }}" class="object-cover w-full h-full rounded-full">
                         </div>
                         <div class="w-full">
-                            <h1 class="text-3xl sm:text-2xl md:text-xl font-semibold">{{ $user->name }}</h1>
+                            <h1 class="text-3xl sm:text-2xl md:text-xl font-semibold">{{ $user->name }} <img src="{{ $user->badge_url }}" alt="Badge" class="inline-block w-8 h-8 ml-2" style="width: 47px; height: 47px;"></h1>
                         </div>
                     </div>
                     <div class="mt-2 flex items-center mb-4">
