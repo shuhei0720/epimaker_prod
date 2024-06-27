@@ -98,12 +98,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $xp = $this->xp;
         $level = 1;
-        $threshold = 100;
+        $threshold = 500;
 
         while ($xp >= $threshold) {
             $level++;
             $xp -= $threshold;
-            $threshold = intval($threshold * 1.5);
+            $threshold = intval($threshold * 1.02);
         }
 
         return $level;
@@ -113,12 +113,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $xp = $this->xp;
         $level = 1;
-        $threshold = 100;
+        $threshold = 500;
 
         while ($xp >= $threshold) {
             $level++;
             $xp -= $threshold;
-            $threshold = intval($threshold * 1.03);
+            $threshold = intval($threshold * 1.02);
         }
 
         $currentXp = $xp;
@@ -145,7 +145,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getBadgeUrlAttribute()
     {
         $level = $this->level;
-        $badgeLevel = min(intval($level / 10), 50);
+        
+        if ($level < 100) {
+            $badgeLevel = intval($level / 10) * 10;
+        } elseif ($level < 500) {
+            $badgeLevel = intval(($level - 100) / 50) * 50 + 100;
+        } else {
+            $badgeLevel = 500;
+        }
+
         return asset('img/badges/badge_' . $badgeLevel . '.png');
     }
 }
