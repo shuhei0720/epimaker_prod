@@ -146,7 +146,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $level = $this->level;
         
-        if ($level < 100) {
+        if ($level == 1) {
+            $badgeLevel = 1;
+        } elseif ($level < 100) {
             $badgeLevel = intval($level / 10) * 10;
         } elseif ($level < 500) {
             $badgeLevel = intval(($level - 100) / 50) * 50 + 100;
