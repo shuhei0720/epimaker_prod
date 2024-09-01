@@ -7,7 +7,7 @@
             <x-primary-button id="generate-btn">
                 AIで生成
             </x-primary-button>
-            <span style="margin-left: 10px; font-size: 22px;">🌟 1～7まで入力すると、&nbsp;AI生成できます🌟</span>
+            <span style="margin-left: 10px; font-size: 22px;">🌟 5W1H1Dの入力を反映して、&nbsp;AI生成できます🌟</span>
         </div>
     </x-slot>
     <div class="mt-1 max-w-7xl mx-auto px-6 bg-gray-50">
